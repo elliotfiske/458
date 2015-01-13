@@ -9,32 +9,41 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    var sprite: SKSpriteNode!
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        let sprite = SKSpriteNode(imageNamed:"Spaceship")
-        sprite.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+        sprite = SKSpriteNode(imageNamed:"Spaceship")
+        
+        size = view.frame.size
+        
+        sprite.position = view.frame.center
+        sprite.physicsBody = SKPhysicsBody(circleOfRadius: 5.0)
+        sprite.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
+        
+        sprite.xScale = 0.5
+        sprite.yScale = 0.5
+        
+        let floor = SKShapeNode()
+        let path = UIBezierPath(rect: CGRect(origin: CGPointZero, size: CGSize(width: view.frame.width, height: 10))).CGPath
+        floor.path = path
+        floor.fillColor = UIColor.redColor()
+        floor.position = CGPoint(x: 0, y: 50)
+        floor.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: view.frame.width, height: 10))
+        floor.physicsBody!.affectedByGravity = false
+        floor.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
         
         self.addChild(sprite)
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: view.frame)
+//        self.addChild(floor)
+        
+        physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
-        for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
+        sprite!.physicsBody?.velocity = CGVector(dx: 0, dy: 1000)
     }
    
     override func update(currentTime: CFTimeInterval) {

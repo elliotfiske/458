@@ -423,6 +423,7 @@
 				C9D476A01A5F064300705452 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9D476A11A5F064300705452 /* Build configuration list for PBXNativeTarget "458BirdTests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +432,7 @@
 				C9D476A31A5F064300705452 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
