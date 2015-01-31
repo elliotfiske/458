@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9703D231A787A3900521E4A /* MonsterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D221A787A3900521E4A /* MonsterModel.swift */; };
+		C9703D301A787BEE00521E4A /* MCPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D261A787BEE00521E4A /* MCPart.swift */; };
+		C9703D321A787BEE00521E4A /* MCPartBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D281A787BEE00521E4A /* MCPartBody.swift */; };
+		C9703D331A787BEE00521E4A /* MCPartColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D291A787BEE00521E4A /* MCPartColor.swift */; };
+		C9703D341A787BEE00521E4A /* MCPartEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D2A1A787BEE00521E4A /* MCPartEye.swift */; };
+		C9703D351A787BEE00521E4A /* MCPartHat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D2B1A787BEE00521E4A /* MCPartHat.swift */; };
+		C9703D361A787BEE00521E4A /* MCPartLeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D2C1A787BEE00521E4A /* MCPartLeg.swift */; };
+		C9703D371A787BEE00521E4A /* MCPartMouth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D2D1A787BEE00521E4A /* MCPartMouth.swift */; };
+		C9703D381A787BEE00521E4A /* MCPartStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D2E1A787BEE00521E4A /* MCPartStuff.swift */; };
+		C9703D391A787BEE00521E4A /* MCPartTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D2F1A787BEE00521E4A /* MCPartTemplate.swift */; };
+		C9703D421A7880A700521E4A /* MCTemplateColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D3C1A7880A700521E4A /* MCTemplateColor.swift */; };
+		C9703D431A7880A700521E4A /* MCTemplateEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D3D1A7880A700521E4A /* MCTemplateEye.swift */; };
+		C9703D441A7880A700521E4A /* MCTemplateHat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D3E1A7880A700521E4A /* MCTemplateHat.swift */; };
+		C9703D451A7880A700521E4A /* MCTemplateLeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D3F1A7880A700521E4A /* MCTemplateLeg.swift */; };
+		C9703D461A7880A700521E4A /* MCTemplateMouth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D401A7880A700521E4A /* MCTemplateMouth.swift */; };
+		C9703D471A7880A700521E4A /* MCTemplateStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D411A7880A700521E4A /* MCTemplateStuff.swift */; };
+		C9703D491A79BF1100521E4A /* MonsterDataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D481A79BF1100521E4A /* MonsterDataReader.swift */; };
+		C9703D4C1A79BFAA00521E4A /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D4B1A79BFAA00521E4A /* Array+Random.swift */; };
+		C9703D4E1A79C0BD00521E4A /* MonsterAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D4D1A79C0BD00521E4A /* MonsterAnimation.swift */; };
+		C9CD8A951A682DD700284D33 /* FlapTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CD8A941A682DD700284D33 /* FlapTitleView.swift */; };
+		C9CD8A971A68324B00284D33 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CD8A961A68324B00284D33 /* GameModel.swift */; };
 		C9D476811A5F064300705452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476801A5F064300705452 /* AppDelegate.swift */; };
 		C9D476831A5F064300705452 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D476821A5F064300705452 /* GameScene.sks */; };
 		C9D476851A5F064300705452 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476841A5F064300705452 /* GameScene.swift */; };
@@ -30,6 +51,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C9703D221A787A3900521E4A /* MonsterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterModel.swift; sourceTree = "<group>"; };
+		C9703D261A787BEE00521E4A /* MCPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPart.swift; sourceTree = "<group>"; };
+		C9703D281A787BEE00521E4A /* MCPartBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartBody.swift; sourceTree = "<group>"; };
+		C9703D291A787BEE00521E4A /* MCPartColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartColor.swift; sourceTree = "<group>"; };
+		C9703D2A1A787BEE00521E4A /* MCPartEye.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartEye.swift; sourceTree = "<group>"; };
+		C9703D2B1A787BEE00521E4A /* MCPartHat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartHat.swift; sourceTree = "<group>"; };
+		C9703D2C1A787BEE00521E4A /* MCPartLeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartLeg.swift; sourceTree = "<group>"; };
+		C9703D2D1A787BEE00521E4A /* MCPartMouth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartMouth.swift; sourceTree = "<group>"; };
+		C9703D2E1A787BEE00521E4A /* MCPartStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartStuff.swift; sourceTree = "<group>"; };
+		C9703D2F1A787BEE00521E4A /* MCPartTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartTemplate.swift; sourceTree = "<group>"; };
+		C9703D3C1A7880A700521E4A /* MCTemplateColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTemplateColor.swift; sourceTree = "<group>"; };
+		C9703D3D1A7880A700521E4A /* MCTemplateEye.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTemplateEye.swift; sourceTree = "<group>"; };
+		C9703D3E1A7880A700521E4A /* MCTemplateHat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTemplateHat.swift; sourceTree = "<group>"; };
+		C9703D3F1A7880A700521E4A /* MCTemplateLeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTemplateLeg.swift; sourceTree = "<group>"; };
+		C9703D401A7880A700521E4A /* MCTemplateMouth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTemplateMouth.swift; sourceTree = "<group>"; };
+		C9703D411A7880A700521E4A /* MCTemplateStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTemplateStuff.swift; sourceTree = "<group>"; };
+		C9703D481A79BF1100521E4A /* MonsterDataReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDataReader.swift; sourceTree = "<group>"; };
+		C9703D4B1A79BFAA00521E4A /* Array+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Random.swift"; sourceTree = "<group>"; };
+		C9703D4D1A79C0BD00521E4A /* MonsterAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterAnimation.swift; sourceTree = "<group>"; };
+		C9CD8A941A682DD700284D33 /* FlapTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapTitleView.swift; sourceTree = "<group>"; };
+		C9CD8A961A68324B00284D33 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		C9D4767B1A5F064300705452 /* 458Bird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 458Bird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D4767F1A5F064300705452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9D476801A5F064300705452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,8 +84,8 @@
 		C9D476941A5F064300705452 /* 458BirdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 458BirdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D476991A5F064300705452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9D4769A1A5F064300705452 /* _58BirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _58BirdTests.swift; sourceTree = "<group>"; };
-		C9D476A41A5F072D00705452 /* CGPoint+Assimilation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Assimilation.swift"; sourceTree = "<group>"; };
-		C9D476A61A5F074100705452 /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
+		C9D476A41A5F072D00705452 /* CGPoint+Assimilation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CGPoint+Assimilation.swift"; path = "458Bird/CGPoint+Assimilation.swift"; sourceTree = "<group>"; };
+		C9D476A61A5F074100705452 /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Convenience.swift; path = 458Bird/Convenience.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +106,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9703D211A78788500521E4A /* Monster Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C9703D3A1A787BF700521E4A /* Monster Parts */,
+				C9703D3B1A787C0700521E4A /* Monster Part Templates */,
+				C9703D221A787A3900521E4A /* MonsterModel.swift */,
+				C9703D481A79BF1100521E4A /* MonsterDataReader.swift */,
+				C9703D4D1A79C0BD00521E4A /* MonsterAnimation.swift */,
+			);
+			name = "Monster Classes";
+			sourceTree = "<group>";
+		};
+		C9703D3A1A787BF700521E4A /* Monster Parts */ = {
+			isa = PBXGroup;
+			children = (
+				C9703D261A787BEE00521E4A /* MCPart.swift */,
+				C9703D281A787BEE00521E4A /* MCPartBody.swift */,
+				C9703D291A787BEE00521E4A /* MCPartColor.swift */,
+				C9703D2A1A787BEE00521E4A /* MCPartEye.swift */,
+				C9703D2B1A787BEE00521E4A /* MCPartHat.swift */,
+				C9703D2C1A787BEE00521E4A /* MCPartLeg.swift */,
+				C9703D2D1A787BEE00521E4A /* MCPartMouth.swift */,
+				C9703D2E1A787BEE00521E4A /* MCPartStuff.swift */,
+			);
+			name = "Monster Parts";
+			sourceTree = "<group>";
+		};
+		C9703D3B1A787C0700521E4A /* Monster Part Templates */ = {
+			isa = PBXGroup;
+			children = (
+				C9703D3C1A7880A700521E4A /* MCTemplateColor.swift */,
+				C9703D3D1A7880A700521E4A /* MCTemplateEye.swift */,
+				C9703D3E1A7880A700521E4A /* MCTemplateHat.swift */,
+				C9703D3F1A7880A700521E4A /* MCTemplateLeg.swift */,
+				C9703D401A7880A700521E4A /* MCTemplateMouth.swift */,
+				C9703D411A7880A700521E4A /* MCTemplateStuff.swift */,
+				C9703D2F1A787BEE00521E4A /* MCPartTemplate.swift */,
+			);
+			name = "Monster Part Templates";
+			sourceTree = "<group>";
+		};
+		C9703D4A1A79BF9D00521E4A /* Convenience */ = {
+			isa = PBXGroup;
+			children = (
+				C9D476A41A5F072D00705452 /* CGPoint+Assimilation.swift */,
+				C9D476A61A5F074100705452 /* Convenience.swift */,
+				C9703D4B1A79BFAA00521E4A /* Array+Random.swift */,
+			);
+			name = Convenience;
+			sourceTree = "<group>";
+		};
 		C9D476721A5F064300705452 = {
 			isa = PBXGroup;
 			children = (
+				C9703D4A1A79BF9D00521E4A /* Convenience */,
 				C9D4767D1A5F064300705452 /* 458Bird */,
 				C9D476971A5F064300705452 /* 458BirdTests */,
 				C9D4767C1A5F064300705452 /* Products */,
@@ -85,6 +179,7 @@
 		C9D4767D1A5F064300705452 /* 458Bird */ = {
 			isa = PBXGroup;
 			children = (
+				C9703D211A78788500521E4A /* Monster Classes */,
 				C9D476801A5F064300705452 /* AppDelegate.swift */,
 				C9D476821A5F064300705452 /* GameScene.sks */,
 				C9D476841A5F064300705452 /* GameScene.swift */,
@@ -93,8 +188,8 @@
 				C9D4768B1A5F064300705452 /* Images.xcassets */,
 				C9D4768D1A5F064300705452 /* LaunchScreen.xib */,
 				C9D4767E1A5F064300705452 /* Supporting Files */,
-				C9D476A41A5F072D00705452 /* CGPoint+Assimilation.swift */,
-				C9D476A61A5F074100705452 /* Convenience.swift */,
+				C9CD8A941A682DD700284D33 /* FlapTitleView.swift */,
+				C9CD8A961A68324B00284D33 /* GameModel.swift */,
 			);
 			path = 458Bird;
 			sourceTree = "<group>";
@@ -225,11 +320,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9703D471A7880A700521E4A /* MCTemplateStuff.swift in Sources */,
+				C9703D381A787BEE00521E4A /* MCPartStuff.swift in Sources */,
+				C9703D371A787BEE00521E4A /* MCPartMouth.swift in Sources */,
+				C9703D391A787BEE00521E4A /* MCPartTemplate.swift in Sources */,
+				C9703D301A787BEE00521E4A /* MCPart.swift in Sources */,
+				C9CD8A951A682DD700284D33 /* FlapTitleView.swift in Sources */,
+				C9703D461A7880A700521E4A /* MCTemplateMouth.swift in Sources */,
+				C9703D361A787BEE00521E4A /* MCPartLeg.swift in Sources */,
 				C9D476851A5F064300705452 /* GameScene.swift in Sources */,
+				C9703D4E1A79C0BD00521E4A /* MonsterAnimation.swift in Sources */,
 				C9D476A71A5F074100705452 /* Convenience.swift in Sources */,
 				C9D476A51A5F072D00705452 /* CGPoint+Assimilation.swift in Sources */,
+				C9703D421A7880A700521E4A /* MCTemplateColor.swift in Sources */,
+				C9703D4C1A79BFAA00521E4A /* Array+Random.swift in Sources */,
+				C9703D431A7880A700521E4A /* MCTemplateEye.swift in Sources */,
+				C9703D441A7880A700521E4A /* MCTemplateHat.swift in Sources */,
 				C9D476871A5F064300705452 /* GameViewController.swift in Sources */,
+				C9703D491A79BF1100521E4A /* MonsterDataReader.swift in Sources */,
+				C9703D331A787BEE00521E4A /* MCPartColor.swift in Sources */,
+				C9CD8A971A68324B00284D33 /* GameModel.swift in Sources */,
+				C9703D231A787A3900521E4A /* MonsterModel.swift in Sources */,
 				C9D476811A5F064300705452 /* AppDelegate.swift in Sources */,
+				C9703D351A787BEE00521E4A /* MCPartHat.swift in Sources */,
+				C9703D451A7880A700521E4A /* MCTemplateLeg.swift in Sources */,
+				C9703D341A787BEE00521E4A /* MCPartEye.swift in Sources */,
+				C9703D321A787BEE00521E4A /* MCPartBody.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

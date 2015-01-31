@@ -25,26 +25,99 @@ extension SKNode {
     }
 }
 
-class GameViewController: UIViewController {
 
+
+
+class GameViewController: UIViewController {
+    /** MVC == Massive View Controller right?? */
+    internal var gameModel: GameModel!
+    
+    /** The view that shows the title until the user taps it */
+    private var titleView: FlapTitleView!
+    
+    var gameScene: GameScene!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
-            // Configure the view.
+            gameModel = GameModel(controller: self)
+            gameScene = scene
+            gameScene.controller = self
+            
             let skView = self.view as SKView
             skView.showsFPS = true
             skView.showsNodeCount = true
+            skView.showsPhysics = true
             
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
-            
-            /* Set the scale mode to scale to fit the window */
+            skView.backgroundColor = UIColor(red: 61, green: 197, blue: 238, alpha: 1)
             scene.scaleMode = .ResizeFill
             
             skView.presentScene(scene)
+            
+            titleView = FlapTitleView(frame: self.view.frame)
+            titleView.showTitle()
+            let tapper = UITapGestureRecognizer(target: gameModel, action: "handleTap:")
+            titleView.addGestureRecognizer(tapper)
+            self.view.addSubview(titleView)
         }
     }
+    
+    /**
+     * Fade away the intro screen and start the game!
+     */
+    func fadeTitleView() {
+        titleView.userInteractionEnabled = false
+        UIView.animateWithDuration(0.5, animations: {
+            [unowned self] in
+            self.titleView.alpha = 0
+            }, completion: {
+                [unowned self]
+                (Bool) in
+                self.gameScene.beginGame()
+            })
+    }
+    
+    /**
+     * User done goofed. Show their score, stop the game.
+     */
+    func showGameOver(score: Int) {
+        titleView.showGameOver(score)
+        UIView.animateWithDuration(0.5, animations: {
+            [unowned self] in
+            self.titleView.alpha = 1
+            }, completion: {
+                [unowned self]
+                (Bool) in
+                self.titleView.userInteractionEnabled = true
+        })
+    }
+    
+    /**
+     * Prep for a new game
+     */
+    func resetGame() {
+        titleView.showTitle()
+        gameScene.getReadyToStart()
+    }
+    
+    /**
+     * User tapped the game scene.  Ask the model what to do.
+     */
+    func handleSceneTap() {
+        gameModel.handleSceneTap()
+    }
+    
+    /**
+     * Bounce dat bird
+     */
+    func flap() {
+        gameScene.flap()
+    }
+    
+    
 
     override func shouldAutorotate() -> Bool {
         return true

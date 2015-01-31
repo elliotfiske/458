@@ -13,6 +13,18 @@ import UIKit
 
 let π: CGFloat = CGFloat(M_PI) // heehee
 
+
+/** Perform a block of code after a delay.  Neat! */
+func delay(delay:Double, closure:()->()) {
+    dispatch_after(
+        dispatch_time(
+            DISPATCH_TIME_NOW,
+            Int64(delay * Double(NSEC_PER_SEC))
+        ),
+        dispatch_get_main_queue(), closure)
+}
+
+
 /** Cool stuff to make CGRects awesomer */
 extension CGRect {
     var center: CGPoint {
@@ -25,9 +37,6 @@ extension CGRect {
         return CGRectContainsPoint(self, point)
     }
 }
-
-import Foundation
-import CoreGraphics
 
 ///// ----------   ADDITION & SUBTRACTION --------- //////
 
