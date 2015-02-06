@@ -13,6 +13,20 @@ import UIKit
 
 let π: CGFloat = CGFloat(M_PI) // heehee
 
+/**
+Random float between min and max (inclusive).
+
+:param: min
+:param: max
+:returns: Random number
+
+Credit to https://github.com/pNre/ExSwift
+*/
+func randomFloat(min: Float = 0, max: Float) -> Float {
+    let diff = max - min;
+    let rand = Float(arc4random() % (UInt32(RAND_MAX) + 1))
+    return ((rand / Float(RAND_MAX)) * diff) + min;
+}
 
 /** Perform a block of code after a delay.  Neat! */
 func delay(delay:Double, closure:()->()) {

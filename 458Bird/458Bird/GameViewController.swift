@@ -111,12 +111,25 @@ class GameViewController: UIViewController {
     }
     
     /**
+     * Ask the model how to update the scene.
+     */
+    func handleUpdate(currentTime: CFTimeInterval) {
+        gameModel.handleUpdate(currentTime)
+    }
+    
+    /**
      * Bounce dat bird
      */
     func flap() {
         gameScene.flap()
     }
     
+    /**
+     * Spawn an obstacle
+     */
+    func spawnObstacle() {
+        gameScene.spawnObstacle()
+    }
     
 
     override func shouldAutorotate() -> Bool {

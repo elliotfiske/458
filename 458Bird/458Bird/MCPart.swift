@@ -9,53 +9,7 @@
 import Foundation
 import SpriteKit
 
-private var myContext = 0
-
-/** An enum that keeps track of every kind a body part can be.
- *   Also has a few helper methods that categorize the different aspects of parts.
- *   'Color' is a part type since it's implemented as a MCBodyPart
- */
-enum PartType: String {
-    case arm = "arm"
-    case leg = "leg"
-    case body = "body"
-    case eye = "eye"
-    case eyeEmotion = "eyeEmotion"
-    case decal = "decal"
-    case mouth = "mouth"
-    case base = "base"
-    case hat = "hat"
-    case legBase = "legBase"
-    case color = "color"
-    
-    /** Determines if this part will be colored the same as the body by default. */
-    func matchesBodyColor() -> Bool {
-        switch(self) {
-        case body, arm, leg:
-            return true
-        default:
-            return false
-        }
-    }
-    
-    func displayName() -> String {
-        switch (self) {
-        case .arm:
-            return "arms"
-        case .leg:
-            return "legs"
-        case .mouth:
-            return "mouths"
-        case .decal:
-            return "stuff"
-        case .eye:
-            return "eyes"
-        default:
-            return self.rawValue
-        }
-    }
-}
-
+let BASE_CATEGORY: UInt32 = 0x2
 
 class MCPart: SKSpriteNode {
     /** The user can drag a color onto a monster, then back out.  Save the temporary color
@@ -72,13 +26,11 @@ class MCPart: SKSpriteNode {
         }
     }
     
-    var scale:CGFloat = 1.0
     var partType: PartType
     var stuckOnMonster = false     // Only applicable if limb == true
     var containedInMonster = false // Only applicable if limb == false
     
-    /** TRUE if this is the part we're dragging, FALSE if it's a mirrored part */
-    var selected = true
+    var isMirroredPart = false
     /** Gives the mirror of the current part. Note that each mirrored part should have the OTHER one as a mirroredPart */
     var mirroredPart: MCPart? = nil
     
@@ -86,11 +38,18 @@ class MCPart: SKSpriteNode {
     var lockPoint: CGPoint?
     /** The point where we've last seen the user's finger move to */
     var dragPoint: CGPoint?
+    var animateAttachPoint = CGPointZero
     
     /** The user can rotate parts, we want to remember how much they rotated them by */
     var angle: CGFloat = 0
+    var scale: CGFloat {
+        get {
+            return min(abs(xScale), abs(yScale))
+        }
+    }
     
-    var lastParentedPoint: CGPoint = CGPoint() // TODO: Is this the same as lockPoint?  Can it be the same as lockPoint??
+    /** Describes the last point the node was at BEFORE it was parented to something else */
+    var lastParentedPoint: CGPoint = CGPoint()
     var minScale: CGFloat = 0.5
     var maxScale: CGFloat = 2
     
@@ -144,7 +103,7 @@ class MCPart: SKSpriteNode {
         let diff = point - position
         var newAngle = atan2(diff.y, diff.x)
         
-        if selected { newAngle += π }
+        if !isMirroredPart { newAngle += π }
         
         self.runAction(SKAction.rotateToAngle(newAngle, duration: 0.05, shortestUnitArc: true))
         
@@ -156,7 +115,7 @@ class MCPart: SKSpriteNode {
         let diff = point - position
         var newAngle = atan2(diff.y, diff.x)
         
-        if !selected {newAngle += π}
+        if isMirroredPart {newAngle += π}
         
         self.runAction(SKAction.rotateToAngle(newAngle, duration: 0.05, shortestUnitArc: true))
         
@@ -169,6 +128,9 @@ class MCPart: SKSpriteNode {
         self.runAction(SKAction.rotateToAngle(angle, duration: 0.0, shortestUnitArc: true))
     }
     
+    /**
+     * If the user is dragging a part and it's not on the monster, this method returns true.
+     */
     func checkIfShouldUnstick(touchPos : CGPoint, node: SKSpriteNode) -> Bool {
         if (!node.frame.contains(touchPos)) {
             self.stuckOnMonster = false
@@ -178,36 +140,40 @@ class MCPart: SKSpriteNode {
         return false
     }
     
+    /**
+     * If the user is tapping a part (at selectionPoint) this returns true.
+     */
     func isSelected(selectionPoint: CGPoint) -> Bool {
-        return node.frame.contains(selectionPoint)
-    }
-    
-    func parentToNode(pNode: SKNode) {
-        if let parent = self.node.parent {
-            //self.node.xScale *= fabs(parentedScale.x)
-            //self.node.yScale *= fabs(parentedScale.y)
-            node.position = lastParentedPoint
-            self.node.removeFromParent()
-        }
-        lastParentedPoint = node.position
-        self.node.xScale = node.xScale/pNode.xScale
-        self.node.yScale = node.yScale/pNode.yScale
-        parentedScale = CGPoint(x: pNode.xScale/node.xScale, y: pNode.yScale/node.yScale)
-        
-        //Replace this with an Affine Transformation???
-        
-        lockPoint = CGPoint(x: (node.position.x-pNode.position.x)/pNode.xScale, y: (node.position.y-pNode.position.y)/pNode.yScale)
-        node.position = lockPoint!
-        
-        pNode.addChild(node)
+        return frame.contains(selectionPoint)
     }
     
     /**
-    * Called once a frame.  Figure out if our targetPoint should change
-    * then move towards it.
-    */
+     * Add this node as a child to the specified pNode
+     */
+    func parentToNode(pNode: SKNode) {
+        if let parent = self.parent { // If the node already has a parent, DISOWN IT
+            position = lastParentedPoint
+            self.removeFromParent()
+        }
+        
+        lastParentedPoint = position
+        self.xScale /= pNode.xScale
+        self.yScale /= pNode.yScale
+        
+        let difference = position - pNode.position
+        
+        lockPoint = CGPoint(x: difference.x/pNode.xScale, y: difference.y/pNode.yScale)
+        self.position = lockPoint!
+        
+        pNode.addChild(self)
+    }
+    
+    /**
+     * Called once a frame.  Figure out if our targetPoint should change
+     * then move towards it.
+     */
     func update() {
-        let oldPos = node.position
+        let oldPos = position
         var targetPoint: CGPoint?
         if stuckOnMonster {
             targetPoint = lockPoint
@@ -216,10 +182,10 @@ class MCPart: SKSpriteNode {
             targetPoint = dragPoint
             
             // Combine with mirrored part if we're near the center
-            if (selected && containedInMonster && dragPoint != nil) {
-                if (fabs(dragPoint!.x - node.scene!.frame.width/2) < 30) {
+            if (!isMirroredPart && containedInMonster && dragPoint != nil) {
+                if (fabs(dragPoint!.x - self.scene!.frame.width/2) < 30) {
                     mirroredPart?.hide()
-                    targetPoint!.x = node.scene!.frame.width/2
+                    targetPoint!.x = self.scene!.frame.width/2
                 }
                 else {
                     mirroredPart?.unHide()
@@ -229,7 +195,7 @@ class MCPart: SKSpriteNode {
         
         // Calculate where to go: 1/4 of the way to the target point
         if let newPos = targetPoint {
-            node.position += (newPos - oldPos) / 4
+            self.position += (newPos - oldPos) / 4
         }
     }
     
@@ -237,60 +203,33 @@ class MCPart: SKSpriteNode {
         // to do, holmes
 //    }
     
-    func moveToLockPoint() {
-        if (stuckOnMonster && lockPoint != nil) {
-            self.node.position = lockPoint!
-        }
-    }
-    
-    func setPosition(point:CGPoint) {
-        self.dragPoint = point
-    }
-    
-    func setMirror(part:MCPart) {
-        mirroredPart = part
-        part.mirroredPart = self
-    }
-    
-    func getSelectedAndMirrored() -> (MCPart?, MCPart?) {
-        if let pt = mirroredPart {
-            return (self,pt)
-        }
-        return (self,nil)
-    }
-    
+    /**
+     * Gives the position that this node would have if it were parented by pNode
+     */
     func pointInNode(pNode: SKNode) -> CGPoint {
-        let xScale = node.xScale/pNode.xScale
-        let yScale = node.yScale/pNode.yScale
-        var parentPoint = CGPoint()
-        if (node.parent != nil) {
-            parentPoint = node.parent!.position
+        var parentPoint = CGPointZero
+        if (parent != nil) {
+            parentPoint = parent!.position
         }
         
-        let translatedPoint = node.position + parentPoint - pNode.position
+        let translatedPoint = position + parentPoint - pNode.position
+        
         return CGPoint(x: translatedPoint.x / pNode.xScale, y: translatedPoint.y / pNode.yScale)
     }
     
     func hide() {
-        if (!hidden) {
-            hidden = true
-            node.runAction(SKAction.hide())
-        }
+        runAction(SKAction.hide())
     }
     
-    func unHide() {
-        if (hidden) {
-            hidden = false
-            node.runAction(SKAction.unhide())
-        }
+    func unhide() {
+        runAction(SKAction.unhide())
     }
     
-    func setScale(scale: CGFloat) {
+    override func setScale(scale: CGFloat) {
         if(abs(scale) > minScale && abs(scale) < maxScale) {
-            node.setScale(abs(scale))
-            self.scale=scale
-            if (!selected) {
-                node.xScale = -abs(scale)
+            super.setScale(abs(scale))
+            if (isMirroredPart) {
+                xScale = -abs(scale)
             }
         }
     }
@@ -301,8 +240,8 @@ class MCPart: SKSpriteNode {
      */
     func setTentativeColor(newColor: UIColor) {
         tentativeColor = newColor
-        node.color = newColor
-        node.colorBlendFactor = 1.0
+        color = newColor
+        colorBlendFactor = 1.0
     }
     
     /**
@@ -310,7 +249,7 @@ class MCPart: SKSpriteNode {
      *   Commit to that color holmes!
      */
     func confirmColor() {
-        partColor = tentativeColor!
+        color = tentativeColor!
         tentativeColor = nil
     }
     
@@ -319,55 +258,55 @@ class MCPart: SKSpriteNode {
      *   Reset the color to what it was before
      */
     func restoreColor() {
-        node.color = partColor
+        color = savedColor
         tentativeColor = nil
     }
     
-    func animateDetatchFromMonster(){
-        var newPoint:CGPoint
-        var direction:CGVector = CGVector(dx:node.position.x, dy:node.position.y)
-        direction = normScale(direction,to:100.0)
-        newPoint = CGPoint(x: node.position.x + direction.dx, y: node.position.y + direction.dy)
-        lockPoint = newPoint
+    /**
+     * Body switching! Swoop the part away from the center while this goes on.
+     */
+    func animateDetatchFromMonster() {
+        let length = position.distanceTo(point: CGPointZero)
+        let scaleFactor = 100.0 / length
+        let direction = position * scaleFactor
         
+        lockPoint = position + direction
     }
-    func animateAttachToMonster(base:MCPartBody){
-        
-        if let physWorld = node.scene?.physicsWorld
-        {
-            
+    
+    /**
+     * Reattach the the part to the monster.
+     */
+    func animateAttachToMonster(base: MCPartBody) {
+        if let physWorld = scene?.physicsWorld {
             selectForCollision()
-//            physWorld.enumerateBodiesAlongRayStart(base.node.parent!.convertPoint(node.position, fromNode:node.parent!), end: base.node.position, usingBlock: castRayToCenter)
+            let startPoint = base.parent!.convertPoint(position, fromNode: parent!)
+            let endPoint = base.position
+            physWorld.enumerateBodiesAlongRayStart(startPoint, end: endPoint, usingBlock: reattachPart)
             deselectForCollision()
         }
     }
-    func normScale(vecIn: CGVector, to:CGFloat) -> CGVector{
-        if(vecIn.dx == 0 && vecIn.dy == 0){
-            return CGVector.zeroVector
-        }
-        let length = sqrtf(Float(vecIn.dx * vecIn.dx) + Float(vecIn.dy * vecIn.dy))
-        let scaleFactor = to/CGFloat(length)
-        return CGVector(dx:vecIn.dx*scaleFactor,dy:vecIn.dy*scaleFactor)
-    }
-    func castRayToCenter(body: SKPhysicsBody!, point: CGPoint, norm: CGVector, terminate: UnsafeMutablePointer<ObjCBool>){
-        let baseCategory:UInt32 = 0x2
-        if body.categoryBitMask == baseCategory{
-            self.lockPoint=node.parent!.convertPoint(point,fromNode:body.node!.parent!)
+    
+    func reattachPart(body: SKPhysicsBody!, point: CGPoint, norm: CGVector, terminate: UnsafeMutablePointer<ObjCBool>) {
+        if body.categoryBitMask == BASE_CATEGORY {
+            self.lockPoint = parent!.convertPoint(point, fromNode: body.node!.parent!)
             terminate.memory = true
         }
     }
-    func makeDescDict() -> NSDictionary
-    {
+    
+    /**
+     * Convert this part to a dictionary of strings, ready to be NSCoded
+     */
+    func makeDescDict() -> NSDictionary {
         var dict: [NSString: AnyObject] = [:]
-        if(self.partType == PartType.hat){
+        if (self.partType == PartType.hat) {
             dict["keyInDict"] = PartType.decal.rawValue as NSString
         }
-        else{
+        else {
             dict["keyInDict"] = self.partType.rawValue as NSString
         }
         dict["indexInDict"] = index.description
-        dict["posX"] = self.node.position.x.description
-        dict["posY"] = self.node.position.y.description
+        dict["posX"] = self.position.x.description
+        dict["posY"] = self.position.y.description
         dict["rotation"] = self.angle.description
         dict["scale"] = self.scale.description
         dict["hidden"] = self.hidden.description
@@ -378,10 +317,10 @@ class MCPart: SKSpriteNode {
         dict["colorG"] = components[1].description
         dict["colorB"] = components[2].description
         dict["colorA"] = alpha.description
-        dict["isMirrored"] = (!selected).description
+        dict["isMirrored"] = (isMirroredPart).description
         println("Dictionary count value is : \(dict.count)")
         if let mir = mirroredPart{
-            if(!mir.selected){
+            if(mir.isMirroredPart){
                 dict["mirror"] = mir.makeDescDict()
             }
         }
@@ -408,10 +347,10 @@ class MCPart: SKSpriteNode {
         
         
         if((mir as NSString).boolValue){
-            selected=false
+            isMirroredPart = true
         }
         else{
-            selected=true
+            isMirroredPart = false
         }
         
         rotateToAngle(vals[2])

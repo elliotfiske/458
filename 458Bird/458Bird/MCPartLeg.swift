@@ -73,7 +73,7 @@ class MCPartLeg: MCPart {
     
 //    override func animate(anim: MonsterAnimation, parent:SKNode) {
 //        if (anim.actsOn == PartType.leg) {
-//            if (!selected) {
+//            if (isMirroredPart) {
 //                self.node.runAction(anim.animationM)
 //            }
 //            else {
@@ -83,7 +83,7 @@ class MCPartLeg: MCPart {
 //        if (anim.actsOn == PartType.legBase) {
 //            let baseNode = node.childNodeWithName("legBase")!
 //            
-//            if (!selected) {
+//            if (isMirroredPart) {
 //                baseNode.runAction(anim.animationM)
 //            }
 //            else {
@@ -135,10 +135,10 @@ class MCPartLeg: MCPart {
         dict["colorG"] = components[1].description
         dict["colorB"] = components[2].description
         dict["colorA"] = alpha.description
-        dict["isMirrored"] = (!selected).description;
+        dict["isMirrored"] = (isMirroredPart).description;
         println("Dictionary count value is : \(dict.count)");
         if let mir = mirroredPart{
-            if(!mir.selected){
+            if(mir.isMirroredPart){
                 dict["mirror"] = mir.makeDescDict();
             }
         }

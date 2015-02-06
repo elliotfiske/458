@@ -55,7 +55,7 @@ class MCPartEye : MCPart{
                 dist = fmax(sqrt(dx*dx + dy*dy),0.01)
             }
             
-            if (!selected) {
+            if (isMirroredPart) {
                 dx = -dx
             }
             
@@ -86,7 +86,7 @@ class MCPartEye : MCPart{
     override func update() {
         super.update()
         var ang = angle
-        if (!selected) {
+        if (isMirroredPart) {
             ang = -ang
         }
         let dx = ( cos(ang)*targetPupilPosition.x + sin(ang)*targetPupilPosition.y)
@@ -104,7 +104,7 @@ class MCPartEye : MCPart{
         var offset = CGFloat(20.0)
         newPoint = CGPoint(x: node.position.x, y: node.position.y + offset)
         var newScale = CGPoint(x:scale+0.1,y:scale+0.1)
-        if !selected{
+        if isMirroredPart {
             newScale.x = -newScale.x
         }
         node.runAction(SKAction.group([SKAction.scaleXTo(newScale.x, duration: 0.2),SKAction.scaleYTo(newScale.y,duration:0.2)]))
@@ -117,7 +117,7 @@ class MCPartEye : MCPart{
     }
     override func animateAttachToMonster(base:MCPartBody){
         var newScale = CGPoint(x:scale,y:scale)
-        if !selected{
+        if isMirroredPart{
             newScale.x = -newScale.x
         }
         node.runAction(SKAction.group([SKAction.scaleXTo(newScale.x, duration: 0.2),SKAction.scaleYTo(newScale.y,duration:0.2)]))

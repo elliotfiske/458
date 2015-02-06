@@ -37,7 +37,7 @@ class MCPartStuff: MCPart {
         var offset = CGFloat(20.0)
         newPoint = CGPoint(x: node.position.x, y: node.position.y + offset)
         var newScale = CGPoint(x:scale+0.1,y:scale+0.1)
-        if !selected{
+        if isMirroredPart{
             newScale.x = -newScale.x
         }
         node.runAction(SKAction.group([SKAction.scaleXTo(newScale.x, duration: 0.2),SKAction.scaleYTo(newScale.y,duration:0.2)]))
@@ -48,7 +48,7 @@ class MCPartStuff: MCPart {
     }
     override func animateAttachToMonster(base:MCPartBody){
         var newScale = CGPoint(x:scale,y:scale)
-        if !selected{
+        if isMirroredPart{
             newScale.x = -newScale.x
         }
         node.runAction(SKAction.group([SKAction.scaleXTo(newScale.x, duration: 0.2),SKAction.scaleYTo(newScale.y,duration:0.2)]))

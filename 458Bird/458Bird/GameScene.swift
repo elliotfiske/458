@@ -7,10 +7,14 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class GameScene: SKScene {
     
-    var monster: MCPartBody = MCPartBody()
+    var monster: SKSpriteNode = SKSpriteNode(imageNamed: "monsterBody")
+    
+    var flapSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("flap", ofType: "wav")!)
+    var audioPlayer: AVAudioPlayer!
     
     // BAD.  BAD CODE.  FEEL BAD.
     var arm1: SKSpriteNode!
@@ -29,12 +33,18 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: view.frame)
         self.physicsBody!.contactTestBitMask = wallCategory // Hits bird, but NOT obstacles.
+        self.physicsBody!.collisionBitMask = wallCategory
+        self.physicsBody!.categoryBitMask = wallCategory
+        self.physicsBody!.dynamic = true
         
         size = view.frame.size
         physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
         physicsWorld.contactDelegate = controller.gameModel
         
         initNewGame()
+        
+        audioPlayer = AVAudioPlayer(contentsOfURL: flapSound, error: nil)
+        audioPlayer.prepareToPlay()
     }
     
     /** Called when a touch begins */
@@ -85,8 +95,13 @@ class GameScene: SKScene {
         
         // Init player node
         monster.position = frame.center
+        monster.xScale = 0.5
+        monster.yScale = 0.5
         monster.physicsBody = SKPhysicsBody(circleOfRadius: 5.0)
         monster.physicsBody!.contactTestBitMask = obstacleCategory | wallCategory
+        monster.physicsBody!.collisionBitMask = obstacleCategory | wallCategory
+        monster.physicsBody!.categoryBitMask = obstacleCategory | wallCategory
+        monster.physicsBody!.mass = 0.00001
         
         /** TODO: fix this awful code */
         arm1 = SKSpriteNode(imageNamed: "monsterLeg")
@@ -100,16 +115,18 @@ class GameScene: SKScene {
         
         self.addChild(monster)
         
+        arm1.position = CGPoint(x:  80, y: 10)
+//        arm1.xScale = 0.5
+//        arm1.yScale = 0.5
+        arm1.zPosition = 10
+        arm2.position = CGPoint(x: -80, y: 10)
+        arm2.xScale = -1
+//        arm2.yScale = 0.5
+        arm2.zPosition = 10
         
-        
-        arm1.position = CGPoint(x:  40, y: 10)
-        arm1.xScale = 0.5
-        arm1.yScale = 0.5
-        arm1.zPosition = -10
-        arm2.position = CGPoint(x: -40, y: 10)
-        arm2.xScale = -0.5
-        arm2.yScale = 0.5
-        arm2.zPosition = -10
+//        let ground = SKSpriteNode(color: UIColor.greenColor(), size: CGSize(width: size.width, height: 40))
+//        ground.position = CGPoint(x: size.width / 2, y: 20)
+//        self.addChild(ground)
 
         getReadyToStart()
     }
@@ -138,40 +155,44 @@ class GameScene: SKScene {
      * Make one of the obstacles that floats across the screen
      */
     func spawnObstacle() {
-        let obstacleTop = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: 40, height: 100))
-        obstacleTop.anchorPoint = CGPoint(x: 0, y: 1)
-        obstacleTop.position = CGPoint(x: CGRectGetMaxX(frame), y: CGRectGetMaxY(frame))
+        let offset: CGFloat = CGFloat(randomFloat(min: -200, 200))
+        let obstacleTop = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: 40, height: 450))
+        obstacleTop.position = CGPoint(x: CGRectGetMaxX(frame), y: CGRectGetMaxY(frame) + offset)
         obstacleTop.zPosition = 10
+        obstacleTop.texture = SKTexture(imageNamed: "cactus")
         makeObstaclePhysicsBody(obstacleTop)
         
-        let obstacleBottom = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: 40, height: 200))
-        obstacleBottom.anchorPoint = CGPoint(x: 0, y: 0)
-        obstacleBottom.position = CGPoint(x: CGRectGetMaxX(frame), y: 0)
+        let obstacleBottom = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: 40, height: 450))
+        obstacleBottom.position = CGPoint(x: CGRectGetMaxX(frame), y: offset)
         obstacleBottom.zPosition = 10
+        obstacleBottom.texture = SKTexture(imageNamed: "cactus")
         makeObstaclePhysicsBody(obstacleBottom)
         
         addChild(obstacleTop)
         addChild(obstacleBottom)
         
-        let moveAcrossScreen = SKAction.moveToX(0, duration: 4)
-        obstacleTop.runAction(moveAcrossScreen)
-        obstacleBottom.runAction(moveAcrossScreen)
+        let moveAcrossScreen = SKAction.moveToX(-40, duration: 4)
+        obstacleTop.runAction(SKAction.sequence([moveAcrossScreen, SKAction.removeFromParent()]))
+        obstacleBottom.runAction(SKAction.sequence([moveAcrossScreen, SKAction.removeFromParent()]))
     }
     
     /**
      * Give the obstacle its physicsbody - a floating rect that hits the bird
      */
     func makeObstaclePhysicsBody(obstacle: SKNode) {
-        obstacle.physicsBody = SKPhysicsBody(edgeLoopFromRect: obstacle.frame)
+        obstacle.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: 40, height: 450))
         obstacle.physicsBody!.affectedByGravity = false
         obstacle.physicsBody!.contactTestBitMask = obstacleCategory
+        obstacle.physicsBody!.collisionBitMask = obstacleCategory
+        obstacle.physicsBody!.categoryBitMask = obstacleCategory
+        obstacle.physicsBody!.mass = 1000000
     }
     
     /**
      * FLAP. THAT. BIRD.
      */
     func flap() {
-        monster.physicsBody?.velocity = CGVector(dx: 0, dy: 1000)
+        monster.physicsBody?.velocity = CGVector(dx: 0, dy: 800)
         
         let rotateAction1 = SKAction.rotateByAngle(-π/3, duration: 0.1)
         let resetAction1  = SKAction.rotateByAngle( π/3, duration: 0.2)
@@ -183,10 +204,12 @@ class GameScene: SKScene {
         
         arm1?.runAction(SKAction.sequence([rotateAction1, resetAction1]))
         arm2?.runAction(SKAction.sequence([rotateAction2, resetAction2]))
+        
+        audioPlayer.play()
     }
     
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        controller.handleUpdate(currentTime)
     }
     
     

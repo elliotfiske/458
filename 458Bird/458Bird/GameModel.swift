@@ -20,6 +20,9 @@ class GameModel: NSObject, SKPhysicsContactDelegate {
     private var currState = GameState.start
     private var gameController: GameViewController!
     
+    private var obstacleSpawnTime: CFTimeInterval = 0
+    private var lastSpawnTime: CFTimeInterval = 0
+    
     init(controller: GameViewController) {
         gameController = controller
     }
@@ -44,9 +47,29 @@ class GameModel: NSObject, SKPhysicsContactDelegate {
     }
     
     /**
+     * Update the game!  Spawn an obstacle if it's been long enough.
+     */
+    func handleUpdate(currentTime: CFTimeInterval) {
+        if currState != .running {
+            return
+        }
+        
+        let diff = currentTime - lastSpawnTime
+        if diff > obstacleSpawnTime {
+            gameController.spawnObstacle()
+            obstacleSpawnTime = CFTimeInterval(randomFloat(min: 1, 3))
+            lastSpawnTime = currentTime
+        }
+    }
+    
+    /**
      * User hit the wall or an obstacle.  Game over man, game over!
      */
     func didBeginContact(contact: SKPhysicsContact) {
+        if contact.bodyA.contactTestBitMask & contact.bodyB.contactTestBitMask == 0 {
+            return
+        }
+        
         if currState == .running {
             gameController.showGameOver(0)
             currState = .gameOver
@@ -56,4 +79,5 @@ class GameModel: NSObject, SKPhysicsContactDelegate {
     func didEndContact(contact: SKPhysicsContact) {
         // Stopped hitting something!
     }
+    
 }

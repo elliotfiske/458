@@ -29,22 +29,12 @@ class MCPartColor : MCPart {
         self.deselectForCollision()
     }
     
-//    /** The color "part" shouldn't ever change colors, that wouldn't make sense. */
-//    override func setTentativeColor(newColor: UIColor) {
-//        // do nothing lol
-//    }
-//    override func restoreColor() {
-//        // do nothing lol
-//    }
-//    override func changeColor(newColor: UIColor) {
-//        // do nothign lol
-//    }
-//    
+    /** We don't change the color of the 'color part' when it's being dragged on */
     override func setColorNotColliding() {
         // do nothinggg
     }
     
     override func setColorColliding() {
-        // guess what.  do nothing.
+        // do nuffin
     }
 }
