@@ -10,14 +10,9 @@ import Foundation
 import SpriteKit
 
 let BASE_CATEGORY: UInt32 = 0x2
+let PART_CATEGORY: UInt32 = 0x1
 
 class MCPart: SKSpriteNode {
-    /** The user can drag a color onto a monster, then back out.  Save the temporary color
-     *   as 'tentative' until they actually drop it on. */
-    var tentativeColor: UIColor?
-    /** The part needs to remember what color it was before the user tried changing it */
-    var savedColor: UIColor
-    
     /** Limbs act differently than decals/mouths, in that they stick to the OUTSIDE of the monster
      *   instead of being directly on the monster body. */
     var limb: Bool {
@@ -25,20 +20,30 @@ class MCPart: SKSpriteNode {
             return partType == .arm || partType == .leg
         }
     }
+    var partType: PartType {
+        fatalError("Each part subclass has to override this with its part type !")
+    }
     
-    var partType: PartType
     var stuckOnMonster = false     // Only applicable if limb == true
     var containedInMonster = false // Only applicable if limb == false
     
-    var isMirroredPart = false
     /** Gives the mirror of the current part. Note that each mirrored part should have the OTHER one as a mirroredPart */
     var mirroredPart: MCPart? = nil
+    var isMirroredPart = false
     
     /** The part's position when it's stuck to the body */
     var lockPoint: CGPoint?
     /** The point where we've last seen the user's finger move to */
     var dragPoint: CGPoint?
     var animateAttachPoint = CGPointZero
+    
+    /** The user can drag a color onto a monster, then back out.  Save the temporary color
+    *   as 'tentative' until they actually drop it on. */
+    var tentativeColor: UIColor?
+    /** The part needs to remember what color it was before the user tried changing it */
+    var savedColor: UIColor
+    /** The part needs to remember what texture it was before it was changed (e.g. mouth emotion, eye blink) */
+    var savedTexture: SKTexture!
     
     /** The user can rotate parts, we want to remember how much they rotated them by */
     var angle: CGFloat = 0
@@ -53,15 +58,18 @@ class MCPart: SKSpriteNode {
     var minScale: CGFloat = 0.5
     var maxScale: CGFloat = 2
     
-    init(textureName: String, color: UIColor) {
-        self.texture = SKTexture(imageNamed: textureName)
-        self.size = self.texture!.size()
-        self.color = color
-        self.savedColor = color
+    init(textureName: String, color: UIColor, anchor: CGPoint) {
+        // TODO: figure out how anchor points should work
+        
+        savedColor = color
         
         super.init()
         
+        texture = SKTexture(imageNamed: textureName)
+        size = self.texture!.size()
         colorBlendFactor = 1
+        
+        savedTexture = self.texture
     }
     
     /**
@@ -123,7 +131,7 @@ class MCPart: SKSpriteNode {
     }
     
     /** Animates a part to a specific rotation, without a delay */
-    func rotateToAngle(newAngle:CGFloat){
+    func rotateToAngle(newAngle:CGFloat) {
         angle = newAngle
         self.runAction(SKAction.rotateToAngle(angle, duration: 0.0, shortestUnitArc: true))
     }
@@ -188,7 +196,7 @@ class MCPart: SKSpriteNode {
                     targetPoint!.x = self.scene!.frame.width/2
                 }
                 else {
-                    mirroredPart?.unHide()
+                    mirroredPart?.unhide()
                 }
             }
         }
@@ -234,6 +242,11 @@ class MCPart: SKSpriteNode {
         }
     }
     
+    /** Can this part be colored? */
+    func colorable() -> Bool {
+        return true
+    }
+    
     /**
      * We dragged a color onto a part.  Show what the part looks like
      *  as that color!
@@ -263,14 +276,21 @@ class MCPart: SKSpriteNode {
     }
     
     /**
-     * Body switching! Swoop the part away from the center while this goes on.
+     * Body switching! Swoop the part up while the user switches bodies
      */
     func animateDetatchFromMonster() {
-        let length = position.distanceTo(point: CGPointZero)
-        let scaleFactor = 100.0 / length
-        let direction = position * scaleFactor
+        var newPoint: CGPoint
+        var offset: CGFloat = 20.0
+        newPoint = CGPoint(x: position.x, y: position.y + offset)
+        var newScale = CGPoint(x:scale+0.1, y:scale+0.1)
+        if isMirroredPart{
+            newScale.x = -newScale.x
+        }
         
-        lockPoint = position + direction
+        runAction(SKAction.group([SKAction.scaleXTo(newScale.x, duration: 0.2),SKAction.scaleYTo(newScale.y,duration:0.2)]))
+        runAction(SKAction.fadeAlphaTo(0.2, duration: 0.2))
+        animateAttachPoint = CGPoint(x:lockPoint!.x,y:lockPoint!.y)
+        lockPoint = newPoint
     }
     
     /**
@@ -286,6 +306,7 @@ class MCPart: SKSpriteNode {
         }
     }
     
+    /** Block that actually moves the part to the body */
     func reattachPart(body: SKPhysicsBody!, point: CGPoint, norm: CGVector, terminate: UnsafeMutablePointer<ObjCBool>) {
         if body.categoryBitMask == BASE_CATEGORY {
             self.lockPoint = parent!.convertPoint(point, fromNode: body.node!.parent!)
@@ -304,14 +325,15 @@ class MCPart: SKSpriteNode {
         else {
             dict["keyInDict"] = self.partType.rawValue as NSString
         }
-        dict["indexInDict"] = index.description
-        dict["posX"] = self.position.x.description
-        dict["posY"] = self.position.y.description
+
+        dict["posX"]     = self.position.x.description
+        dict["posY"]     = self.position.y.description
         dict["rotation"] = self.angle.description
-        dict["scale"] = self.scale.description
-        dict["hidden"] = self.hidden.description
-        var components = CGColorGetComponents(self.node.color.CGColor)
-        var alpha = CGColorGetAlpha(self.node.color.CGColor)
+        dict["scale"]    = self.scale.description
+        dict["hidden"]   = self.hidden.description
+        
+        var components = CGColorGetComponents(self.color.CGColor)
+        var alpha = CGColorGetAlpha(self.color.CGColor)
         
         dict["colorR"] = components[0].description
         dict["colorG"] = components[1].description
@@ -326,30 +348,32 @@ class MCPart: SKSpriteNode {
         }
         return dict
     }
+    
+    /** Restore this part from a dictionary of strings */
     func initWithDict(dict:NSDictionary){
         let posX  = dict["posX"] as String
         let posY  = dict["posY"] as String
-        let rot  = dict["rotation"] as String
-        let scl  = dict["scale"] as String
-        let mir = dict["isMirrored"] as String
-        let hid = dict["hidden"] as String
-        let r  = dict["colorR"] as String
-        let g  = dict["colorG"] as String
-        let b  = dict["colorB"] as String
-        let a  = dict["colorA"] as String
+        let rot   = dict["rotation"] as String
+        let scl   = dict["scale"] as String
+        let mir   = dict["isMirrored"] as String
+        let hid   = dict["hidden"] as String
+        let r     = dict["colorR"] as String
+        let g     = dict["colorG"] as String
+        let b     = dict["colorB"] as String
+        let a     = dict["colorA"] as String
         
         let vals:[CGFloat] = [posX,posY,rot,scl,r,g,b,a].map{
             CGFloat(($0 as NSString).doubleValue)
         }
-        self.setPosition(CGPoint(x: vals[0],y:vals[1]))
-        self.lockPoint = CGPoint(x: vals[0],y:vals[1])
-        self.node.position = CGPoint(x: vals[0],y:vals[1])
         
+        self.dragPoint = CGPoint(x: vals[0],y:vals[1])
+        self.lockPoint = CGPoint(x: vals[0],y:vals[1])
+        self.position = CGPoint(x: vals[0],y:vals[1])
         
         if((mir as NSString).boolValue){
             isMirroredPart = true
         }
-        else{
+        else {
             isMirroredPart = false
         }
         
@@ -362,15 +386,14 @@ class MCPart: SKSpriteNode {
             hide()
         }
         
-        if(self.partTemplate.colorable()){
+        if (self.colorable()) {
             setTentativeColor(UIColor(red:vals[4],green:vals[5],blue:vals[6],alpha:vals[7]))
             confirmColor()
         }
-        else{
+        else {
             setTentativeColor(UIColor(red:1.0,green:1.0,blue:1.0,alpha:1.0))
-            confirmColor();
+            confirmColor()
         }
-        
     }
     
     

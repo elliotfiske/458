@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class MCPartEye : MCPart{
+class MCPartEye: MCPart {
     private var backgroundNode: SKSpriteNode
     var pupilNode: SKSpriteNode
     private var targetPupilPosition: CGPoint = CGPoint(x: 0, y: 0)
@@ -38,7 +38,6 @@ class MCPartEye : MCPart{
     
     override func parentToNode(pNode: SKNode) {
         super.parentToNode(pNode)
-        self.blink(0.1)
         self.blink(0.1)
     }
     
@@ -99,6 +98,7 @@ class MCPartEye : MCPart{
     func center() {
         self.targetPupilPosition = CGPoint()
     }
+    
     override func animateDetatchFromMonster(){
         var newPoint:CGPoint
         var offset = CGFloat(20.0)
@@ -135,18 +135,5 @@ class MCPartEye : MCPart{
     override func setTentativeColor(newColor: UIColor) {
         tentativeColor = newColor
         backgroundNode.color = newColor;
-    }
-}
-
-
-
-class EyeEmotion{
-    var emotionTexture: SKTexture
-    init(filename: String) {
-        emotionTexture = SKTexture(imageNamed: filename)
-    }
-    
-    func getTexture()->SKTexture {
-        return emotionTexture
     }
 }

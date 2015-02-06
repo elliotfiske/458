@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C90B22821A8134B2001880FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B22811A8134B2001880FC /* AppDelegate.swift */; };
-		C90B22841A8134B2001880FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B22831A8134B2001880FC /* ViewController.swift */; };
 		C90B22871A8134B2001880FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C90B22851A8134B2001880FC /* Main.storyboard */; };
 		C90B22891A8134B2001880FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C90B22881A8134B2001880FC /* Images.xcassets */; };
 		C90B228C1A8134B2001880FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90B228A1A8134B2001880FC /* LaunchScreen.xib */; };
 		C90B22981A8134B2001880FC /* FinallyLearnStoryboardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B22971A8134B2001880FC /* FinallyLearnStoryboardsTests.swift */; };
+		C9B4A4021A81367D007A1591 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4A4011A81367D007A1591 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +29,13 @@
 		C90B227C1A8134B2001880FC /* FinallyLearnStoryboards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinallyLearnStoryboards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90B22801A8134B2001880FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C90B22811A8134B2001880FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C90B22831A8134B2001880FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C90B22861A8134B2001880FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C90B22881A8134B2001880FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C90B228B1A8134B2001880FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C90B22911A8134B2001880FC /* FinallyLearnStoryboardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinallyLearnStoryboardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90B22961A8134B2001880FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C90B22971A8134B2001880FC /* FinallyLearnStoryboardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinallyLearnStoryboardsTests.swift; sourceTree = "<group>"; };
+		C9B4A4011A81367D007A1591 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +77,8 @@
 		C90B227E1A8134B2001880FC /* FinallyLearnStoryboards */ = {
 			isa = PBXGroup;
 			children = (
+				C9B4A4011A81367D007A1591 /* ViewController.swift */,
 				C90B22811A8134B2001880FC /* AppDelegate.swift */,
-				C90B22831A8134B2001880FC /* ViewController.swift */,
 				C90B22851A8134B2001880FC /* Main.storyboard */,
 				C90B22881A8134B2001880FC /* Images.xcassets */,
 				C90B228A1A8134B2001880FC /* LaunchScreen.xib */,
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C90B22841A8134B2001880FC /* ViewController.swift in Sources */,
+				C9B4A4021A81367D007A1591 /* ViewController.swift in Sources */,
 				C90B22821A8134B2001880FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +407,7 @@
 				C90B229D1A8134B2001880FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C90B229E1A8134B2001880FC /* Build configuration list for PBXNativeTarget "FinallyLearnStoryboardsTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +416,7 @@
 				C90B22A01A8134B2001880FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

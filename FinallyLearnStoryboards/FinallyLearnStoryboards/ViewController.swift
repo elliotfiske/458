@@ -9,10 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBAction func refreshButtonPressed(sender: AnyObject) {
+        if sender is UIButton {
+            let button = sender as UIButton
+            button.setTitle("Bruh", forState: .Normal)
+        }
+    }
+    
+    @IBOutlet weak var posLabel: UILabel!
+    @IBOutlet weak var magLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        posLabel.text = "HAHAHAHAHA";
     }
 
     override func didReceiveMemoryWarning() {

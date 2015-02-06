@@ -16,11 +16,12 @@
 		C90824EC1A8459A200A40C71 /* MCPartEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90824E31A8459A200A40C71 /* MCPartEye.swift */; };
 		C90824ED1A8459A200A40C71 /* PartType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90824E41A8459A200A40C71 /* PartType.swift */; };
 		C90824EE1A8459A200A40C71 /* MCPartBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90824E51A8459A200A40C71 /* MCPartBody.swift */; };
-		C90824F11A8459B100A40C71 /* MonsterDataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90824EF1A8459B100A40C71 /* MonsterDataReader.swift */; };
 		C90824F21A8459B100A40C71 /* MonsterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90824F01A8459B100A40C71 /* MonsterModel.swift */; };
+		C90824F41A845C6100A40C71 /* MCPartLimb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90824F31A845C6100A40C71 /* MCPartLimb.swift */; };
 		C9703D4C1A79BFAA00521E4A /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D4B1A79BFAA00521E4A /* Array+Random.swift */; };
 		C9B4A4051A814137007A1591 /* flap.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9B4A4041A814137007A1591 /* flap.wav */; };
 		C9B4A4231A814931007A1591 /* MonsterAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4A4201A814931007A1591 /* MonsterAnimation.swift */; };
+		C9CC2D6D1A84653B00F8E1A3 /* MCPartArm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC2D6C1A84653B00F8E1A3 /* MCPartArm.swift */; };
 		C9CD8A951A682DD700284D33 /* FlapTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CD8A941A682DD700284D33 /* FlapTitleView.swift */; };
 		C9CD8A971A68324B00284D33 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CD8A961A68324B00284D33 /* GameModel.swift */; };
 		C9D476811A5F064300705452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476801A5F064300705452 /* AppDelegate.swift */; };
@@ -55,11 +56,12 @@
 		C90824E31A8459A200A40C71 /* MCPartEye.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartEye.swift; sourceTree = "<group>"; };
 		C90824E41A8459A200A40C71 /* PartType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartType.swift; sourceTree = "<group>"; };
 		C90824E51A8459A200A40C71 /* MCPartBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartBody.swift; sourceTree = "<group>"; };
-		C90824EF1A8459B100A40C71 /* MonsterDataReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDataReader.swift; sourceTree = "<group>"; };
 		C90824F01A8459B100A40C71 /* MonsterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterModel.swift; sourceTree = "<group>"; };
+		C90824F31A845C6100A40C71 /* MCPartLimb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartLimb.swift; sourceTree = "<group>"; };
 		C9703D4B1A79BFAA00521E4A /* Array+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Random.swift"; sourceTree = "<group>"; };
 		C9B4A4041A814137007A1591 /* flap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flap.wav; path = 458Bird/resources/flap.wav; sourceTree = "<group>"; };
 		C9B4A4201A814931007A1591 /* MonsterAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterAnimation.swift; sourceTree = "<group>"; };
+		C9CC2D6C1A84653B00F8E1A3 /* MCPartArm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartArm.swift; sourceTree = "<group>"; };
 		C9CD8A941A682DD700284D33 /* FlapTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapTitleView.swift; sourceTree = "<group>"; };
 		C9CD8A961A68324B00284D33 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		C9D4767B1A5F064300705452 /* 458Bird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 458Bird.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +101,6 @@
 		C9703D211A78788500521E4A /* Monster Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C90824EF1A8459B100A40C71 /* MonsterDataReader.swift */,
 				C90824F01A8459B100A40C71 /* MonsterModel.swift */,
 				C9B4A4201A814931007A1591 /* MonsterAnimation.swift */,
 				C9703D3A1A787BF700521E4A /* Monster Parts */,
@@ -120,6 +121,8 @@
 				C90824E31A8459A200A40C71 /* MCPartEye.swift */,
 				C90824E41A8459A200A40C71 /* PartType.swift */,
 				C90824E51A8459A200A40C71 /* MCPartBody.swift */,
+				C90824F31A845C6100A40C71 /* MCPartLimb.swift */,
+				C9CC2D6C1A84653B00F8E1A3 /* MCPartArm.swift */,
 			);
 			name = "Monster Parts";
 			sourceTree = "<group>";
@@ -317,8 +320,8 @@
 				C90824EE1A8459A200A40C71 /* MCPartBody.swift in Sources */,
 				C90824E61A8459A200A40C71 /* MCPartMouth.swift in Sources */,
 				C90824EA1A8459A200A40C71 /* MCPartLeg.swift in Sources */,
-				C90824F11A8459B100A40C71 /* MonsterDataReader.swift in Sources */,
 				C9B4A4231A814931007A1591 /* MonsterAnimation.swift in Sources */,
+				C9CC2D6D1A84653B00F8E1A3 /* MCPartArm.swift in Sources */,
 				C90824E91A8459A200A40C71 /* MCPartStuff.swift in Sources */,
 				C90824EC1A8459A200A40C71 /* MCPartEye.swift in Sources */,
 				C9CD8A951A682DD700284D33 /* FlapTitleView.swift in Sources */,
@@ -326,6 +329,7 @@
 				C9D476A71A5F074100705452 /* Convenience.swift in Sources */,
 				C9D476A51A5F072D00705452 /* CGPoint+Assimilation.swift in Sources */,
 				C90824ED1A8459A200A40C71 /* PartType.swift in Sources */,
+				C90824F41A845C6100A40C71 /* MCPartLimb.swift in Sources */,
 				C90824E81A8459A200A40C71 /* MCPart.swift in Sources */,
 				C9703D4C1A79BFAA00521E4A /* Array+Random.swift in Sources */,
 				C9D476871A5F064300705452 /* GameViewController.swift in Sources */,

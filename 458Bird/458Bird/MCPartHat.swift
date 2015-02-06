@@ -31,7 +31,7 @@ class MCPartHat: MCPart {
         node.colorBlendFactor = 0.0
     }
     
-    override func animateDetatchFromMonster(){
+    override func animateDetatchFromMonster() {
         var newPoint:CGPoint
         var offset = CGFloat(20.0)
         newPoint = CGPoint(x: node.position.x, y: node.position.y + offset)
