@@ -13,6 +13,10 @@ class MCPartLeg: MCPartLimb {
     var visibleLeg: SKSpriteNode
     var baseAnchor: CGPoint
     
+    override var partType: PartType {
+        return .leg
+    }
+    
     /**
      * To let us rotate the leg around an arbitrary point, we create an invisible node
      *  that then has the actual displayed leg node as a child.

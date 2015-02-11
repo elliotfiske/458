@@ -16,13 +16,12 @@ class MonsterModel: NSObject, NSCoding {
     /** Every part on the monster, organized by part type */
     var parts: [PartType: [MCPart]]
     
-    //    /** NOTE: DON'T break MVC by accessing methods on this property!
-    //     *   The only reason it's here is because we need to know the body 'type'
-    //     *   for saving, loading, and the image preview generation. */
+    /** NOTE: DON'T break MVC by accessing methods on this property!
+     *   The only reason it's here is because we need to know the body 'type'
+     *   for saving, loading, and the image preview generation. */
     var body: MCPartBody
     
     var bodyColor: UIColor
-    var currDecalColor: UIColor // What color should a decal be by default
     
     var uuid: String? // ID used to save/load monster
     var monsterName = "NAME"
@@ -37,7 +36,7 @@ class MonsterModel: NSObject, NSCoding {
     /**
     * Initializes a blank monster
     */
-    init(newBody: MCPartBody) {
+    init(newBody: MCPartBody, bodyColor: UIColor) {
         body = newBody
         
         parts = [
@@ -48,10 +47,7 @@ class MonsterModel: NSObject, NSCoding {
             PartType.mouth:[]
         ]
         
-        // Set body and last decal to random colors
-        let colors = MonsterDataReader.parts[.color]!.map { $0.color }
-        bodyColor = colors.randomItem()
-        currDecalColor = colors.randomItem()
+        self.bodyColor = bodyColor
         
         super.init()
     }
@@ -73,15 +69,16 @@ class MonsterModel: NSObject, NSCoding {
     /**
     * Remove a specified part from the monster model
     */
-    func doPartRemove(part: MCPart) {
+    func removePart(part: MCPart) {
         
     }
     
     /**
-    * Add the speicifed part to the monster model
+    * Add the specified part to the monster model
     */
-    func doPartAdd(part: MCPart) {
-        
+    func addPart(part: MCPart) {
+        parts[part.partType]!.append(part)
+        body.addChild(part)
     }
     
     /**

@@ -44,6 +44,7 @@ class MCPart: SKSpriteNode {
     var savedColor: UIColor
     /** The part needs to remember what texture it was before it was changed (e.g. mouth emotion, eye blink) */
     var savedTexture: SKTexture!
+    var textureName: String
     
     /** The user can rotate parts, we want to remember how much they rotated them by */
     var angle: CGFloat = 0
@@ -62,14 +63,16 @@ class MCPart: SKSpriteNode {
         // TODO: figure out how anchor points should work
         
         savedColor = color
+        self.textureName = textureName
         
-        super.init()
+        savedTexture = SKTexture(imageNamed: textureName)
         
-        texture = SKTexture(imageNamed: textureName)
+        super.init(texture: savedTexture, color: color, size: savedTexture.size())
+        
+        self.anchorPoint = anchor
+        self.color = color
         size = self.texture!.size()
         colorBlendFactor = 1
-        
-        savedTexture = self.texture
     }
     
     /**

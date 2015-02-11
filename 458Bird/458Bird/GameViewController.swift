@@ -42,9 +42,9 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
-            gameModel = GameModel(controller: self)
             gameScene = scene
             gameScene.controller = self
+            gameModel = GameModel(controller: self)
             
             let skView = self.view as SKView
             skView.showsFPS = true
@@ -63,6 +63,21 @@ class GameViewController: UIViewController {
             titleView.addGestureRecognizer(tapper)
             self.view.addSubview(titleView)
         }
+    }
+    
+    /**
+     * Specify the main character monster
+     */
+    func setMainMonster(monNode: SKSpriteNode) {
+        gameScene.monster = monNode
+    }
+    
+    func setMon2(mon: SKSpriteNode) {
+        gameScene.monster2 = mon
+    }
+    
+    func setMon3(mon: SKSpriteNode) {
+        gameScene.monster3 = mon
     }
     
     /**

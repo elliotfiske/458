@@ -11,14 +11,12 @@ import AVFoundation
 
 class GameScene: SKScene {
     
-    var monster: SKSpriteNode = SKSpriteNode(imageNamed: "monsterBody")
+    var monster: SKSpriteNode!
+    var monster2: SKSpriteNode!
+    var monster3: SKSpriteNode!
     
     var flapSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("flap", ofType: "wav")!)
     var audioPlayer: AVAudioPlayer!
-    
-    // BAD.  BAD CODE.  FEEL BAD.
-    var arm1: SKSpriteNode!
-    var arm2: SKSpriteNode!
     
     var titleLabel: SKLabelNode!
     var nameLabel: SKLabelNode!
@@ -31,11 +29,12 @@ class GameScene: SKScene {
      *  obstacles to slide o'er the screen
      */
     override func didMoveToView(view: SKView) {
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: view.frame)
-        self.physicsBody!.contactTestBitMask = wallCategory // Hits bird, but NOT obstacles.
-        self.physicsBody!.collisionBitMask = wallCategory
-        self.physicsBody!.categoryBitMask = wallCategory
-        self.physicsBody!.dynamic = true
+//        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: view.frame)
+//        self.physicsBody!.contactTestBitMask = wallCategory // Hits bird, but NOT obstacles.
+//        self.physicsBody!.collisionBitMask = wallCategory
+//        self.physicsBody!.categoryBitMask = wallCategory
+//        self.physicsBody!.dynamic = true
+        view.backgroundColor = UIColor.greenColor()
         
         size = view.frame.size
         physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
@@ -63,8 +62,8 @@ class GameScene: SKScene {
         clouds2.zPosition = -15
         clouds1.position = CGPoint(x: size.width/2,     y: size.height - clouds1.size.height/2 - 50)
         clouds2.position = CGPoint(x: size.width * 3/2, y: size.height - clouds2.size.height/2 - 50)
-        self.addChild(clouds1)
-        self.addChild(clouds2)
+//        self.addChild(clouds1)
+//        self.addChild(clouds2)
         
         let hills1 = SKSpriteNode(imageNamed: "hills")
         let hills2 = SKSpriteNode(imageNamed: "hills")
@@ -72,8 +71,8 @@ class GameScene: SKScene {
         hills2.position = CGPoint(x: size.width * 3/2, y: hills2.size.height/2)
         hills1.zPosition = -15
         hills2.zPosition = -15
-        self.addChild(hills1)
-        self.addChild(hills2)
+//        self.addChild(hills1)
+//        self.addChild(hills2)
         
         let scrollAction = SKAction.repeatActionForever(
             SKAction.sequence([
@@ -95,39 +94,22 @@ class GameScene: SKScene {
         
         // Init player node
         monster.position = frame.center
+        monster2.position = frame.center + CGPoint(x: 150, y: 200)
+        monster3.position = frame.center + CGPoint(x: -150, y: 300)
         monster.xScale = 0.5
         monster.yScale = 0.5
+        monster2.setScale(0.5)
+        monster3.setScale(0.5)
         monster.physicsBody = SKPhysicsBody(circleOfRadius: 5.0)
         monster.physicsBody!.contactTestBitMask = obstacleCategory | wallCategory
         monster.physicsBody!.collisionBitMask = obstacleCategory | wallCategory
         monster.physicsBody!.categoryBitMask = obstacleCategory | wallCategory
         monster.physicsBody!.mass = 0.00001
         
-        /** TODO: fix this awful code */
-        arm1 = SKSpriteNode(imageNamed: "monsterLeg")
-        arm2 = SKSpriteNode(imageNamed: "monsterLeg")
-        
-        arm1.anchorPoint = CGPoint(x: 0.15, y: 0.5)
-        arm2.anchorPoint = CGPoint(x: 0.15, y: 0.5)
-        
-        monster.addChild(arm1)
-        monster.addChild(arm2)
-        
         self.addChild(monster)
+        self.addChild(monster2)
+        self.addChild(monster3)
         
-        arm1.position = CGPoint(x:  80, y: 10)
-//        arm1.xScale = 0.5
-//        arm1.yScale = 0.5
-        arm1.zPosition = 10
-        arm2.position = CGPoint(x: -80, y: 10)
-        arm2.xScale = -1
-//        arm2.yScale = 0.5
-        arm2.zPosition = 10
-        
-//        let ground = SKSpriteNode(color: UIColor.greenColor(), size: CGSize(width: size.width, height: 40))
-//        ground.position = CGPoint(x: size.width / 2, y: 20)
-//        self.addChild(ground)
-
         getReadyToStart()
     }
     
@@ -147,14 +129,43 @@ class GameScene: SKScene {
      * User is now playing the game! whoo
      */
     func beginGame() {
-        monster.physicsBody!.affectedByGravity = true
-        spawnObstacle()
+        monster.physicsBody!.affectedByGravity = false
+        wander()
+    }
+    
+    func wander() {
+        let action = SKAction.runBlock() {
+            let randomVec = CGVector(dx: randomFloat(min: -20, 20), dy: randomFloat(min: -20, 20))
+            self.monster.runAction(SKAction.moveBy(randomVec, duration: 0.2))
+        }
+        let repeat = SKAction.repeatActionForever(SKAction.sequence([action, SKAction.waitForDuration(2, withRange: 1)]))
+
+        
+        let action2 = SKAction.runBlock() {
+            let randomVec = CGVector(dx: randomFloat(min: -20, 20), dy: randomFloat(min: -20, 20))
+            self.monster2.runAction(SKAction.moveBy(randomVec, duration: 0.2))
+        }
+        let repeat2 = SKAction.repeatActionForever(SKAction.sequence([action2, SKAction.waitForDuration(2, withRange: 1)]))
+        
+        
+        let action3 = SKAction.runBlock() {
+            let randomVec = CGVector(dx: randomFloat(min: -20, 20), dy: randomFloat(min: -20, 20))
+            self.monster3.runAction(SKAction.moveBy(randomVec, duration: 0.2))
+        }
+        let repeat3 = SKAction.repeatActionForever(SKAction.sequence([action3, SKAction.waitForDuration(2, withRange: 1)]))
+        
+        
+        monster.runAction(repeat)
+        monster2.runAction(repeat2)
+        monster3.runAction(repeat3)
     }
     
     /**
      * Make one of the obstacles that floats across the screen
      */
     func spawnObstacle() {
+        return
+        
         let offset: CGFloat = CGFloat(randomFloat(min: -200, 200))
         let obstacleTop = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: 40, height: 450))
         obstacleTop.position = CGPoint(x: CGRectGetMaxX(frame), y: CGRectGetMaxY(frame) + offset)
@@ -192,20 +203,8 @@ class GameScene: SKScene {
      * FLAP. THAT. BIRD.
      */
     func flap() {
-        monster.physicsBody?.velocity = CGVector(dx: 0, dy: 800)
-        
-        let rotateAction1 = SKAction.rotateByAngle(-π/3, duration: 0.1)
-        let resetAction1  = SKAction.rotateByAngle( π/3, duration: 0.2)
-        resetAction1.timingMode = .EaseIn
-        
-        let rotateAction2 = SKAction.rotateByAngle( π/3, duration: 0.1)
-        let resetAction2  = SKAction.rotateByAngle(-π/3, duration: 0.2)
-        resetAction2.timingMode = .EaseIn
-        
-        arm1?.runAction(SKAction.sequence([rotateAction1, resetAction1]))
-        arm2?.runAction(SKAction.sequence([rotateAction2, resetAction2]))
-        
-        audioPlayer.play()
+//        monster.physicsBody?.velocity = CGVector(dx: 0, dy: 800)
+//        audioPlayer.play()
     }
     
     override func update(currentTime: CFTimeInterval) {

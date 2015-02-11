@@ -9,5 +9,7 @@
 import Foundation
 
 class MCPartArm: MCPartLimb {
-    
+    override var partType: PartType {
+        return .arm
+    }
 }

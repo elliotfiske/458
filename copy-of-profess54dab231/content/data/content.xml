@@ -1,0 +1,1086 @@
+<zuiprezi>
+  <version>7</version>
+  <zui-table>
+    <settings>
+      
+      <autoplay>
+        
+        <delay>4000</delay>
+        
+      </autoplay>
+      
+      <bounds x="-1046207.6065425503" y="-395091.8866674931" width="2092415.2130851005" height="790183.7733349862"/>
+      <aspectratio>off</aspectratio>
+      <languages>
+        <language>en</language>
+      </languages>
+      <mode type="normal"/>
+    </settings>
+    <object id="0_602716" type="image" x="-311888.614456971" y="-2.0456592542854457e-11" r="0" s="1346.1393072146273">
+      <source w="1091" h="587">495224130<url>495224130.png</url></source>
+      <sourceUrl>World%20Map.png</sourceUrl>
+    <resource><id>495224130</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/1/5/6/40810ce8c095bf6841f79ca5a1b9e25824f65.png</url></resource></object>
+    <object id="0_221124" type="image" x="-933037.1241982831" y="-167958.6590741413" r="0" s="87.86438260658916">
+      <source w="800" h="763">491311292<url>491311292.jpg</url></source>
+      <sourceUrl>dinner_setting.jpg</sourceUrl>
+    <resource><id>491311292</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/3/5/d/c285b3b7cb5c4be3f5321c1242da7790d3e02.jpg</url></resource></object>
+    <object id="3_221124" type="button" x="-933029.4241387012" y="-170728.33166918994" r="0" s="88.0493476383479" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>799.2507204610952</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="2" type="button" x="-937088.5398916575" y="-163849.43351283422" r="0" s="0.6458621945881261" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>891.6876574307304</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="0" type="text" x="-937106.8847931908" y="-163924.69100093935" r="0" s="1.3388318172866058" class="head">
+      <height>32.6484375</height>
+      <width>-263.54296875</width>
+      <p>
+        <text><![CDATA[Basic Dining Etiquette]]></text>
+      </p>
+    </object>
+    <object id="1" type="text" x="-937094.3714233136" y="-163809.53652233336" r="0" s="0.9563084409190042" class="strong">
+      <height>61.992000000000004</height>
+      <width>304.7</width>
+      <p align="center">
+        <text color="1657497"><![CDATA[Presented by the ]]></text>
+      </p>
+      <p align="center">
+        <text color="1657497"><![CDATA[Alpha Theta Pledge Class]]></text>
+      </p>
+    </object>
+    <object id="5" type="button" x="-935709.970230182" y="-163886.398862992" r="0" s="0.543370209048952" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1246.7065868263471</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="3" type="image" x="-935909.3432070233" y="-163871.07342253346" r="0" s="0.49666839860866635">
+      <source w="433" h="433" bt="313.05" bl="553.05">233792644<url>233792644.swf</url></source>
+      <sourceUrl>018_o%CC%81ra.swf</sourceUrl>
+      <meta>
+        <parentObjlib>018_óra</parentObjlib>
+      </meta>
+    <resource><id>233792644</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/f/b/2/77d57330a8aef96b0cd68fc72dddcc58c87df.swf</url></resource></object>
+    <object id="4" type="text" x="-935596.0063555848" y="-163880.15237579445" r="0" s="1.7819851488084717" class="head">
+      <height>32.6484375</height>
+      <width>-201.09375</width>
+      <p>
+        <text><![CDATA[ARRIVE ON TIME!]]></text>
+      </p>
+    </object>
+    <object id="0_254612" type="button" x="-935693.1172948218" y="-162596.50111809096" r="0" s="0.831193484089114" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1227.5862068965516</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="8" type="text" x="-935689.2302124891" y="-162789.6057167693" r="0" s="1.7463454458323013" class="head">
+      <height>32.6484375</height>
+      <width>-230.859375</width>
+      <p>
+        <text><![CDATA[Beginning the Meal]]></text>
+      </p>
+    </object>
+    <object id="9" type="text" x="-935823.5646541755" y="-162615.41277715852" r="0" s="1.5875867689384562" class="strong">
+      <height>61.992000000000004</height>
+      <width>-420.408</width>
+      <p listType="bullet" indent="1">
+        <text color="1657497"><![CDATA[Wait to be seated]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="1657497"><![CDATA[Napkin on lap; fold towards the waist]]></text>
+      </p>
+    </object>
+    <object id="1_254612" type="button" x="-935706.7685653062" y="-161931.3405084773" r="0" s="0.9127284722564997" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>949.1943127962086</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="10" type="text" x="-935702.2521079818" y="-162141.23267592752" r="0" s="1.746345445832302" class="head">
+      <height>32.6484375</height>
+      <width>-106.921875</width>
+      <p>
+        <text><![CDATA[Ordering]]></text>
+      </p>
+    </object>
+    <object id="11" type="text" x="-935849.6656134003" y="-161919.54978390032" r="0" s="1.746345445832302" class="strong">
+      <height>154.98000000000002</height>
+      <width>-321.672</width>
+      <p listType="bullet" indent="1">
+        <text color="1657497"><![CDATA[Watch others!]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="1657497"><![CDATA[Keep in mind:]]></text>
+      </p>
+      <p listType="bullet" indent="2">
+        <text color="1657497"><![CDATA[Price: Not too expensive]]></text>
+      </p>
+      <p listType="bullet" indent="2">
+        <text color="1657497"><![CDATA[Clean: Not messy]]></text>
+      </p>
+      <p listType="bullet" indent="2">
+        <text color="1657497"><![CDATA[Alcohol: None!]]></text>
+      </p>
+    </object>
+    <object id="0_255975" type="button" x="-935861.4157537168" y="-163892.3442197931" r="0" s="0.0464037774774678" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>924.88376418077</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="12" type="text" x="-935861.2701431935" y="-163891.6611663147" r="0.38517438909323576" s="0.07862532079396521" class="head">
+      <height>65.296875</height>
+      <width>283.55</width>
+      <p align="center">
+        <text><![CDATA[Name Tag:]]></text>
+      </p>
+      <p align="center">
+        <text><![CDATA[On your left shoulder]]></text>
+      </p>
+    </object>
+    <object id="1_255975" type="button" x="-935881.0306251844" y="-163821.76798570942" r="0" s="0.03941439607864434" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1069.4433631763334</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="13" type="text" x="-935882.2200679126" y="-163822.55227882628" r="0" s="0.0836769885804128" class="head">
+      <height>65.296875</height>
+      <width>283.55</width>
+      <p align="center">
+        <text><![CDATA[Greet the Host]]></text>
+      </p>
+      <p align="center">
+        <text><![CDATA[AND THANK THEM!]]></text>
+      </p>
+    </object>
+    <object id="2_255975" type="button" x="-935941.7640091057" y="-163823.68154532954" r="0" s="0.040316079510582456" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1058.2199766809174</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="14" type="text" x="-935941.9144748283" y="-163823.99047298398" r="0" s="0.0836769885804128" class="head">
+      <height>65.296875</height>
+      <width>257</width>
+      <p align="center">
+        <text><![CDATA[Introduce yourself]]></text>
+      </p>
+      <p align="center">
+        <text><![CDATA[to other guests]]></text>
+      </p>
+    </object>
+    <object id="4_221124" type="text" x="-933028.275739" y="-190236.4249894661" r="0" s="235.0494011480616" class="head">
+      <height>32.6484375</height>
+      <width>-154.53515625</width>
+      <p>
+        <text><![CDATA[Place Setting]]></text>
+      </p>
+    </object>
+    <object id="5_221124" type="text" x="-957213.1806466724" y="-146774.6698517516" r="0" s="94.7708994448808" class="head">
+      <height>32.6484375</height>
+      <width>-65.7421875</width>
+      <p>
+        <text><![CDATA[Forks]]></text>
+      </p>
+    </object>
+    <object id="6_221124" type="text" x="-915324.2718750779" y="-146025.50774263396" r="0" s="94.7708994448808" class="head">
+      <height>32.6484375</height>
+      <width>-195.09375</width>
+      <p>
+        <text><![CDATA[Spoons & Knives]]></text>
+      </p>
+    </object>
+    <object id="7_221124" type="text" x="-914704.3184111894" y="-177015.79547046425" r="0" s="94.7708994448808" class="head">
+      <height>32.6484375</height>
+      <width>-58.18359375</width>
+      <p>
+        <text><![CDATA[Cups]]></text>
+      </p>
+    </object>
+    <object id="14_221124" type="button" x="-956573.291976006" y="-182004.5416329737" r="0" s="4.099281220558437" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1060.889453621347</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="8_221124" type="text" x="-956584.9601802515" y="-182896.27887868055" r="0" s="8.990394574577538" class="head">
+      <height>32.6484375</height>
+      <width>326.25</width>
+      <p align="center">
+        <text><![CDATA[Bread & Butter Plate]]></text>
+      </p>
+    </object>
+    <object id="9_221124" type="text" x="-936405.4985308673" y="-158678.3043544799" r="0" s="94.7708994448808" class="head">
+      <height>32.6484375</height>
+      <width>-87.17578125</width>
+      <p>
+        <text><![CDATA[Napkin]]></text>
+      </p>
+    </object>
+    <object id="13_221124" type="text" x="-956689.4868529814" y="-182028.12919807262" r="0" s="6.421710410412529" class="strong">
+      <height>123.98400000000001</height>
+      <width>-508.584</width>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Put butter on plate before using]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[One piece at a time]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Butter right before eating; NOT ALL AT ONCE!]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Always pass food to the right.]]></text>
+      </p>
+    </object>
+    <object id="17_221124" type="button" x="-957724.186909824" y="-142076.92079012794" r="0" s="6.621137135657265" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1062.4443434802365</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="15_221124" type="text" x="-958719.8886234069" y="-142212.68177327156" r="0" s="8.810586683085992" class="strong">
+      <height>123.98400000000001</height>
+      <width>-456.144</width>
+      <p listType="bullet" indent="1">
+        <text color="1657497"><![CDATA[DON'T EAT WITH YOUR HANDS!]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="1657497"><![CDATA[Use utensils from the outside-in]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="1657497"><![CDATA[Don't put back on table]]></text>
+      </p>
+      <p listType="bullet" indent="2">
+        <text color="1657497"><![CDATA[Use your plate to hold in-use utensils]]></text>
+      </p>
+    </object>
+    <object id="16_221124" type="text" x="-958106.6776933573" y="-143484.88970472672" r="0" s="16.41764722526244" class="head">
+      <height>32.6484375</height>
+      <width>-280.9921875</width>
+      <p>
+        <text><![CDATA[Forks, Spoons, & Knives]]></text>
+      </p>
+    </object>
+    <object id="1_452246" type="button" x="655111.6918947741" y="-73591.9057249055" r="0" s="289.83905150967996" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>656.0975609756098</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="20_221124" type="image" x="652147.028201386" y="-65833.69338073012" r="0" s="250.86728820151902">
+      <source w="594" h="594">491330940<url>491330940.png</url></source>
+      <sourceUrl>Chat_Icon_clip_art_hight.png</sourceUrl>
+    <resource><id>491330940</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/0/c/8/e94f2d3976d3c1d9617607b9e4760b04a0bec.png</url></resource></object>
+    <object id="22_221124" type="text" x="650681.6024964094" y="-151047.2709835099" r="0" s="440.52698364201933" class="head">
+      <height>32.6484375</height>
+      <width>-247.40625</width>
+      <p>
+        <text><![CDATA[Dinner Conversation]]></text>
+      </p>
+    </object>
+    <object id="0_452246" type="text" x="650672.632035558" y="-125776.5623090136" r="0" s="244.4378473844912" class="head">
+      <height>32.6484375</height>
+      <width>-284.28515625</width>
+      <p>
+        <text><![CDATA[No Controversial Topics]]></text>
+      </p>
+    </object>
+    <object id="2_452246" type="text" x="623076.10555918" y="-110943.38330850129" r="0" s="244.4378473844912" class="strong">
+      <height>30.996000000000002</height>
+      <width>-104.28</width>
+      <p>
+        <text><![CDATA[Obama <3]]></text>
+      </p>
+    </object>
+    <object id="3_452246" type="text" x="678398.8265086005" y="-96980.59677260215" r="0" s="244.4378473844912" class="strong">
+      <height>30.996000000000002</height>
+      <width>-92.08800000000001</width>
+      <p>
+        <text><![CDATA[ROMNEY]]></text>
+      </p>
+    </object>
+    <object id="5_452246" type="persistentgroup" x="649992.4194750623" y="-111479.55910716722" r="0" s="243.4973237788194">
+      <m o="0_452246"/>
+      <m o="2_452246"/>
+      <m o="3_452246"/>
+    </object>
+    <object id="6_452246" type="text" x="680906.127161372" y="-118233.4839140186" r="0" s="244.4378473844912" class="head">
+      <height>32.6484375</height>
+      <width>-198.12890625</width>
+      <p>
+        <text><![CDATA[...Or Crude Jokes]]></text>
+      </p>
+    </object>
+    <object id="7_452246" type="text" x="623089.5681327032" y="-104762.64551564728" r="0" s="244.4378473844912" class="strong">
+      <height>30.996000000000002</height>
+      <width>-175.824</width>
+      <p>
+        <text><![CDATA[%&#& heh heh...]]></text>
+      </p>
+    </object>
+    <object id="8_452246" type="text" x="678407.8157648323" y="-91011.13900556" r="0" s="244.4378473844912" class="strong">
+      <height>30.996000000000002</height>
+      <width>-140.56799999999998</width>
+      <p>
+        <text><![CDATA[Ohoho $*(^@]]></text>
+      </p>
+    </object>
+    <object id="9_452246" type="persistentgroup" x="653360.8884645033" y="-104723.29102614865" r="0" s="243.4973237788194">
+      <m o="6_452246"/>
+      <m o="7_452246"/>
+      <m o="8_452246"/>
+    </object>
+    <object id="10_452246" type="text" x="-935349.9380111564" y="-175334.81885707693" r="0" s="94.7708994448808" class="head">
+      <height>32.6484375</height>
+      <width>-194.5546875</width>
+      <p>
+        <text><![CDATA[Dessert Utensils]]></text>
+      </p>
+    </object>
+    <object id="13_452246" type="button" x="-935695.0422221706" y="-163200.77116870973" r="0" s="1.0447530278675476" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1012.083936324168</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="11_452246" type="text" x="-935712.016821831" y="-163433.21119349485" r="0" s="1.7463454458323013" class="head">
+      <height>32.6484375</height>
+      <width>-148.8046875</width>
+      <p>
+        <text><![CDATA[General Tips]]></text>
+      </p>
+    </object>
+    <object id="12_452246" type="text" x="-935726.528533806" y="-163277.95265239457" r="0" s="1.7463454458323013" class="strong">
+      <height>92.988</height>
+      <width>-441.33599999999996</width>
+      <p listType="bullet" indent="1">
+        <text color="1657497"><![CDATA[Don't put your possessions on the table]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="1657497"><![CDATA[Keep your hands to yourself]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="1657497"><![CDATA[Wait for everyone before eating]]></text>
+      </p>
+    </object>
+    <object id="14_452246" type="text" x="998693.0101609718" y="-76348.85308061827" r="0" s="314.66213117287094" class="head">
+      <height>32.6484375</height>
+      <width>-302.00390625</width>
+      <p>
+        <text><![CDATA[Why Professional Dining?]]></text>
+      </p>
+    </object>
+    <object id="20_452246" type="button" x="-934576.9344220986" y="-161946.62207457348" r="0" s="0.9055165099136739" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1036.6057019903174</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="17_452246" type="text" x="-934544.492642329" y="-162162.9010124557" r="0" s="1.746345445832302" class="head">
+      <height>32.6484375</height>
+      <width>-373.921875</width>
+      <p>
+        <text><![CDATA[Tough Foods (Avoid if Possible):]]></text>
+      </p>
+    </object>
+    <object id="18_452246" type="text" x="-934853.0865319155" y="-162070.9347379877" r="0" s="1.746345445832302" class="strong">
+      <height>30.996000000000002</height>
+      <width>-103.8</width>
+      <p>
+        <text><![CDATA[Spaghetti:]]></text>
+      </p>
+    </object>
+    <object id="19_452246" type="youtube" x="-934853.1222124295" y="-161927.88349609566" r="0" s="0.6913907804937833" onFocus="start" onLeave="pause">
+      <source>GT7Ed3Xj7Io</source>
+    </object>
+    <object id="21_452246" type="text" x="-934588.9357548548" y="-162070.93702550203" r="0" s="1.746345445832302" class="strong">
+      <height>30.996000000000002</height>
+      <width>-60.6</width>
+      <p>
+        <text><![CDATA[Sushi:]]></text>
+      </p>
+    </object>
+    <object id="22_452246" type="text" x="-934304.9696866652" y="-162070.95666761784" r="0" s="1.746345445832302" class="strong">
+      <height>30.996000000000002</height>
+      <width>-56.784</width>
+      <p>
+        <text><![CDATA[Soup:]]></text>
+      </p>
+    </object>
+    <object id="23_452246" type="youtube" x="-934576.9540642143" y="-161927.86385397986" r="0" s="0.6846643556940609" onFocus="start" onLeave="pause">
+      <source>VqLrvE_sLxE</source>
+    </object>
+    <object id="0_461793" type="youtube" x="-934304.9164819849" y="-161933.03996059328" r="0" s="0.6594506454984292" onFocus="start" onLeave="pause">
+      <source>GMcZ_px_q2Y</source>
+    </object>
+    <object id="5_602716" type="button" x="-410560.9334011486" y="-209027.64040923782" r="0" s="195.48936871270243" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800.1438072982204</h>
+      </size>
+    </object>
+    <object id="8_602716" type="image" x="-411903.26097300526" y="-203180.2502456825" r="0" s="300.6323524115764">
+      <source w="185" h="128">495263220<url>495263220.png</url></source>
+      <sourceUrl>image_thumb.png</sourceUrl>
+    <resource><id>495263220</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/a/a/d/33eb8fe912e6a1c1721e3c5b1a93dd1c03eea.png</url></resource></object>
+    <object id="6_602716" type="text" x="-411912.7240737263" y="-264761.34019267035" r="0" s="629.8606477657528" class="head">
+      <height>32.6484375</height>
+      <width>-84.33984375</width>
+      <p>
+        <text><![CDATA[Europe]]></text>
+      </p>
+    </object>
+    <object id="7_602716" type="text" x="-414779.38813597395" y="-238179.19532374653" r="0" s="241.4406261080947" class="strong">
+      <height>61.992000000000004</height>
+      <width>-398.76000000000005</width>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Keep the fork in your left hand]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Watch where you put your utensils!]]></text>
+      </p>
+    </object>
+    <object id="12_602716" type="button" x="87677.48507862906" y="-103937.836205166" r="0" s="274.80554407339946" class="circle">
+      <type>circle</type>
+      <size>
+        <w>600.0475888324873</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="9_602716" type="text" x="87677.31360091195" y="-158458.66202135236" r="0" s="629.8606477657527" class="head">
+      <height>32.6484375</height>
+      <width>-68.66015625</width>
+      <p>
+        <text><![CDATA[China]]></text>
+      </p>
+    </object>
+    <object id="10_602716" type="text" x="82756.83792901947" y="-112253.96723197686" r="0" s="323.2181047550478" class="strong">
+      <height>154.98000000000002</height>
+      <width>372.3</width>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Dining/social aspect much more important]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Alcohol is a BIG part of the deal]]></text>
+      </p>
+      <p listType="bullet" indent="2">
+        <text><![CDATA[-->Plan ahead!]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Unfamiliar foods]]></text>
+      </p>
+    </object>
+    <object id="11_602716" type="text" x="82022.39674653234" y="-74780.83307769998" r="0" s="355.5399152305526" class="head">
+      <height>32.6484375</height>
+      <width>-415.21875</width>
+      <p indent="1">
+        <text><![CDATA[When in doubt, WATCH PEOPLE!]]></text>
+      </p>
+    </object>
+    <object id="2_498138" type="button" x="983844.3264051821" y="-16083.044630556527" r="0" s="69.42765264289754" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>799.1815856777495</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="0_498138" type="text" x="982563.3921204143" y="-20917.006469035332" r="0" s="235.11910547451777" class="head">
+      <height>32.6484375</height>
+      <width>-132.2109375</width>
+      <p>
+        <text><![CDATA[Thank you!]]></text>
+      </p>
+    </object>
+    <object id="1_498138" type="text" x="982195.5967882095" y="-11611.957942108544" r="0" s="119.95872728291727" class="strong">
+      <height>30.996000000000002</height>
+      <width>-252.79199999999997</width>
+      <p>
+        <text><![CDATA[Now Go Be Professional!]]></text>
+      </p>
+    </object>
+    <object id="3_498138" type="youtube" x="-936467.0695302408" y="-163833.86608103345" r="0" s="0.4928534160192992" onFocus="start" onLeave="pause">
+      <source>ER93z6yFCOs</source>
+    </object>
+  </zui-table>
+  <path>
+    <s>
+      <eagle o="2"/>
+    </s>
+    <s>
+      <eagle o="3_498138"/>
+    </s>
+    <s>
+      <eagle o="5"/>
+    </s>
+    <s>
+      <eagle o="0_255975"/>
+    </s>
+    <s>
+      <eagle o="1_255975"/>
+    </s>
+    <s>
+      <eagle o="2_255975"/>
+    </s>
+    <s>
+      <eagle o="13_452246"/>
+    </s>
+    <s>
+      <eagle o="0_254612"/>
+    </s>
+    <s>
+      <eagle o="1_254612"/>
+    </s>
+    <s>
+      <eagle o="20_452246"/>
+    </s>
+    <s>
+      <eagle o="19_452246"/>
+    </s>
+    <s>
+      <eagle o="20_452246"/>
+    </s>
+    <s>
+      <eagle o="23_452246"/>
+    </s>
+    <s>
+      <eagle o="20_452246"/>
+    </s>
+    <s>
+      <eagle o="0_461793"/>
+    </s>
+    <s>
+      <eagle o="20_452246"/>
+    </s>
+    <s>
+      <eagle o="3_221124"/>
+    </s>
+    <s>
+      <eagle o="17_221124"/>
+    </s>
+    <s>
+      <eagle o="14_221124"/>
+    </s>
+    <s>
+      <eagle o="3_221124"/>
+    </s>
+    <s>
+      <eagle o="0_602716"/>
+    </s>
+    <s>
+      <eagle o="5_602716"/>
+    </s>
+    <s>
+      <eagle o="0_602716"/>
+    </s>
+    <s>
+      <eagle o="12_602716"/>
+    </s>
+    <s>
+      <eagle o="0_602716"/>
+    </s>
+    <s>
+      <eagle o="1_452246"/>
+    </s>
+    <s>
+      <buildin o="5_452246"/>
+    </s>
+    <s>
+      <buildin o="9_452246"/>
+    </s>
+    <s>
+      <eagle o="14_452246"/>
+    </s>
+    <s>
+      <eagle o="2_498138"/>
+    </s>
+  </path>
+  <style type="text/css"><![CDATA[
+@font-face
+{
+	src: url('CrimsonText.swf');
+	fontFamily: body;
+	font-class: body;
+	font-style: normal;
+	font-weight: normal;
+	font-family: CrimsonText;
+}
+
+@font-face
+{
+	src: url('OpenSans-Bold.swf');
+	fontFamily: head;
+	font-class: head;
+	font-style: normal;
+	font-weight: normal;
+	font-family: OpenSans-Bold;
+}
+
+@font-face
+{
+	src: url('PTSans.swf');
+	fontFamily: strong;
+	font-class: strong;
+	font-style: normal;
+	font-weight: normal;
+	font-family: PTSans;
+}
+
+@font-face
+{
+	src: url('CrimsonText-B.keg');
+	font-style: normal;
+	font-weight: bold;
+	font-family: CrimsonText;
+}
+
+@font-face
+{
+	src: url('CrimsonText-I.keg');
+	font-style: italic;
+	font-weight: normal;
+	font-family: CrimsonText;
+}
+
+@font-face
+{
+	src: url('CrimsonText-BI.keg');
+	font-style: italic;
+	font-weight: bold;
+	font-family: CrimsonText;
+}
+
+@font-face
+{
+	src: url('PTSans-BI.keg');
+	font-style: italic;
+	font-weight: bold;
+	font-family: PTSans;
+}
+
+@font-face
+{
+	src: url('PTSans-B.keg');
+	font-style: normal;
+	font-weight: bold;
+	font-family: PTSans;
+}
+
+@font-face
+{
+	src: url('PTSans-I.keg');
+	font-style: italic;
+	font-weight: normal;
+	font-family: PTSans;
+}
+
+.line1
+{
+	color: #3fc0ff;
+	gradEndColor: #3fc0ff;
+	gradStartColor: #3fc0ff;
+}
+
+.line2
+{
+	borderColor: #fff;
+	color: #f00;
+	gradEndColor: #f00;
+	gradStartColor: #f00;
+}
+
+.line3
+{
+	color: #004f75;
+	gradEndColor: #004f75;
+	gradStartColor: #004f75;
+}
+
+.line4
+{
+	color: #ffbe00;
+	gradEndColor: #ffbe00;
+	gradStartColor: #ffbe00;
+}
+
+.line5
+{
+	color: #333;
+	gradEndColor: #333;
+	gradStartColor: #333;
+}
+
+.poly1
+{
+	borderColor: #3fc0ff;
+	borderThickness: 9;
+	color: #fff;
+	gradEndColor: #fff;
+	gradStartColor: #fff;
+}
+
+.poly2
+{
+	borderColor: #3fc0ff;
+	borderThickness: 0;
+	color: #fff;
+	gradEndColor: #3fc0ff;
+	gradStartColor: #3fc0ff;
+}
+
+.poly3
+{
+	borderColor: #004f75;
+	borderThickness: 9;
+	color: #fff;
+	gradEndColor: #fff;
+	gradStartColor: #fff;
+}
+
+.poly4
+{
+	borderColor: #004f75;
+	borderThickness: 0;
+	color: #fff;
+	gradEndColor: #004f75;
+	gradStartColor: #004f75;
+}
+
+.poly5
+{
+	borderColor: #333;
+	borderThickness: 9;
+	color: #fff;
+	gradEndColor: #fff;
+	gradStartColor: #fff;
+}
+
+Background
+{
+	gradEnd: #fff;
+	gradStart: #fff;
+}
+
+Grid
+{
+	color: #b8b8b8;
+}
+
+ZArrow
+{
+	borderColor: #fff;
+	borderThickness: 0;
+	gradEndColor: #333;
+	gradStartColor: #333;
+	lockTintAlpha: 0;
+}
+
+ZCircle
+{
+	borderAlpha: 1;
+	gradEndAlpha: 1;
+	gradStartAlpha: 1;
+	lockTintAlpha: 0;
+	radius: 0;
+	thickness: 100;
+}
+
+ZCurveLine
+{
+	color: #333;
+}
+
+ZFrame.bracket
+{
+	borderColor: #b2b2b2;
+	borderThickness: 0;
+	gradEndColor: #b2b2b2;
+	gradStartColor: #b2b2b2;
+	thickness: 10;
+}
+
+ZFrame.circle
+{
+	borderColor: #004f75;
+	borderThickness: 0;
+	gradEndColor: #004f75;
+	gradStartColor: #004f75;
+	thickness: 10;
+}
+
+ZFrame.roundrect
+{
+	borderColor: #3fc0ff;
+	borderThickness: 0;
+	gradEndColor: #3fc0ff;
+	gradStartColor: #3fc0ff;
+}
+
+ZLabel
+{
+	padding: 1.2;
+}
+
+ZLabel.body
+{
+	color: #333;
+	fontFamily: body;
+}
+
+ZLabel.head
+{
+	color: #004f75;
+	fontFamily: head;
+}
+
+ZLabel.strong
+{
+	color: #318bff;
+	fontFamily: strong;
+}
+
+ZLine
+{
+	color: #333;
+	lockTintAlpha: 0;
+}
+
+ZMarker
+{
+	alpha: 0.3;
+	color: #00e1ff;
+}
+
+ZPath
+{
+	alpha: 1;
+	color: #40abe6;
+	textColor: #fff;
+	thickness: 3;
+}
+
+ZPath Ball.base
+{
+	alpha: 1;
+	fillColor: #40abe6;
+	radius: 12;
+}
+
+ZPath Ball.mid
+{
+	alpha: .5;
+	fillColor: #40abe6;
+	radius: 8;
+}
+
+ZPoly
+{
+	borderAlpha: 1;
+	gradEndAlpha: 1;
+	gradStartAlpha: 1;
+	lockTintAlpha: 0;
+	radius: 0;
+	thickness: 100;
+}
+
+arrow
+{
+	borderColor: #fff;
+	borderThickness: -1;
+	gradEndColor: #fff808;
+	gradStartColor: #fff808;
+}
+
+background
+{
+	gradEnd: #808080;
+	gradStart: #808080;
+}
+
+circle
+{
+	borderAlpha: 1;
+	lockTintAlpha: 0.6;
+	radius: 0;
+	thickness: 100;
+}
+
+frame.bracket
+{
+	borderColor: #fff;
+	borderThickness: 0;
+	gradEndColor: #c5c3c3;
+	gradStartColor: #fff;
+	thickness: 7;
+}
+
+frame.circle
+{
+	borderColor: #999;
+	borderThickness: 0;
+	gradEndColor: #333;
+	gradStartColor: #333;
+}
+
+frame.rectangle
+{
+	borderColor: #fff;
+	borderThickness: 0;
+	gradEndColor: #000;
+	gradStartColor: #000;
+	radius: 0;
+}
+
+free-line
+{
+	color: #fff808;
+}
+
+free-marker
+{
+	alpha: 0.3;
+	color: #ffff0d;
+}
+
+grid
+{
+	color: #ddd;
+}
+
+line
+{
+	color: #fff808;
+}
+
+line-arrow.style1
+{
+	color: #fff;
+	gradEndColor: #fff;
+	gradStartColor: #fff;
+}
+
+line-arrow.style2
+{
+	color: #c5c3c3;
+	gradEndColor: #c5c3c3;
+	gradStartColor: #c5c3c3;
+}
+
+line-arrow.style3
+{
+	color: #fff808;
+	gradEndColor: #fff808;
+	gradStartColor: #fff808;
+}
+
+line-arrow.style4
+{
+	color: #333;
+	gradEndColor: #333;
+	gradStartColor: #333;
+}
+
+line-arrow.style5
+{
+	color: #000;
+	gradEndColor: #000;
+	gradStartColor: #000;
+}
+
+shape
+{
+	borderAlpha: 1;
+	gradEndAlpha: 0.8;
+	gradStartAlpha: 0.7;
+	lockTintAlpha: 0.6;
+	radius: 0;
+	thickness: 100;
+}
+
+shape.style1
+{
+	borderColor: #fff;
+	borderThickness: 0;
+	gradEndColor: #fff;
+	gradStartColor: #fff;
+}
+
+shape.style2
+{
+	borderColor: #c5c3c3;
+	borderThickness: 0;
+	gradEndColor: #c5c3c3;
+	gradStartColor: #c5c3c3;
+}
+
+shape.style3
+{
+	borderColor: #fff808;
+	borderThickness: 0;
+	gradEndColor: #fff808;
+	gradStartColor: #fff808;
+}
+
+shape.style4
+{
+	borderColor: #333;
+	borderThickness: 0;
+	gradEndColor: #333;
+	gradStartColor: #333;
+}
+
+shape.style5
+{
+	borderColor: #000;
+	borderThickness: 0;
+	gradEndColor: #000;
+	gradStartColor: #000;
+}
+
+text
+{
+	padding: 1.2;
+}
+
+text.body
+{
+	color: #fff;
+	fontFamily: body;
+}
+
+text.subtitle
+{
+	color: #fff;
+	fontFamily: strong;
+}
+
+text.title
+{
+	color: #fff808;
+	fontFamily: head;
+}
+
+]]></style>
+  <hash>5a10f9f5</hash>
+<sync><oid>2okvm-nwx5cu</oid><title>copy-of-professional-dining-etiquette</title><hash>5a10f9f5</hash></sync><config>EW8du/st4KNH2C+XYm3kQpod0ciFkvC4UGN4DSm7UxJ2YjaSm0uC1uRhPNbvmj/iS4zcjLw+he4KCK31lVR+vTHKnAMEmCb8GttoDdGn3KJqG/x/vHWpbITSTEudTBbdBd4wTwg8wXfxgBXCs+zWy6Cn/bE5dym+aigMXdt8GjS8XvwTR2nuYfpC3VwwRtumlVTHILzDwjOhkquJ79SLGd6HKvF3ybuVSbSX0ZtAwiAMOPrGJqKZ0IH9hr1XWv5SpIdurZQ6qciucx3TQ2moPjPZgpYbK/OuDBb62cso+pwTNOUtXKIQIan2GkWxzQx66AX7JZHftq1LXBLW8p8J0A==</config></zuiprezi>

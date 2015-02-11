@@ -10,40 +10,53 @@ import Foundation
 import SpriteKit
 
 class MCPartEye: MCPart {
-    private var backgroundNode: SKSpriteNode
+    override var partType: PartType {
+        return .eye
+    }
+    
     var pupilNode: SKSpriteNode
-    private var targetPupilPosition: CGPoint = CGPoint(x: 0, y: 0)
-    var animateAttachPoint=CGPoint()
-    init(base: SKSpriteNode, background: SKSpriteNode,  pupil: SKSpriteNode, template: MCPartTemplate){
-        backgroundNode = background
-        pupilNode = pupil
-        pupilNode.name = "pupil"
-        super.init(aNode: base, template: template)
-        self.node.color = UIColor.clearColor()
-        self.node.colorBlendFactor = 0
-        minScale = CGFloat(0.25)
-        maxScale = CGFloat(1)
-        scale = 0.5
+    
+    private var targetPupilPosition = CGPointZero
+    
+    /**
+     * The MCPartEye consists of the white background to the eye (the base SKNode)
+     *  and the pupil (a child of the background).
+     *  
+     *  Note that some eyes don't have a white background (i.e. they're just pupils),
+     *  so we use the textureName "blankEye" in that case.
+     */
+    init(textureName: String, color: UIColor, anchor: CGPoint, pupilTextureName: String) {
+        pupilNode = SKSpriteNode(imageNamed: pupilTextureName)
+        super.init(textureName: textureName, color: color, anchor: anchor)
+        
+        self.addChild(pupilNode)
+        pupilNode.position = targetPupilPosition
+        minScale = 0.1
     }
     
     override func setColorNotColliding() {
-        backgroundNode.color = UIColor.clearColor()
-        backgroundNode.colorBlendFactor = 0.75
+        super.setColorNotColliding()
+        pupilNode.color = UIColor.clearColor()
+        pupilNode.colorBlendFactor = 0.75
     }
     
     override func setColorColliding() {
-        backgroundNode.color = UIColor.whiteColor()
-        backgroundNode.colorBlendFactor = 0.0
-    }
-    
-    override func parentToNode(pNode: SKNode) {
-        super.parentToNode(pNode)
-        self.blink(0.1)
+        super.setColorColliding()
+        pupilNode.color = UIColor.whiteColor()
+        pupilNode.colorBlendFactor = 0.0
     }
     
     func lookTowardsPoint(pt: CGPoint, base: MCPartBody) {
-        var dy: CGFloat = pt.y - (base.node.position.y)
-        var dx: CGFloat = pt.x - (base.node.position.x)
+        if self.scene == nil {
+            return
+        }
+        
+        let scenePoint = convertPoint(self.position, toNode: self.scene!)
+        
+        let diff = pt - scenePoint
+        
+        var dy: CGFloat = diff.y
+        var dx: CGFloat = diff.x
         
         var dist = sqrt(dx*dx + dy*dy)
         if (dist > 1) {
@@ -68,18 +81,8 @@ class MCPartEye: MCPart {
         }
     }
     
-    func setEyeEmotion(emotion:EyeEmotion, time:Double) {
-        //emotionNode = SKSpriteNode(texture: emotion.getTexture())
-        //node.addChild(emotionNode)
-        let hideAction = SKAction.hide()
-        backgroundNode.runAction(hideAction)
-        pupilNode.runAction(hideAction)
-    }
-    
     func blink(time: Double) {
-        let hideAction = SKAction.sequence([SKAction.hide(),SKAction.waitForDuration(time),SKAction.unhide()])
-        backgroundNode.runAction(hideAction)
-        pupilNode.runAction(hideAction)
+        // todo
     }
     
     override func update() {
@@ -92,48 +95,17 @@ class MCPartEye: MCPart {
         let dy = (-sin(ang)*targetPupilPosition.x + cos(ang)*targetPupilPosition.y)
         let pupPos = CGPoint(x: dx,y: dy)
         
-        pupilNode.runAction(SKAction.moveTo(CGPoint(x: pupPos.x * fabs(backgroundNode.frame.width*0.1), y: pupPos.y * fabs(backgroundNode.frame.height*0.1)),duration: 0.1))
+        pupilNode.runAction(SKAction.moveTo(CGPoint(x: pupPos.x * fabs(frame.width*0.1), y: pupPos.y * fabs(frame.height*0.1)),duration: 0.1))
     }
     
     func center() {
         self.targetPupilPosition = CGPoint()
     }
     
-    override func animateDetatchFromMonster(){
-        var newPoint:CGPoint
-        var offset = CGFloat(20.0)
-        newPoint = CGPoint(x: node.position.x, y: node.position.y + offset)
-        var newScale = CGPoint(x:scale+0.1,y:scale+0.1)
-        if isMirroredPart {
-            newScale.x = -newScale.x
-        }
-        node.runAction(SKAction.group([SKAction.scaleXTo(newScale.x, duration: 0.2),SKAction.scaleYTo(newScale.y,duration:0.2)]))
-        
-        pupilNode.runAction(SKAction.fadeAlphaTo(0.2, duration: 0.2))
-        backgroundNode.runAction(SKAction.fadeAlphaTo(0.2, duration: 0.2))
-        animateAttachPoint = CGPoint(x:lockPoint!.x,y:lockPoint!.y)
-        lockPoint = newPoint
-        
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    override func animateAttachToMonster(base:MCPartBody){
-        var newScale = CGPoint(x:scale,y:scale)
-        if isMirroredPart{
-            newScale.x = -newScale.x
-        }
-        node.runAction(SKAction.group([SKAction.scaleXTo(newScale.x, duration: 0.2),SKAction.scaleYTo(newScale.y,duration:0.2)]))
-        pupilNode.runAction(SKAction.fadeAlphaTo(1, duration: 0.2))
-        backgroundNode.runAction(SKAction.fadeAlphaTo(1, duration: 0.2))
-        lockPoint = animateAttachPoint
-        if let physWorld = node.scene?.physicsWorld
-        {
-            
-            //selectForCollsion()
-//            physWorld.enumerateBodiesAlongRayStart(base.node.parent!.convertPoint(animateAttachPoint, fromNode:node.parent!), end: base.node.position, usingBlock: castRayToCenter)
-            //deselectForCollsion()
-        }
-    }
-    override func setTentativeColor(newColor: UIColor) {
-        tentativeColor = newColor
-        backgroundNode.color = newColor;
-    }
+    
 }

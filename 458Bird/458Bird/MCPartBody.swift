@@ -9,8 +9,11 @@
 import Foundation
 import SpriteKit
 
-class MCPartBody: SKSpriteNode {
-
+class MCPartBody: SKSpriteNode { // TODO: Change to subclass MCPart?  Maybe?  I dunno.
+    var partType: PartType {
+        return .body
+    }
+    
     var node: SKSpriteNode
     
     override init(texture: SKTexture, color: UIColor!, size: CGSize) {
