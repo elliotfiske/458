@@ -29,11 +29,11 @@ class GameScene: SKScene {
      *  obstacles to slide o'er the screen
      */
     override func didMoveToView(view: SKView) {
-//        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: view.frame)
-//        self.physicsBody!.contactTestBitMask = wallCategory // Hits bird, but NOT obstacles.
-//        self.physicsBody!.collisionBitMask = wallCategory
-//        self.physicsBody!.categoryBitMask = wallCategory
-//        self.physicsBody!.dynamic = true
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: view.frame)
+        self.physicsBody!.contactTestBitMask = wallCategory // Hits bird, but NOT obstacles.
+        self.physicsBody!.collisionBitMask = wallCategory
+        self.physicsBody!.categoryBitMask = wallCategory
+        self.physicsBody!.dynamic = true
         view.backgroundColor = UIColor.greenColor()
         
         size = view.frame.size
@@ -94,12 +94,8 @@ class GameScene: SKScene {
         
         // Init player node
         monster.position = frame.center
-        monster2.position = frame.center + CGPoint(x: 150, y: 200)
-        monster3.position = frame.center + CGPoint(x: -150, y: 300)
         monster.xScale = 0.5
         monster.yScale = 0.5
-        monster2.setScale(0.5)
-        monster3.setScale(0.5)
         monster.physicsBody = SKPhysicsBody(circleOfRadius: 5.0)
         monster.physicsBody!.contactTestBitMask = obstacleCategory | wallCategory
         monster.physicsBody!.collisionBitMask = obstacleCategory | wallCategory
@@ -107,8 +103,6 @@ class GameScene: SKScene {
         monster.physicsBody!.mass = 0.00001
         
         self.addChild(monster)
-        self.addChild(monster2)
-        self.addChild(monster3)
         
         getReadyToStart()
     }
