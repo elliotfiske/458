@@ -159,26 +159,6 @@ class GameScene: SKScene {
      */
     func spawnObstacle() {
         return
-        
-        let offset: CGFloat = CGFloat(randomFloat(min: -200, 200))
-        let obstacleTop = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: 40, height: 450))
-        obstacleTop.position = CGPoint(x: CGRectGetMaxX(frame), y: CGRectGetMaxY(frame) + offset)
-        obstacleTop.zPosition = 10
-        obstacleTop.texture = SKTexture(imageNamed: "cactus")
-        makeObstaclePhysicsBody(obstacleTop)
-        
-        let obstacleBottom = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: 40, height: 450))
-        obstacleBottom.position = CGPoint(x: CGRectGetMaxX(frame), y: offset)
-        obstacleBottom.zPosition = 10
-        obstacleBottom.texture = SKTexture(imageNamed: "cactus")
-        makeObstaclePhysicsBody(obstacleBottom)
-        
-        addChild(obstacleTop)
-        addChild(obstacleBottom)
-        
-        let moveAcrossScreen = SKAction.moveToX(-40, duration: 4)
-        obstacleTop.runAction(SKAction.sequence([moveAcrossScreen, SKAction.removeFromParent()]))
-        obstacleBottom.runAction(SKAction.sequence([moveAcrossScreen, SKAction.removeFromParent()]))
     }
     
     /**

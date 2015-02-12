@@ -22,8 +22,10 @@
 		C9B4A4051A814137007A1591 /* flap.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9B4A4041A814137007A1591 /* flap.wav */; };
 		C9B4A4231A814931007A1591 /* MonsterAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4A4201A814931007A1591 /* MonsterAnimation.swift */; };
 		C9CC2D6D1A84653B00F8E1A3 /* MCPartArm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC2D6C1A84653B00F8E1A3 /* MCPartArm.swift */; };
+		C9CCC59D1A8C37C90032DEA6 /* AnimListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCC59C1A8C37C90032DEA6 /* AnimListController.swift */; };
 		C9CD8A951A682DD700284D33 /* FlapTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CD8A941A682DD700284D33 /* FlapTitleView.swift */; };
 		C9CD8A971A68324B00284D33 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CD8A961A68324B00284D33 /* GameModel.swift */; };
+		C9D09C161A8C9A290073B235 /* AnimMakerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D09C151A8C9A290073B235 /* AnimMakerController.swift */; };
 		C9D476811A5F064300705452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476801A5F064300705452 /* AppDelegate.swift */; };
 		C9D476831A5F064300705452 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D476821A5F064300705452 /* GameScene.sks */; };
 		C9D476851A5F064300705452 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476841A5F064300705452 /* GameScene.swift */; };
@@ -61,8 +63,10 @@
 		C9B4A4041A814137007A1591 /* flap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flap.wav; path = 458Bird/resources/flap.wav; sourceTree = "<group>"; };
 		C9B4A4201A814931007A1591 /* MonsterAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterAnimation.swift; sourceTree = "<group>"; };
 		C9CC2D6C1A84653B00F8E1A3 /* MCPartArm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartArm.swift; sourceTree = "<group>"; };
+		C9CCC59C1A8C37C90032DEA6 /* AnimListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimListController.swift; sourceTree = "<group>"; };
 		C9CD8A941A682DD700284D33 /* FlapTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapTitleView.swift; sourceTree = "<group>"; };
 		C9CD8A961A68324B00284D33 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		C9D09C151A8C9A290073B235 /* AnimMakerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimMakerController.swift; sourceTree = "<group>"; };
 		C9D4767B1A5F064300705452 /* 458Bird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 458Bird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D4767F1A5F064300705452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9D476801A5F064300705452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +155,15 @@
 			name = resources;
 			sourceTree = "<group>";
 		};
+		C9CCC59B1A8C37A30032DEA6 /* Animation Maker */ = {
+			isa = PBXGroup;
+			children = (
+				C9CCC59C1A8C37C90032DEA6 /* AnimListController.swift */,
+				C9D09C151A8C9A290073B235 /* AnimMakerController.swift */,
+			);
+			name = "Animation Maker";
+			sourceTree = "<group>";
+		};
 		C9D476721A5F064300705452 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +188,7 @@
 		C9D4767D1A5F064300705452 /* 458Bird */ = {
 			isa = PBXGroup;
 			children = (
+				C9CCC59B1A8C37A30032DEA6 /* Animation Maker */,
 				C9703D211A78788500521E4A /* Monster Classes */,
 				C9D476801A5F064300705452 /* AppDelegate.swift */,
 				C9D476821A5F064300705452 /* GameScene.sks */,
@@ -321,12 +335,14 @@
 				C9CC2D6D1A84653B00F8E1A3 /* MCPartArm.swift in Sources */,
 				C90824E91A8459A200A40C71 /* MCPartStuff.swift in Sources */,
 				C90824EC1A8459A200A40C71 /* MCPartEye.swift in Sources */,
+				C9CCC59D1A8C37C90032DEA6 /* AnimListController.swift in Sources */,
 				C9CD8A951A682DD700284D33 /* FlapTitleView.swift in Sources */,
 				C9D476851A5F064300705452 /* GameScene.swift in Sources */,
 				C9D476A71A5F074100705452 /* Convenience.swift in Sources */,
 				C9D476A51A5F072D00705452 /* CGPoint+Assimilation.swift in Sources */,
 				C90824ED1A8459A200A40C71 /* PartType.swift in Sources */,
 				C90824F41A845C6100A40C71 /* MCPartLimb.swift in Sources */,
+				C9D09C161A8C9A290073B235 /* AnimMakerController.swift in Sources */,
 				C90824E81A8459A200A40C71 /* MCPart.swift in Sources */,
 				C9703D4C1A79BFAA00521E4A /* Array+Random.swift in Sources */,
 				C9D476871A5F064300705452 /* GameViewController.swift in Sources */,
