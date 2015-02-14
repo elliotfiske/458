@@ -22,15 +22,15 @@
             </objects>
             <point key="canvasLocation" x="2670" y="522"/>
         </scene>
-        <!--View Controller-->
+        <!--Anim Preview Controller-->
         <scene sceneID="eLV-q7-8tf">
             <objects>
-                <viewController id="AMr-iZ-uDr" sceneMemberID="viewController">
+                <viewController id="AMr-iZ-uDr" customClass="AnimPreviewController" customModule="_58Bird" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bX5-KX-nAD"/>
                         <viewControllerLayoutGuide type="bottom" id="j8u-Ht-mws"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9Ed-ni-mMy">
+                    <view key="view" contentMode="scaleToFill" id="9Ed-ni-mMy" customClass="MonsterPreviewSKView" customModule="_58Bird" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,7 +94,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Edit Order" id="agc-J8-3b6"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kyj-h5-eBh">
                             <connections>
-                                <segue destination="I7m-Ar-z8c" kind="show" id="dAd-K0-ZxQ"/>
+                                <segue destination="I7m-Ar-z8c" kind="show" identifier="finishedAnim" id="dAd-K0-ZxQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -135,26 +135,35 @@
                                     <segment title="Both"/>
                                     <segment title="Both (no mirror)"/>
                                 </segments>
+                                <connections>
+                                    <action selector="pickedSide:" destination="I7m-Ar-z8c" eventType="valueChanged" id="3nQ-rk-8QD"/>
+                                </connections>
                             </segmentedControl>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="dd1-7e-opz">
                                 <rect key="frame" x="90" y="275" width="409" height="31"/>
                                 <accessibility key="accessibilityConfiguration" label="something"/>
+                                <connections>
+                                    <action selector="changedValue:" destination="I7m-Ar-z8c" eventType="valueChanged" id="qfs-fW-PHk"/>
+                                </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="AUK-4g-h0h">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="AUK-4g-h0h">
                                 <rect key="frame" x="90" y="387" width="409" height="31"/>
                                 <accessibility key="accessibilityConfiguration" label="something"/>
+                                <connections>
+                                    <action selector="changedDuration:" destination="I7m-Ar-z8c" eventType="valueChanged" id="Uo1-ku-2a5"/>
+                                </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="b3v-df-yPj">
-                                <rect key="frame" x="90" y="501" width="409" height="31"/>
-                                <accessibility key="accessibilityConfiguration" label="something"/>
-                            </slider>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Dxr-y7-U1z">
-                                <rect key="frame" x="310" y="171" width="290" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Dxr-y7-U1z">
+                                <rect key="frame" x="328" y="177" width="272" height="29"/>
                                 <segments>
-                                    <segment title="Scale"/>
-                                    <segment title="Rotation"/>
+                                    <segment title="Scale" width="79"/>
+                                    <segment title="Rot"/>
                                     <segment title="Swap Texture"/>
+                                    <segment title="Pos"/>
                                 </segments>
+                                <connections>
+                                    <action selector="pickedType:" destination="I7m-Ar-z8c" eventType="valueChanged" id="GTh-vF-e0q"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrA-Wi-WwE">
                                 <rect key="frame" x="432" y="148" width="36" height="21"/>
@@ -181,55 +190,55 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sec-sS-lWQ">
-                                <rect key="frame" x="16" y="279" width="29" height="21"/>
+                                <rect key="frame" x="16" y="279" width="61" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jds-GH-MR4">
-                                <rect key="frame" x="16" y="391" width="29" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jds-GH-MR4">
+                                <rect key="frame" x="16" y="391" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdQ-Pe-N11">
-                                <rect key="frame" x="16" y="508" width="29" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdQ-Pe-N11">
+                                <rect key="frame" x="16" y="508" width="29" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9P-Xe-FE5">
-                                <rect key="frame" x="279" y="301" width="42" height="21"/>
+                                <rect key="frame" x="279" y="301" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQV-g0-PAT">
-                                <rect key="frame" x="524" y="279" width="33" height="21"/>
+                                <rect key="frame" x="524" y="279" width="67" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Moa-wL-Cq2">
-                                <rect key="frame" x="524" y="391" width="33" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Moa-wL-Cq2">
+                                <rect key="frame" x="524" y="391" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C66-zu-uKq">
-                                <rect key="frame" x="279" y="415" width="42" height="21"/>
+                                <rect key="frame" x="279" y="415" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VI-PM-lAp">
-                                <rect key="frame" x="279" y="530" width="42" height="21"/>
+                                <rect key="frame" x="279" y="530" width="83" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aei-J7-K0M">
-                                <rect key="frame" x="524" y="508" width="33" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aei-J7-K0M">
+                                <rect key="frame" x="524" y="508" width="20" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -244,9 +253,27 @@
                                     <outlet property="delegate" destination="I7m-Ar-z8c" id="bLE-ug-CLL"/>
                                 </connections>
                             </pickerView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="b3v-df-yPj">
+                                <rect key="frame" x="90" y="501" width="409" height="31"/>
+                                <accessibility key="accessibilityConfiguration" label="something"/>
+                                <connections>
+                                    <action selector="changedDelay:" destination="I7m-Ar-z8c" eventType="valueChanged" id="HwG-tA-fes"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="delayLabel" destination="2VI-PM-lAp" id="hqL-oP-xdR"/>
+                        <outlet property="delaySlider" destination="b3v-df-yPj" id="zd9-ct-gih"/>
+                        <outlet property="durationLabel" destination="C66-zu-uKq" id="bJj-DL-Ae2"/>
+                        <outlet property="durationSlider" destination="AUK-4g-h0h" id="YQW-2N-RkM"/>
+                        <outlet property="howMuchLabel" destination="v9P-Xe-FE5" id="Ibu-8W-jGe"/>
+                        <outlet property="maxValueLabel" destination="SQV-g0-PAT" id="FAb-HV-Eja"/>
+                        <outlet property="minValueLabel" destination="sec-sS-lWQ" id="026-iY-iJr"/>
+                        <outlet property="typeSegControl" destination="Dxr-y7-U1z" id="PEk-sd-H8f"/>
+                        <outlet property="valueSlider" destination="dd1-7e-opz" id="ug5-I5-DpC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H1x-Ej-b4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

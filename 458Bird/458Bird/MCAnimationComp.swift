@@ -1,5 +1,5 @@
 //
-//  MonsterAnimation.swift
+//  MCAnimationComp.swift
 //  458Bird
 //
 //  Created by Elliot Fiske on 1/28/15.
@@ -9,17 +9,25 @@
 import Foundation
 import SpriteKit
 
-class MonsterAnimation: NSObject {
-    let actsOn: PartType
+class MCAnimation: NSObject {
+    var comps = [MCAnimationComp]()
+}
+
+class MCAnimationComp: NSObject {
+    var actsOn: PartType
     /** Does this animation affect the right, left, or both sides of the monster? */
-    let actsOnSide: AnimSide
-    let animation: SKAction
+    var actsOnSide: AnimSide
+    var animation: SKAction
     
     init(actsOn: PartType, actsOnSide: AnimSide, animations: SKAction) {
         self.actsOn = actsOn
         self.animation = animations
         self.actsOnSide = actsOnSide
         super.init()
+    }
+
+    convenience override init() {
+        self.init(actsOn: .arm, actsOnSide: .both, animations: SKAction())
     }
 }
 
@@ -31,4 +39,19 @@ class MonsterAnimation: NSObject {
  */
 enum AnimSide {
     case left, right, both, bothNoMirror
+    
+    static func animSideFromIndex(index: Int) -> AnimSide {
+        switch(index) {
+        case 0:
+            return .left
+        case 1:
+            return .right
+        case 2:
+            return .both
+        case 3:
+            return .bothNoMirror
+        default:
+            fatalError("Invalid index \(index) sent to animSideFromIndex")
+        }
+    }
 }

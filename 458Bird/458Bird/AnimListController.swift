@@ -13,9 +13,8 @@ import UIKit
 class AnimListController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
-        // TODO: Register cell for reuse
+        // TODO: Register cell for reuse (maybe?)
     }
-    
     
     /**** TABLE VIEW STUFF ****/
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

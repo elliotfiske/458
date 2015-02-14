@@ -56,26 +56,33 @@ class MonsterModel: NSObject, NSCoding {
     * The view asked us what it should do for this frame.
     */
     func doUpdate() {
-        // Figure out idle animations here
+        // Figure out idle animations here I guess?
     }
     
     /**
-    * Execute the specified MonsterAnimation
-    */
-//    func doAnimation(anim: MonsterAnimation) {
-//        
-//    }
+     * Execute the specified MCAnimationComp
+     */
+    func doAnimation(anim: MCAnimationComp) {
+        // Check which part 
+    }
     
     /**
-    * Remove a specified part from the monster model
-    */
+     * Reset the monster's parts to default rotation, scale, position
+     */
+    func resetAnimations() {
+        
+    }
+    
+    /**
+     * Remove a specified part from the monster model
+     */
     func removePart(part: MCPart) {
         
     }
     
     /**
-    * Add the specified part to the monster model
-    */
+     * Add the specified part to the monster model
+     */
     func addPart(part: MCPart) {
         parts[part.partType]!.append(part)
         body.addChild(part)

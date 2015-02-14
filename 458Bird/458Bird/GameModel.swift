@@ -31,13 +31,8 @@ class GameModel: NSObject, SKPhysicsContactDelegate {
         super.init()
 
         let model1 = elliotsShame()
-        let model2 = elliotsShame()
-        let model3 = elliotsShame()
-        
         
         gameController.setMainMonster(model1.body)
-        gameController.setMon2(model2.body)
-        gameController.setMon3(model3.body)
     }
     
     func elliotsShame() -> MonsterModel {

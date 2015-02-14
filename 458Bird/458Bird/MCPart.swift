@@ -210,7 +210,7 @@ class MCPart: SKSpriteNode {
         }
     }
     
-//    func animate(anim: MonsterAnimation, parent:SKNode) {
+//    func animate(anim: MCAnimationComp, parent:SKNode) {
         // to do, holmes
 //    }
     

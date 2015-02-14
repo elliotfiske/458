@@ -74,7 +74,7 @@ class MCPartLeg: MCPartLimb {
         visibleLeg.colorBlendFactor = 1.0
     }
     
-//    override func animate(anim: MonsterAnimation, parent:SKNode) {
+//    override func animate(anim: MCAnimationComp, parent:SKNode) {
 //        if (anim.actsOn == PartType.leg) {
 //            if (isMirroredPart) {
 //                self.node.runAction(anim.animationM)
