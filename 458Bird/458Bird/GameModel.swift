@@ -37,7 +37,7 @@ class GameModel: NSObject, SKPhysicsContactDelegate {
     
     func elliotsShame() -> MonsterModel {
         /** ALL THIS IS SECRET AWFUL CODE THAT ELLIOT IS ASHAMED OF */
-        let monsterBody = MCPartBody(imageNamed: "monsterBody")
+        let monsterBody = MCPartBody(textureName: "monsterBody", color: UIColor.whiteColor(), anchor: CGPoint(x: 0.5, y: 0.5))
         monModel = MonsterModel(newBody: monsterBody, bodyColor: UIColor.redColor())
         
         let eye1 = MCPartEye(textureName: "eye1", color: UIColor.whiteColor(), anchor: CGPoint(x: 0.5, y: 0.5), pupilTextureName: "pupil1")

@@ -46,13 +46,9 @@ class MCPart: SKSpriteNode {
     var savedTexture: SKTexture!
     var textureName: String
     
-    /** The user can rotate parts, we want to remember how much they rotated them by */
+    /** The user can rotate and scale parts, we want to remember their original parameters */
     var angle: CGFloat = 0
-    var scale: CGFloat {
-        get {
-            return min(abs(xScale), abs(yScale))
-        }
-    }
+    var savedScale: CGFloat = 1
     
     /** Describes the last point the node was at BEFORE it was parented to something else */
     var lastParentedPoint: CGPoint = CGPoint()
@@ -152,7 +148,7 @@ class MCPart: SKSpriteNode {
     }
     
     /**
-     * If the user is tapping a part (at selectionPoint) this returns true.
+     * If the user is tapping this part, returns true.
      */
     func isSelected(selectionPoint: CGPoint) -> Bool {
         return frame.contains(selectionPoint)
@@ -240,8 +236,24 @@ class MCPart: SKSpriteNode {
         if(abs(scale) > minScale && abs(scale) < maxScale) {
             super.setScale(abs(scale))
             if (isMirroredPart) {
-                xScale = -abs(scale)
+                xScale = -scale
             }
+        }
+        savedScale = scale
+    }
+    
+    /**  
+     * Reset the part's scale after an aniation
+     */
+    func resetScale() {
+        SKAction.scaleXTo(isMirroredPart ? -savedScale : savedScale,
+                           y: savedScale,
+                    duration: 0.2 )
+    }
+    
+    func snapToLockPoint() {
+        if let target = lockPoint {
+            position = target
         }
     }
     
@@ -285,7 +297,7 @@ class MCPart: SKSpriteNode {
         var newPoint: CGPoint
         var offset: CGFloat = 20.0
         newPoint = CGPoint(x: position.x, y: position.y + offset)
-        var newScale = CGPoint(x:scale+0.1, y:scale+0.1)
+        var newScale = CGPoint(x:savedScale+0.1, y:savedScale+0.1)
         if isMirroredPart{
             newScale.x = -newScale.x
         }
@@ -332,7 +344,7 @@ class MCPart: SKSpriteNode {
         dict["posX"]     = self.position.x.description
         dict["posY"]     = self.position.y.description
         dict["rotation"] = self.angle.description
-        dict["scale"]    = self.scale.description
+        dict["scale"]    = self.savedScale.description
         dict["hidden"]   = self.hidden.description
         
         var components = CGColorGetComponents(self.color.CGColor)

@@ -11,9 +11,11 @@ import UIKit
 import SpriteKit
 
 class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    let partTypes: [PartType] = [.arm, .leg, .base, .eye, .decal, .mouth, .hat]
+    let partTypes: [PartType] = [.arm, .leg, .base, .eye, .decal, .mouth]
     
-    var currAnimation = MCAnimationComp()
+    var currAnimationRow: Int!
+    
+    @IBOutlet weak var partTypePicker: UIPickerView!
     
     @IBOutlet weak var valueSlider: UISlider!
     @IBOutlet weak var durationSlider: UISlider!
@@ -27,10 +29,25 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var delayLabel: UILabel!
     
-    override func viewDidAppear(animated: Bool) {
-        valueSlider.setValue(0, animated: true)
-        durationSlider.setValue(0, animated: true)
-        delaySlider.setValue(0, animated: true)
+    override func viewWillAppear(animated: Bool) {
+        let currAnimation = MonsterPreviewScene.currAnim!.comps[currAnimationRow]
+        
+        var partTypeIndex = 0
+        for (ndx, partType) in enumerate(partTypes) {
+            if partType == currAnimation.actsOn {
+                partTypeIndex = ndx
+            }
+        }
+        partTypePicker.selectRow(partTypeIndex, inComponent: 0, animated: false)
+        typeSegControl.selectedSegmentIndex = currAnimation.type.rawValue
+        valueSlider.setValue(Float(currAnimation.xValue), animated: true)
+        durationSlider.setValue(Float(currAnimation.duration), animated: true)
+        delaySlider.setValue(Float(currAnimation.delay), animated: true)
+        
+        changedDelay(delaySlider)
+        changedValue(valueSlider)
+        changedDuration(durationSlider)
+        pickedType(typeSegControl)
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -47,7 +64,7 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         println("selected row \(partTypes[row].displayName())!")
-        currAnimation.actsOn = partTypes[row]
+        updateCurrAnimation()
     }
     
     
@@ -90,50 +107,54 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
     
     /** Update the animation when the user chooses 'left/right/both' */
     @IBAction func pickedSide(sender: AnyObject) {
-        if let segControl = sender as? UISegmentedControl {
-            currAnimation.actsOnSide = AnimSide.animSideFromIndex(segControl.selectedSegmentIndex)
-        }
-        
-        animationFromSliders()
+        updateCurrAnimation()
     }
     
     
     /*** SILLY SLIDERS ***/
     @IBAction func changedValue(sender: AnyObject) {
-        howMuchLabel.text = (sender as? UISlider)!.value.description
+        var newValue = CGFloat((sender as? UISlider)!.value)
+        
+        howMuchLabel.text = newValue.description
+        updateCurrAnimation()
     }
     
     @IBAction func changedDuration(sender: AnyObject) {
         durationLabel.text = (sender as? UISlider)!.value.description
+        updateCurrAnimation()
     }
     
     @IBAction func changedDelay(sender: AnyObject) {
         delayLabel.text = (sender as? UISlider)!.value.description
+        updateCurrAnimation()
     }
     
     /**
      * Updates the currAnimation property with values pulled from the different value sliders
      */
-    func animationFromSliders() {
-        var delayAction: SKAction
+    func updateCurrAnimation() {
         var animAction = SKAction.waitForDuration(NSTimeInterval(delaySlider.value))
-    
-        var animValue = CGFloat(valueSlider.value)
+        
+        var type = partTypes[partTypePicker.selectedRowInComponent(0)]
+        var side = AnimSide(rawValue: typeSegControl.selectedSegmentIndex)!
+
         var duration = NSTimeInterval(durationSlider.value)
+        var delay = NSTimeInterval(delaySlider.value)
+        
+        var howMuch = CGFloat(valueSlider.value)
+        var howMuchY: CGFloat = 0.0
         
         switch (typeSegControl.selectedSegmentIndex) {
         case 0:
-            currAnimation.animation = SKAction.scaleBy(animValue, duration: duration)
+            MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.scalePart(type, actsOnSide: side, duration: duration, delay: delay, scaleXBy: howMuch, scaleYBy: howMuchY)
         case 1:
-            currAnimation.animation = SKAction.rotateByAngle(animValue, duration: duration)
+            MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.rotatePart(type, actsOnSide: side, duration: duration, delay: delay, angle: howMuch * π / 180.0)
         case 2:
-            currAnimation.animation = SKAction.setTexture(SKTexture(imageNamed: "lol this isn't ready yet plz"))
+            MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.swapTexture(type, actsOnSide: side, duration: duration, delay: delay, newTexture: "lol not done")
         case 3:
-            currAnimation.animation = SKAction.moveByX(0, y: 0, duration: 0)
+            MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.movePart(type, actsOnSide: side, duration: duration, delay: delay, moveXBy: howMuch, moveYBy: howMuchY)
         default:
             println("Somehow chose an animation type that doesn't exist..?!? (animationFromSliders)")
         }
     }
-    
-    
 }

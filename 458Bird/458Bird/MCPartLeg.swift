@@ -119,7 +119,7 @@ class MCPartLeg: MCPartLimb {
         dict["posX"]     = self.position.x.description
         dict["posY"]     = self.position.y.description
         dict["rotation"] = self.angle.description
-        dict["scale"]    = self.scale.description
+        dict["scale"]    = self.savedScale.description
         dict["hidden"]   = self.hidden.description
         var components = CGColorGetComponents(visibleLeg.color.CGColor)
         var alpha = CGColorGetAlpha(visibleLeg.color.CGColor)

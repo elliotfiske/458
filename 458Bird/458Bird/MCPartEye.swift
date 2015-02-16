@@ -61,7 +61,7 @@ class MCPartEye: MCPart {
         var dist = sqrt(dx*dx + dy*dy)
         if (dist > 1) {
             if fabs(dy/dist) > 0.95 {
-                let newPt = pointInNode(base.node.parent!)
+                let newPt = pointInNode(base.parent!)
                 dy = pt.y - newPt.y
                 dx = pt.x - newPt.x
                 dist = fmax(sqrt(dx*dx + dy*dy),0.01)

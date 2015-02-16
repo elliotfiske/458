@@ -11,6 +11,7 @@
 
 import Foundation
 import UIKit
+import SpriteKit
 
 class MonsterModel: NSObject, NSCoding {
     /** Every part on the monster, organized by part type */
@@ -44,7 +45,8 @@ class MonsterModel: NSObject, NSCoding {
             PartType.leg:[],
             PartType.decal:[],
             PartType.eye:[],
-            PartType.mouth:[]
+            PartType.mouth:[],
+            PartType.base:[newBody]
         ]
         
         self.bodyColor = bodyColor
@@ -62,15 +64,26 @@ class MonsterModel: NSObject, NSCoding {
     /**
      * Execute the specified MCAnimationComp
      */
-    func doAnimation(anim: MCAnimationComp) {
-        // Check which part 
+    func doAnimation(anim: MCAnimation) {
+        // Go through each animation and run it on the correct parts
+        for comp in anim.comps {
+            for part in parts[comp.actsOn]! {
+                part.runAction(comp.animation)
+            }
+        }
     }
     
     /**
      * Reset the monster's parts to default rotation, scale, position
      */
     func resetAnimations() {
-        
+        for partArrays in parts.values {
+            for part in partArrays {
+                part.runAction(SKAction.rotateToAngle(part.angle, duration: 0.2, shortestUnitArc: true))
+                part.resetScale()
+                part.runAction(SKAction.moveTo(part.lockPoint!, duration: 0.2))
+            }
+        }
     }
     
     /**

@@ -21,8 +21,9 @@ class AnimPreviewController: UIViewController {
         var currView = self.view as MonsterPreviewSKView
         currView.backgroundColor = UIColor.blueColor()
         
-        previewScene = MonsterPreviewScene(size: self.view.frame.size)
-        previewScene.monNode = animatorModel.monModel.body
+        let skSize = CGSize(width: view.frame.size.width, height: view.frame.size.height * 2)
+        previewScene = MonsterPreviewScene(size: skSize)
+        previewScene.monModel = animatorModel.monModel
         currView.presentScene(previewScene)
     }
 }
@@ -34,18 +35,39 @@ class MonsterPreviewSKView: SKView {
 
 class MonsterPreviewScene: SKScene {
     // Global handle to the array of animations playing on the monster
-    private struct CurrAnim { static weak var currAnim: MCAnimation? = nil }
+    private struct CurrAnim { static var currAnim: MCAnimation? = nil }
     class var currAnim: MCAnimation? {
         get { return CurrAnim.currAnim }
         set { CurrAnim.currAnim = newValue }
     }
     
-    var monNode: SKSpriteNode!
+    var monModel: MonsterModel!
     
     override func didMoveToView(view: SKView) {
-        monNode.position = view.frame.center
-        self.addChild(monNode)
+        monModel.body.position = view.frame.center
+        monModel.body.lockPoint = view.frame.center
+        self.addChild(monModel.body)
         
-        // Repeat action forever: Run the actions in MCAnimation, then call resetAnimation
+        MonsterPreviewScene.currAnim = MCAnimation()
+        MonsterPreviewScene.currAnim!.comps = [
+            MCAnimationComp.rotatePart(.leg, actsOnSide: .both, duration: 0.5, delay: 0, angle: π/4)
+        ]
+        
+        doCurrentAnimation(monModel)
+    }
+    
+    func doCurrentAnimation(node: MonsterModel) {
+        // Repeat this forever: Run the actions in MCAnimation, then call resetAnimation
+        node.doAnimation(MonsterPreviewScene.currAnim!)
+        println("running animation on guy")
+        
+        delay(MonsterPreviewScene.currAnim!.totalDuration) {
+            
+            node.resetAnimations()
+            println("Resetting animation")
+            delay(0.2) {
+                self.doCurrentAnimation(node)
+            }
+        }
     }
 }

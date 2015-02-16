@@ -94,7 +94,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Edit Order" id="agc-J8-3b6"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kyj-h5-eBh">
                             <connections>
-                                <segue destination="I7m-Ar-z8c" kind="show" identifier="finishedAnim" id="dAd-K0-ZxQ"/>
+                                <segue destination="I7m-Ar-z8c" kind="show" identifier="editAnimation" id="dAd-K0-ZxQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -271,6 +271,7 @@
                         <outlet property="howMuchLabel" destination="v9P-Xe-FE5" id="Ibu-8W-jGe"/>
                         <outlet property="maxValueLabel" destination="SQV-g0-PAT" id="FAb-HV-Eja"/>
                         <outlet property="minValueLabel" destination="sec-sS-lWQ" id="026-iY-iJr"/>
+                        <outlet property="partTypePicker" destination="C9S-vw-lyK" id="nTG-TZ-OWO"/>
                         <outlet property="typeSegControl" destination="Dxr-y7-U1z" id="PEk-sd-H8f"/>
                         <outlet property="valueSlider" destination="dd1-7e-opz" id="ug5-I5-DpC"/>
                     </connections>

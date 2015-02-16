@@ -9,24 +9,23 @@
 import Foundation
 import SpriteKit
 
-class MCPartBody: SKSpriteNode { // TODO: Change to subclass MCPart?  Maybe?  I dunno.
-    var partType: PartType {
+class MCPartBody: MCPart { // TODO: Change to subclass MCPart?  Maybe?  I dunno.
+    override var partType: PartType {
         return .body
     }
     
-    var node: SKSpriteNode
+//    init(textureName: String, color: UIColor, anchor: CGPoint) {
+//        super.
+//        node = self
+//    }
     
-    override init(texture: SKTexture, color: UIColor!, size: CGSize) {
-        node = SKSpriteNode()
-        super.init(texture: texture, color: color, size: size)
-        node = self
-    }
+//    convenience init() {
+//        self.init(texture: SKTexture(imageNamed: "monsterBody"), color: UIColor.purpleColor(), size: CGSize(width: 100, height: 100))
+//    }
     
-    convenience override init() {
-        self.init(texture: SKTexture(imageNamed: "monsterBody"), color: UIColor.purpleColor(), size: CGSize(width: 100, height: 100))
-    }
+    
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
 }
