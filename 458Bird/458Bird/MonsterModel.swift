@@ -62,13 +62,13 @@ class MonsterModel: NSObject, NSCoding {
     }
     
     /**
-     * Execute the specified MCAnimationComp
+     * Execute the specified animation
      */
-    func doAnimation(anim: MCAnimation) {
+    func doAnimation(anim: Animation) {
         // Go through each animation and run it on the correct parts
-        for comp in anim.comps {
-            for part in parts[comp.actsOn]! {
-                part.runAction(comp.animation)
+        for step in anim.animationDetails.allObjects as [AnimationStep] {
+            for part in self.parts[ PartType(rawValue: step.actsOn)! ]! {
+                part.runAction(step.generateSKAction())
             }
         }
     }

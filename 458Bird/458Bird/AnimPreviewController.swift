@@ -34,39 +34,28 @@ class MonsterPreviewSKView: SKView {
 }
 
 class MonsterPreviewScene: SKScene {
-    // Global handle to the array of animations playing on the monster
-    private struct CurrAnim { static var currAnim: Animation? = nil }
-    class var currAnim: Animation? {
-        get { return CurrAnim.currAnim }
-        set { CurrAnim.currAnim = newValue }
-    }
-    
     var monModel: MonsterModel!
+    var currAnimation: Animation!
     
     override func didMoveToView(view: SKView) {
         monModel.body.position = view.frame.center
         monModel.body.lockPoint = view.frame.center
         self.addChild(monModel.body)
         
-        MonsterPreviewScene.currAnim = Animation()
-        MonsterPreviewScene.currAnim!.comps = [
-            MCAnimationComp.rotatePart(.leg, actsOnSide: .both, duration: 0.5, delay: 0, angle: 45)
-        ]
-        
         doCurrentAnimation(monModel)
     }
     
-    func doCurrentAnimation(node: MonsterModel) {
+    func doCurrentAnimation(model: MonsterModel) {
         // Repeat this forever: Run the actions in MCAnimation, then call resetAnimation
-        node.doAnimation(MonsterPreviewScene.currAnim!)
+        model.doAnimation(currAnimation)
         println("running animation on guy")
         
-        delay(MonsterPreviewScene.currAnim!.totalDuration) {
-            
-            node.resetAnimations()
+        delay(currAnimation.totalDuration) {
+            model.resetAnimations()
             println("Resetting animation")
             delay(0.2) {
-                self.doCurrentAnimation(node)
+                [unowned self] in
+                self.doCurrentAnimation(model)
             }
         }
     }

@@ -25,7 +25,7 @@
         <!--Anim Preview Controller-->
         <scene sceneID="eLV-q7-8tf">
             <objects>
-                <viewController id="AMr-iZ-uDr" customClass="AnimPreviewController" customModule="_58Bird" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="previewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AMr-iZ-uDr" customClass="AnimPreviewController" customModule="_58Bird" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bX5-KX-nAD"/>
                         <viewControllerLayoutGuide type="bottom" id="j8u-Ht-mws"/>

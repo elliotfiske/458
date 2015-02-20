@@ -13,8 +13,8 @@ import SpriteKit
 class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     let partTypes: [PartType] = [.arm, .leg, .base, .eye, .decal, .mouth]
     
-    var currAnimationRow: Int!
     var currStep: AnimationStep!
+    var animationListController: AnimListController!
     
     @IBOutlet weak var partTypePicker: UIPickerView!
     
@@ -31,9 +31,7 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet weak var delayLabel: UITextField!
     
     override func viewWillAppear(animated: Bool) {
-        var currAnimationSteps = MonsterPreviewScene.currAnim!.animationDetails.allObjects as [AnimationStep]
-        currAnimationSteps.sort { ($0.orderInArray as Int) < ($1.orderInArray as Int) }
-        let currStep = currAnimationSteps[currAnimationRow]
+        currStep = AnimationStep.createEntity() as AnimationStep
         
         var partTypeIndex = 0
         for (ndx, partType) in enumerate(partTypes) {
@@ -77,24 +75,17 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
      */
     @IBAction func pickedType(sender: AnyObject) {
         if let segControl = sender as? UISegmentedControl {
-            switch(segControl.selectedSegmentIndex) {
-            /** SCALE **/
-            case 0:
+            switch(AnimType(rawValue: segControl.selectedSegmentIndex)!) {
+            case .scale:
                 valueSlider.minimumValue = -2
                 valueSlider.maximumValue = 2
-                
-            /** ROTATION **/
-            case 1:
+            case .rotation:
                 valueSlider.minimumValue = -360
                 valueSlider.maximumValue = 360
-                
-            /** SWAP TEXTURE (NOT DONE) **/
-            case 2:
+            case .textureSwap:
                 valueSlider.minimumValue = 0
                 valueSlider.maximumValue = 0
-                
-            /** POSITION (NOT DONE) **/
-            case 3:
+            case .position:
                 valueSlider.minimumValue = -20
                 valueSlider.maximumValue = 20
                 
@@ -132,15 +123,15 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
     }
     
     /**
-     * Updates the currAnimation property with values pulled from the different value sliders
+     * Updates the currStep property with values pulled from the different value sliders and pickers
+     *
+     * Also update the list of SKActions currently going on in the preview controller
      */
     func updateCurrAnimation() {
-        var animAction = SKAction.waitForDuration(NSTimeInterval(delaySlider.value))
-
-//        valueSlider.setValue(Float(valueLabel.text.), animated: false)
-        
-        var type = partTypes[partTypePicker.selectedRowInComponent(0)]
+        var partType = partTypes[partTypePicker.selectedRowInComponent(0)]
         var side = AnimSide(rawValue: typeSegControl.selectedSegmentIndex)!
+        
+        var animType = typeSegControl.selectedSegmentIndex
 
         var duration = NSTimeInterval(durationSlider.value)
         var delay = NSTimeInterval(delaySlider.value)
@@ -148,17 +139,15 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
         var howMuch = CGFloat(valueSlider.value)
         var howMuchY: CGFloat = 1.0
         
-        switch (typeSegControl.selectedSegmentIndex) {
-        case 0:
-            MonsterPreviewScene.currAnim!.animationDetails. = MCAnimationComp.scalePart(type, actsOnSide: side, duration: duration, delay: delay, scaleXBy: howMuch, scaleYBy: howMuchY)
-        case 1:
-            MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.rotatePart(type, actsOnSide: side, duration: duration, delay: delay, angle: howMuch)
-        case 2:
-            MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.swapTexture(type, actsOnSide: side, duration: duration, delay: delay, newTexture: "lol not done")
-        case 3:
-            MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.movePart(type, actsOnSide: side, duration: duration, delay: delay, moveXBy: howMuch, moveYBy: howMuchY)
-        default:
-            println("Somehow chose an animation type that doesn't exist..?!? (animationFromSliders)")
-        }
+        currStep.actsOn = partType.rawValue
+        currStep.actsOnSide = side.rawValue
+        currStep.animType = animType
+        currStep.duration = duration
+        currStep.delay = delay
+        currStep.xValue = howMuch
+        // TODO: currstep.yvalue
+        // TODO: currstep.textureName
+
+        animationListController.updateCurrAnimation(currStep)
     }
 }

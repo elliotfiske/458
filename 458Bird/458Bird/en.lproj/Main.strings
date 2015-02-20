@@ -1,0 +1,75 @@
+
+/* Class = "IBUISegmentedControl"; 11W-6r-dHh.segmentTitles[0] = "Left"; ObjectID = "11W-6r-dHh"; */
+"11W-6r-dHh.segmentTitles[0]" = "Left";
+
+/* Class = "IBUISegmentedControl"; 11W-6r-dHh.segmentTitles[1] = "Right"; ObjectID = "11W-6r-dHh"; */
+"11W-6r-dHh.segmentTitles[1]" = "Right";
+
+/* Class = "IBUISegmentedControl"; 11W-6r-dHh.segmentTitles[2] = "Both"; ObjectID = "11W-6r-dHh"; */
+"11W-6r-dHh.segmentTitles[2]" = "Both";
+
+/* Class = "IBUISegmentedControl"; 11W-6r-dHh.segmentTitles[3] = "Both (no mirror)"; ObjectID = "11W-6r-dHh"; */
+"11W-6r-dHh.segmentTitles[3]" = "Both (no mirror)";
+
+/* Class = "IBUISlider"; accessibilityLabel = "something"; ObjectID = "AUK-4g-h0h"; */
+"AUK-4g-h0h.accessibilityLabel" = "something";
+
+/* Class = "IBUILabel"; text = "20"; ObjectID = "Aei-J7-K0M"; */
+"Aei-J7-K0M.text" = "20";
+
+/* Class = "IBUINavigationItem"; title = "Animations"; ObjectID = "Bfj-R4-EXO"; */
+"Bfj-R4-EXO.title" = "Animations";
+
+/* Class = "IBUISegmentedControl"; Dxr-y7-U1z.segmentTitles[0] = "Scale"; ObjectID = "Dxr-y7-U1z"; */
+"Dxr-y7-U1z.segmentTitles[0]" = "Scale";
+
+/* Class = "IBUISegmentedControl"; Dxr-y7-U1z.segmentTitles[1] = "Rot"; ObjectID = "Dxr-y7-U1z"; */
+"Dxr-y7-U1z.segmentTitles[1]" = "Rot";
+
+/* Class = "IBUISegmentedControl"; Dxr-y7-U1z.segmentTitles[2] = "Swap Texture"; ObjectID = "Dxr-y7-U1z"; */
+"Dxr-y7-U1z.segmentTitles[2]" = "Swap Texture";
+
+/* Class = "IBUISegmentedControl"; Dxr-y7-U1z.segmentTitles[3] = "Pos"; ObjectID = "Dxr-y7-U1z"; */
+"Dxr-y7-U1z.segmentTitles[3]" = "Pos";
+
+/* Class = "IBUILabel"; text = "Delay"; ObjectID = "HZI-Aq-tS6"; */
+"HZI-Aq-tS6.text" = "Delay";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "IdQ-Pe-N11"; */
+"IdQ-Pe-N11.text" = "0";
+
+/* Class = "IBUILabel"; text = "5"; ObjectID = "Moa-wL-Cq2"; */
+"Moa-wL-Cq2.text" = "5";
+
+/* Class = "IBUILabel"; text = "Max"; ObjectID = "SQV-g0-PAT"; */
+"SQV-g0-PAT.text" = "Max";
+
+/* Class = "IBUILabel"; text = "Type"; ObjectID = "SrA-Wi-WwE"; */
+"SrA-Wi-WwE.text" = "Type";
+
+/* Class = "IBUILabel"; text = "Side"; ObjectID = "Z17-Dp-8gW"; */
+"Z17-Dp-8gW.text" = "Side";
+
+/* Class = "IBUIBarButtonItem"; title = "Edit Order"; ObjectID = "agc-J8-3b6"; */
+"agc-J8-3b6.title" = "Edit Order";
+
+/* Class = "IBUISlider"; accessibilityLabel = "something"; ObjectID = "b3v-df-yPj"; */
+"b3v-df-yPj.accessibilityLabel" = "something";
+
+/* Class = "IBUISlider"; accessibilityLabel = "something"; ObjectID = "dd1-7e-opz"; */
+"dd1-7e-opz.accessibilityLabel" = "something";
+
+/* Class = "IBUILabel"; text = "How Much"; ObjectID = "dna-wH-edG"; */
+"dna-wH-edG.text" = "How Much";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "jds-GH-MR4"; */
+"jds-GH-MR4.text" = "0";
+
+/* Class = "IBUILabel"; text = "Duration"; ObjectID = "lAD-zl-BD8"; */
+"lAD-zl-BD8.text" = "Duration";
+
+/* Class = "IBUILabel"; text = "Min"; ObjectID = "sec-sS-lWQ"; */
+"sec-sS-lWQ.text" = "Min";
+
+/* Class = "IBUILabel"; text = "Acts On:"; ObjectID = "z25-v0-k5U"; */
+"z25-v0-k5U.text" = "Acts On:";

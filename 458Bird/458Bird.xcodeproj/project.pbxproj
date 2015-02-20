@@ -18,6 +18,8 @@
 		C90824EE1A8459A200A40C71 /* MCPartBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90824E51A8459A200A40C71 /* MCPartBody.swift */; };
 		C90824F21A8459B100A40C71 /* MonsterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90824F01A8459B100A40C71 /* MonsterModel.swift */; };
 		C90824F41A845C6100A40C71 /* MCPartLimb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90824F31A845C6100A40C71 /* MCPartLimb.swift */; };
+		C9346F5F1A97FD28002DA504 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D476881A5F064300705452 /* Main.storyboard */; };
+		C9346F621A97FD89002DA504 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D4768D1A5F064300705452 /* LaunchScreen.xib */; };
 		C965A80C1A8F3440003FC0C7 /* AnimatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C965A80B1A8F3440003FC0C7 /* AnimatorModel.swift */; };
 		C9703D4C1A79BFAA00521E4A /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D4B1A79BFAA00521E4A /* Array+Random.swift */; };
 		C979B90C1A884F090055607A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C979B90B1A884F090055607A /* Images.xcassets */; };
@@ -35,8 +37,6 @@
 		C9D476831A5F064300705452 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C9D476821A5F064300705452 /* GameScene.sks */; };
 		C9D476851A5F064300705452 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476841A5F064300705452 /* GameScene.swift */; };
 		C9D476871A5F064300705452 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476861A5F064300705452 /* GameViewController.swift */; };
-		C9D4768A1A5F064300705452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D476881A5F064300705452 /* Main.storyboard */; };
-		C9D4768F1A5F064300705452 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D4768D1A5F064300705452 /* LaunchScreen.xib */; };
 		C9D476A51A5F072D00705452 /* CGPoint+Assimilation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476A41A5F072D00705452 /* CGPoint+Assimilation.swift */; };
 		C9D476A71A5F074100705452 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476A61A5F074100705452 /* Convenience.swift */; };
 		C9EB7C991A8DEAA800F10BD5 /* AnimPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB7C981A8DEAA800F10BD5 /* AnimPreviewController.swift */; };
@@ -56,6 +56,8 @@
 		C90824E51A8459A200A40C71 /* MCPartBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartBody.swift; sourceTree = "<group>"; };
 		C90824F01A8459B100A40C71 /* MonsterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterModel.swift; sourceTree = "<group>"; };
 		C90824F31A845C6100A40C71 /* MCPartLimb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartLimb.swift; sourceTree = "<group>"; };
+		C9346F611A97FD65002DA504 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		C9346F641A97FD8F002DA504 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C965A80B1A8F3440003FC0C7 /* AnimatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatorModel.swift; sourceTree = "<group>"; };
 		C9703D4B1A79BFAA00521E4A /* Array+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Random.swift"; sourceTree = "<group>"; };
 		C979B90B1A884F090055607A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = 458Bird/Images.xcassets; sourceTree = "<group>"; };
@@ -315,11 +317,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9D4768F1A5F064300705452 /* LaunchScreen.xib in Resources */,
+				C9346F621A97FD89002DA504 /* LaunchScreen.xib in Resources */,
+				C9346F5F1A97FD28002DA504 /* Main.storyboard in Resources */,
 				C979B90C1A884F090055607A /* Images.xcassets in Resources */,
 				C9D476831A5F064300705452 /* GameScene.sks in Resources */,
 				C9B4A4051A814137007A1591 /* flap.wav in Resources */,
-				C9D4768A1A5F064300705452 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +402,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C9D476891A5F064300705452 /* Base */,
+				C9346F611A97FD65002DA504 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C9D4768E1A5F064300705452 /* Base */,
+				C9346F641A97FD8F002DA504 /* en */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -503,7 +507,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = 458Bird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 arm64";
 			};
 			name = Debug;
 		};
@@ -514,7 +520,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = 458Bird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 arm64";
 			};
 			name = Release;
 		};

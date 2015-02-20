@@ -9,23 +9,8 @@
 import Foundation
 import SpriteKit
 
-class MCPartBody: MCPart { // TODO: Change to subclass MCPart?  Maybe?  I dunno.
+class MCPartBody: MCPart {
     override var partType: PartType {
         return .body
     }
-    
-//    init(textureName: String, color: UIColor, anchor: CGPoint) {
-//        super.
-//        node = self
-//    }
-    
-//    convenience init() {
-//        self.init(texture: SKTexture(imageNamed: "monsterBody"), color: UIColor.purpleColor(), size: CGSize(width: 100, height: 100))
-//    }
-    
-    
-
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
 }

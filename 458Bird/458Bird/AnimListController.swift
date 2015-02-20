@@ -9,14 +9,18 @@
 
 import Foundation
 import UIKit
+import SpriteKit
 
 class AnimListController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+    /** Handle to the scene where the monster is flailing about */
+    var previewController: AnimPreviewController!
+    
     /** Which animation component are we editing?  If nil, it's a new one. */
     var editAnimIndex: Int? = nil
     
-    var savedAnimation: Animation!
-    // If we just came back from editing a step, this will be the one we're inserting into the animation's set
+    /** If we just came back from editing a step, this will be the one we're inserting into the animation's set */
     var newlyCreatedStep: AnimationStep?
+    var savedAnimation: Animation!
     
     /**
      * Check if there's a saved animation in CoreData, and set it to
@@ -27,6 +31,8 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
         if savedAnimations.count != 0 {
             savedAnimation = savedAnimations.first as Animation
         }
+        
+        previewController = self.splitViewController!.viewControllers.last as AnimPreviewController
     }
     
     /** 
@@ -34,7 +40,6 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
      * Make a new Animation object to save if there's not one already.
      */
     override func viewDidAppear(animated: Bool) {
-        editAnimIndex = nil
         self.tableView.reloadData()
         
         // If there's not already a saved animation, make a blank one here
@@ -44,19 +49,21 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
             savedAnimation.animationDetails = NSSet(object: newAnimStep)
         }
         
-        // Set the global animation to the one pulled from CoreData (or the new one we just made)
-        MonsterPreviewScene.currAnim = savedAnimation
-        
         // Is there a new animation step to add/modify?  Do that now!
-        if newlyCreatedStep != nil {
+        if let newStep = newlyCreatedStep {
+            var animSteps = savedAnimation.animationDetails.allObjects as [AnimationStep]
+            animSteps.sort { ($0.orderInArray as Int) < ($1.orderInArray as Int) }
             
+            animSteps[editAnimIndex!] = newStep
+            savedAnimation.animationDetails = NSSet(array: animSteps)
         }
         
+        editAnimIndex = nil
     }
     
     /**** TABLE VIEW STUFF ****/
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let anim = MonsterPreviewScene.currAnim {
+        if let anim = savedAnimation {
             return anim.animationDetails.count
         }
         return 0
@@ -64,7 +71,7 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        if let anim = MonsterPreviewScene.currAnim {
+        if let anim = savedAnimation {
             var animSteps = anim.animationDetails.allObjects as [AnimationStep]
             animSteps.sort { ($0.orderInArray as Int) < ($1.orderInArray as Int) }
             cell.textLabel!.text = animSteps[indexPath.row].description
@@ -81,22 +88,34 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Figure out what animation the user will be editing!
         let maker = segue.destinationViewController as AnimMakerController
-        if let ndx = editAnimIndex {
-            maker.currAnimationRow = ndx
-        }
-        else {
-            // User actually clicked the ADD button!  How exciting.  Let's make a new animation step and add it to the current animation.
-            let newStepIndex = MonsterPreviewScene.currAnim!.animationDetails.count - 1
+        
+        // editAnimIndex describes the index of the step we're editing - if it's nil,
+        //  we're ADDING a new row, so set it one past the end of the current animation steps
+        //  and add a new value to the animation step set
+        if editAnimIndex == nil {
+            editAnimIndex = savedAnimation.animationDetails.count - 1
             var newStep = AnimationStep.createEntity() as AnimationStep
-            newStep.orderInArray = newStepIndex
             
-            var animStepSet = MonsterPreviewScene.currAnim!.mutableSetValueForKey("animationDetails")
+            var animStepSet = savedAnimation.mutableSetValueForKey("animationDetails")
             animStepSet.addObject(newStep)
-            MonsterPreviewScene.currAnim!.animationDetails = animStepSet
-            maker.currAnimationRow = newStepIndex
+            savedAnimation.animationDetails = animStepSet
         }
+        
+        maker.animationListController = self
     }
     
+    /**
+     * One of the animation's steps was modified.  Update our saved object
+     *  and tell the preview scene what the new animation is.
+     */
+    func updateCurrAnimation(modifiedStep: AnimationStep) {
+        var animSteps = savedAnimation.animationDetails.allObjects as [AnimationStep]
+        animSteps.sort { ($0.orderInArray as Int) < ($1.orderInArray as Int) }
+        
+        animSteps[editAnimIndex!] = modifiedStep
+        savedAnimation.animationDetails = NSSet(array: animSteps)
+        previewController.previewScene.currAnimation = savedAnimation
+    }
     
     
     /** Suppress a dumb swift-style error */

@@ -10,6 +10,7 @@
 #define _58Bird_Bridging_Header_h
 
 #define MR_SHORTHAND
+#import <Foundation/Foundation.h>
 #import <CoreData+MagicalRecord.h>
 
 #endif
