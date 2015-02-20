@@ -207,12 +207,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9P-Xe-FE5">
-                                <rect key="frame" x="279" y="301" width="93" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQV-g0-PAT">
                                 <rect key="frame" x="524" y="279" width="67" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -221,18 +215,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Moa-wL-Cq2">
                                 <rect key="frame" x="524" y="391" width="10" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C66-zu-uKq">
-                                <rect key="frame" x="279" y="415" width="93" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VI-PM-lAp">
-                                <rect key="frame" x="279" y="530" width="83" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -260,19 +242,34 @@
                                     <action selector="changedDelay:" destination="I7m-Ar-z8c" eventType="valueChanged" id="HwG-tA-fes"/>
                                 </connections>
                             </slider>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="MbV-Za-yn6">
+                                <rect key="frame" x="252" y="296" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HQO-PW-Pxz">
+                                <rect key="frame" x="252" y="412" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s3m-oh-erU">
+                                <rect key="frame" x="252" y="525" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="delayLabel" destination="2VI-PM-lAp" id="hqL-oP-xdR"/>
+                        <outlet property="delayLabel" destination="s3m-oh-erU" id="fqH-7z-5yD"/>
                         <outlet property="delaySlider" destination="b3v-df-yPj" id="zd9-ct-gih"/>
-                        <outlet property="durationLabel" destination="C66-zu-uKq" id="bJj-DL-Ae2"/>
+                        <outlet property="durationLabel" destination="HQO-PW-Pxz" id="etP-uw-bjy"/>
                         <outlet property="durationSlider" destination="AUK-4g-h0h" id="YQW-2N-RkM"/>
-                        <outlet property="howMuchLabel" destination="v9P-Xe-FE5" id="Ibu-8W-jGe"/>
                         <outlet property="maxValueLabel" destination="SQV-g0-PAT" id="FAb-HV-Eja"/>
                         <outlet property="minValueLabel" destination="sec-sS-lWQ" id="026-iY-iJr"/>
                         <outlet property="partTypePicker" destination="C9S-vw-lyK" id="nTG-TZ-OWO"/>
                         <outlet property="typeSegControl" destination="Dxr-y7-U1z" id="PEk-sd-H8f"/>
+                        <outlet property="valueLabel" destination="MbV-Za-yn6" id="nut-d7-u4r"/>
                         <outlet property="valueSlider" destination="dd1-7e-opz" id="ug5-I5-DpC"/>
                     </connections>
                 </viewController>

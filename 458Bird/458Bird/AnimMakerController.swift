@@ -25,9 +25,9 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet weak var minValueLabel: UILabel!
     @IBOutlet weak var maxValueLabel: UILabel!
     
-    @IBOutlet weak var howMuchLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var delayLabel: UILabel!
+    @IBOutlet weak var valueLabel: UITextField!
+    @IBOutlet weak var durationLabel: UITextField!
+    @IBOutlet weak var delayLabel: UITextField!
     
     override func viewWillAppear(animated: Bool) {
         let currAnimation = MonsterPreviewScene.currAnim!.comps[currAnimationRow]
@@ -114,8 +114,7 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
     /*** SILLY SLIDERS ***/
     @IBAction func changedValue(sender: AnyObject) {
         var newValue = CGFloat((sender as? UISlider)!.value)
-        
-        howMuchLabel.text = newValue.description
+        valueLabel.text = newValue.description
         updateCurrAnimation()
     }
     
@@ -134,6 +133,8 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
      */
     func updateCurrAnimation() {
         var animAction = SKAction.waitForDuration(NSTimeInterval(delaySlider.value))
+
+//        valueSlider.setValue(Float(valueLabel.text.), animated: false)
         
         var type = partTypes[partTypePicker.selectedRowInComponent(0)]
         var side = AnimSide(rawValue: typeSegControl.selectedSegmentIndex)!
@@ -142,13 +143,13 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
         var delay = NSTimeInterval(delaySlider.value)
         
         var howMuch = CGFloat(valueSlider.value)
-        var howMuchY: CGFloat = 0.0
+        var howMuchY: CGFloat = 1.0
         
         switch (typeSegControl.selectedSegmentIndex) {
         case 0:
             MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.scalePart(type, actsOnSide: side, duration: duration, delay: delay, scaleXBy: howMuch, scaleYBy: howMuchY)
         case 1:
-            MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.rotatePart(type, actsOnSide: side, duration: duration, delay: delay, angle: howMuch * π / 180.0)
+            MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.rotatePart(type, actsOnSide: side, duration: duration, delay: delay, angle: howMuch)
         case 2:
             MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.swapTexture(type, actsOnSide: side, duration: duration, delay: delay, newTexture: "lol not done")
         case 3:

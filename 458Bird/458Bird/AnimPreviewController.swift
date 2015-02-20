@@ -50,7 +50,7 @@ class MonsterPreviewScene: SKScene {
         
         MonsterPreviewScene.currAnim = MCAnimation()
         MonsterPreviewScene.currAnim!.comps = [
-            MCAnimationComp.rotatePart(.leg, actsOnSide: .both, duration: 0.5, delay: 0, angle: π/4)
+            MCAnimationComp.rotatePart(.leg, actsOnSide: .both, duration: 0.5, delay: 0, angle: 45)
         ]
         
         doCurrentAnimation(monModel)

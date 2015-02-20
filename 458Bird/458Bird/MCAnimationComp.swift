@@ -54,7 +54,7 @@ class MCAnimationComp: NSObject {
         case .scale:
             animation = SKAction.scaleXBy(xValue, y: yValue, duration: duration)
         case .rotation:
-            animation = SKAction.rotateByAngle(xValue, duration: duration)
+            animation = SKAction.rotateByAngle(xValue * π / 180.0, duration: duration)
         case .textureSwap:
             animation = SKAction.setTexture(SKTexture(imageNamed: textureName))
         case .position:
@@ -93,7 +93,7 @@ class MCAnimationComp: NSObject {
     }
     
     /**
-     * Rotate a part type by the specified amount.
+     * Rotate a part type by the specified amount.  "angle" is in DEGREES, not radians.
      */
     class func rotatePart(actsOn: PartType, actsOnSide: AnimSide, duration: NSTimeInterval, delay: NSTimeInterval, angle: CGFloat) -> MCAnimationComp {
         return MCAnimationComp(actsOn: actsOn,
@@ -134,16 +134,24 @@ class MCAnimationComp: NSObject {
                           textureName: newTexture)
     }
     
+    func shortenFloat(number: CGFloat) -> String {
+        return String(format: "%.3f", number)
+    }
+    
+    func shortenDouble(number: Double) -> String {
+        return String(format: "%.3f", number)
+    }
+    
     func description() -> String {
-        var result = "Duration( \(duration) ) Delay( \(delay) ) : "
+        var result = "Duration( \(shortenDouble(duration)) ) Delay( \(shortenDouble(delay)) ) : "
         
         switch(type) {
         case .scale:
-            result += "Scale X( \(xValue) ) Y( \(yValue) )"
+            result += "Scale X( \(shortenFloat(xValue)) ) Y( \(shortenFloat(yValue)) )"
         case .rotation:
-            result += "Rotate( \(xValue * 180 / π)˚ )"
+            result += "Rotate( \(shortenFloat(xValue))˚ )"
         case .position:
-            result += "Move X(\(xValue)) Y(\(yValue))"
+            result += "Move X(\(shortenFloat(xValue))) Y(\(shortenFloat(yValue)))"
         case .textureSwap:
             result += "Change Texture(\(textureName))"
         }

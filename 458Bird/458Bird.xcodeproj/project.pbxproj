@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DE48A4A8D9D24D4D911F5CB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD2231F62A9C8B7D8F1206A /* libPods.a */; };
 		C90824E61A8459A200A40C71 /* MCPartMouth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90824DD1A8459A200A40C71 /* MCPartMouth.swift */; };
 		C90824E81A8459A200A40C71 /* MCPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90824DF1A8459A200A40C71 /* MCPart.swift */; };
 		C90824E91A8459A200A40C71 /* MCPartStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90824E01A8459A200A40C71 /* MCPartStuff.swift */; };
@@ -20,6 +21,9 @@
 		C965A80C1A8F3440003FC0C7 /* AnimatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C965A80B1A8F3440003FC0C7 /* AnimatorModel.swift */; };
 		C9703D4C1A79BFAA00521E4A /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9703D4B1A79BFAA00521E4A /* Array+Random.swift */; };
 		C979B90C1A884F090055607A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C979B90B1A884F090055607A /* Images.xcassets */; };
+		C99E23D71A9309C800651B12 /* AnimationModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C99E23D51A9309C800651B12 /* AnimationModel.xcdatamodeld */; };
+		C99E23D91A930CA900651B12 /* AnimationDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99E23D81A930CA900651B12 /* AnimationDetails.swift */; };
+		C99E23DB1A930CAA00651B12 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99E23DA1A930CAA00651B12 /* Animation.swift */; };
 		C9B4A4051A814137007A1591 /* flap.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9B4A4041A814137007A1591 /* flap.wav */; };
 		C9B4A4231A814931007A1591 /* MCAnimationComp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4A4201A814931007A1591 /* MCAnimationComp.swift */; };
 		C9CC2D6D1A84653B00F8E1A3 /* MCPartArm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC2D6C1A84653B00F8E1A3 /* MCPartArm.swift */; };
@@ -33,23 +37,15 @@
 		C9D476871A5F064300705452 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476861A5F064300705452 /* GameViewController.swift */; };
 		C9D4768A1A5F064300705452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D476881A5F064300705452 /* Main.storyboard */; };
 		C9D4768F1A5F064300705452 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D4768D1A5F064300705452 /* LaunchScreen.xib */; };
-		C9D4769B1A5F064300705452 /* _58BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4769A1A5F064300705452 /* _58BirdTests.swift */; };
 		C9D476A51A5F072D00705452 /* CGPoint+Assimilation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476A41A5F072D00705452 /* CGPoint+Assimilation.swift */; };
 		C9D476A71A5F074100705452 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476A61A5F074100705452 /* Convenience.swift */; };
 		C9EB7C991A8DEAA800F10BD5 /* AnimPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB7C981A8DEAA800F10BD5 /* AnimPreviewController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		C9D476951A5F064300705452 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C9D476731A5F064300705452 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C9D4767A1A5F064300705452;
-			remoteInfo = 458Bird;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		0CD2231F62A9C8B7D8F1206A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DC629D665ED4A6649D28AE0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BA5E625532577925DC5FDB87 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C90824DD1A8459A200A40C71 /* MCPartMouth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartMouth.swift; sourceTree = "<group>"; };
 		C90824DF1A8459A200A40C71 /* MCPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPart.swift; sourceTree = "<group>"; };
 		C90824E01A8459A200A40C71 /* MCPartStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartStuff.swift; sourceTree = "<group>"; };
@@ -63,6 +59,10 @@
 		C965A80B1A8F3440003FC0C7 /* AnimatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatorModel.swift; sourceTree = "<group>"; };
 		C9703D4B1A79BFAA00521E4A /* Array+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Random.swift"; sourceTree = "<group>"; };
 		C979B90B1A884F090055607A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = 458Bird/Images.xcassets; sourceTree = "<group>"; };
+		C99E23D41A9306F500651B12 /* 458Bird-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "458Bird-Bridging-Header.h"; sourceTree = "<group>"; };
+		C99E23D61A9309C800651B12 /* AnimationModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnimationModel.xcdatamodel; sourceTree = "<group>"; };
+		C99E23D81A930CA900651B12 /* AnimationDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationDetails.swift; sourceTree = "<group>"; };
+		C99E23DA1A930CAA00651B12 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		C9B4A4041A814137007A1591 /* flap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flap.wav; path = 458Bird/resources/flap.wav; sourceTree = "<group>"; };
 		C9B4A4201A814931007A1591 /* MCAnimationComp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAnimationComp.swift; sourceTree = "<group>"; };
 		C9CC2D6C1A84653B00F8E1A3 /* MCPartArm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartArm.swift; sourceTree = "<group>"; };
@@ -78,7 +78,6 @@
 		C9D476861A5F064300705452 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C9D476891A5F064300705452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9D4768E1A5F064300705452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		C9D476941A5F064300705452 /* 458BirdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 458BirdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D476991A5F064300705452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9D4769A1A5F064300705452 /* _58BirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _58BirdTests.swift; sourceTree = "<group>"; };
 		C9D476A41A5F072D00705452 /* CGPoint+Assimilation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CGPoint+Assimilation.swift"; path = "458Bird/CGPoint+Assimilation.swift"; sourceTree = "<group>"; };
@@ -91,19 +90,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C9D476911A5F064300705452 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				7DE48A4A8D9D24D4D911F5CB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A9A5BBB2876A055C9AFF1EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CD2231F62A9C8B7D8F1206A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC34608DA68FDADF0BE92C18 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA5E625532577925DC5FDB87 /* Pods.debug.xcconfig */,
+				2DC629D665ED4A6649D28AE0 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C94E510A1A84A5EF00784B18 /* Game MVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,12 +183,18 @@
 		C9D476721A5F064300705452 = {
 			isa = PBXGroup;
 			children = (
+				C99E23D51A9309C800651B12 /* AnimationModel.xcdatamodeld */,
+				C99E23DA1A930CAA00651B12 /* Animation.swift */,
+				C99E23D81A930CA900651B12 /* AnimationDetails.swift */,
+				C99E23D41A9306F500651B12 /* 458Bird-Bridging-Header.h */,
 				C979B90B1A884F090055607A /* Images.xcassets */,
 				C9B4A4031A814122007A1591 /* resources */,
 				C9703D4A1A79BF9D00521E4A /* Convenience */,
 				C9D4767D1A5F064300705452 /* 458Bird */,
 				C9D476971A5F064300705452 /* 458BirdTests */,
 				C9D4767C1A5F064300705452 /* Products */,
+				AC34608DA68FDADF0BE92C18 /* Pods */,
+				6A9A5BBB2876A055C9AFF1EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				C9D4767B1A5F064300705452 /* 458Bird.app */,
-				C9D476941A5F064300705452 /* 458BirdTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,9 +254,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9D4769E1A5F064300705452 /* Build configuration list for PBXNativeTarget "458Bird" */;
 			buildPhases = (
+				709707CAA489FC6F5ADD15DF /* Check Pods Manifest.lock */,
 				C9D476771A5F064300705452 /* Sources */,
 				C9D476781A5F064300705452 /* Frameworks */,
 				C9D476791A5F064300705452 /* Resources */,
+				E88A1A1BE6BE830A723D8128 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,24 +268,6 @@
 			productName = 458Bird;
 			productReference = C9D4767B1A5F064300705452 /* 458Bird.app */;
 			productType = "com.apple.product-type.application";
-		};
-		C9D476931A5F064300705452 /* 458BirdTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C9D476A11A5F064300705452 /* Build configuration list for PBXNativeTarget "458BirdTests" */;
-			buildPhases = (
-				C9D476901A5F064300705452 /* Sources */,
-				C9D476911A5F064300705452 /* Frameworks */,
-				C9D476921A5F064300705452 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C9D476961A5F064300705452 /* PBXTargetDependency */,
-			);
-			name = 458BirdTests;
-			productName = 458BirdTests;
-			productReference = C9D476941A5F064300705452 /* 458BirdTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -281,10 +280,6 @@
 				TargetAttributes = {
 					C9D4767A1A5F064300705452 = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					C9D476931A5F064300705452 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = C9D4767A1A5F064300705452;
 					};
 				};
 			};
@@ -302,7 +297,6 @@
 			projectRoot = "";
 			targets = (
 				C9D4767A1A5F064300705452 /* 458Bird */,
-				C9D476931A5F064300705452 /* 458BirdTests */,
 			);
 		};
 /* End PBXProject section */
@@ -320,14 +314,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C9D476921A5F064300705452 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		709707CAA489FC6F5ADD15DF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		E88A1A1BE6BE830A723D8128 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C9D476771A5F064300705452 /* Sources */ = {
@@ -339,7 +359,9 @@
 				C90824EA1A8459A200A40C71 /* MCPartLeg.swift in Sources */,
 				C9B4A4231A814931007A1591 /* MCAnimationComp.swift in Sources */,
 				C9CC2D6D1A84653B00F8E1A3 /* MCPartArm.swift in Sources */,
+				C99E23D91A930CA900651B12 /* AnimationDetails.swift in Sources */,
 				C90824E91A8459A200A40C71 /* MCPartStuff.swift in Sources */,
+				C99E23DB1A930CAA00651B12 /* Animation.swift in Sources */,
 				C90824EC1A8459A200A40C71 /* MCPartEye.swift in Sources */,
 				C9CCC59D1A8C37C90032DEA6 /* AnimListController.swift in Sources */,
 				C9CD8A951A682DD700284D33 /* FlapTitleView.swift in Sources */,
@@ -347,6 +369,7 @@
 				C965A80C1A8F3440003FC0C7 /* AnimatorModel.swift in Sources */,
 				C9D476A71A5F074100705452 /* Convenience.swift in Sources */,
 				C9D476A51A5F072D00705452 /* CGPoint+Assimilation.swift in Sources */,
+				C99E23D71A9309C800651B12 /* AnimationModel.xcdatamodeld in Sources */,
 				C90824ED1A8459A200A40C71 /* PartType.swift in Sources */,
 				C90824F41A845C6100A40C71 /* MCPartLimb.swift in Sources */,
 				C9EB7C991A8DEAA800F10BD5 /* AnimPreviewController.swift in Sources */,
@@ -361,23 +384,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C9D476901A5F064300705452 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C9D4769B1A5F064300705452 /* _58BirdTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C9D476961A5F064300705452 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C9D4767A1A5F064300705452 /* 458Bird */;
-			targetProxy = C9D476951A5F064300705452 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C9D476881A5F064300705452 /* Main.storyboard */ = {
@@ -437,6 +444,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "458Bird-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -473,6 +481,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "458Bird-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -480,6 +489,7 @@
 		};
 		C9D4769F1A5F064300705452 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA5E625532577925DC5FDB87 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = 458Bird/Info.plist;
@@ -490,45 +500,12 @@
 		};
 		C9D476A01A5F064300705452 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DC629D665ED4A6649D28AE0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = 458Bird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		C9D476A21A5F064300705452 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = 458BirdTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/458Bird.app/458Bird";
-			};
-			name = Debug;
-		};
-		C9D476A31A5F064300705452 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = 458BirdTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/458Bird.app/458Bird";
 			};
 			name = Release;
 		};
@@ -553,16 +530,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9D476A11A5F064300705452 /* Build configuration list for PBXNativeTarget "458BirdTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C9D476A21A5F064300705452 /* Debug */,
-				C9D476A31A5F064300705452 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C99E23D51A9309C800651B12 /* AnimationModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C99E23D61A9309C800651B12 /* AnimationModel.xcdatamodel */,
+			);
+			currentVersion = C99E23D61A9309C800651B12 /* AnimationModel.xcdatamodel */;
+			path = AnimationModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C9D476731A5F064300705452 /* Project object */;
 }

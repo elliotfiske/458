@@ -112,3 +112,10 @@ public extension CGPoint {
         return CGFloat(hypotf(Float(self.x - otherPoint.x), Float(self.y - otherPoint.y)))
     }
 }
+
+/** EZ conversion from string->float */
+extension String {
+    var floatValue: Float {
+        return (self as NSString).floatValue
+    }
+}
