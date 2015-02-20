@@ -2,7 +2,7 @@
 //  Animation.swift
 //  458Bird
 //
-//  Created by Elliot Fiske on 2/16/15.
+//  Created by Elliot Fiske on 2/20/15.
 //  Copyright (c) 2015 Elliot Fiske. All rights reserved.
 //
 
@@ -12,6 +12,7 @@ import CoreData
 class Animation: NSManagedObject {
 
     @NSManaged var name: String
-    @NSManaged var animationDetails: AnimationDetails
+    @NSManaged var id: NSNumber
+    @NSManaged var animationDetails: NSSet
 
 }

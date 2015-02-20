@@ -14,19 +14,50 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
     /** Which animation component are we editing?  If nil, it's a new one. */
     var editAnimIndex: Int? = nil
     
+    var savedAnimation: Animation!
+    // If we just came back from editing a step, this will be the one we're inserting into the animation's set
+    var newlyCreatedStep: AnimationStep?
+    
+    /**
+     * Check if there's a saved animation in CoreData, and set it to
+     *  our instance variable if there is.
+     */
     override func viewDidLoad() {
-        // TODO: Register cell for reuse (maybe?)
+        var savedAnimations = Animation.findAll()
+        if savedAnimations.count != 0 {
+            savedAnimation = savedAnimations.first as Animation
+        }
     }
     
+    /** 
+     * Load all the cool animation details from the instance variable!
+     * Make a new Animation object to save if there's not one already.
+     */
     override func viewDidAppear(animated: Bool) {
         editAnimIndex = nil
         self.tableView.reloadData()
+        
+        // If there's not already a saved animation, make a blank one here
+        if (savedAnimation == nil) {
+            savedAnimation = Animation.createEntity() as Animation
+            var newAnimStep = AnimationStep.createEntity() as AnimationStep
+            savedAnimation.animationDetails = NSSet(object: newAnimStep)
+        }
+        
+        // Set the global animation to the one pulled from CoreData (or the new one we just made)
+        MonsterPreviewScene.currAnim = savedAnimation
+        
+        // Is there a new animation step to add/modify?  Do that now!
+        if newlyCreatedStep != nil {
+            
+        }
+        
     }
     
     /**** TABLE VIEW STUFF ****/
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let anim = MonsterPreviewScene.currAnim {
-            return anim.comps.count
+            return anim.animationDetails.count
         }
         return 0
     }
@@ -34,7 +65,9 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         if let anim = MonsterPreviewScene.currAnim {
-            cell.textLabel!.text = anim.comps[indexPath.row].description
+            var animSteps = anim.animationDetails.allObjects as [AnimationStep]
+            animSteps.sort { ($0.orderInArray as Int) < ($1.orderInArray as Int) }
+            cell.textLabel!.text = animSteps[indexPath.row].description
         }
 
         return cell
@@ -52,9 +85,15 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
             maker.currAnimationRow = ndx
         }
         else {
-            let newComp = MCAnimationComp()
-            MonsterPreviewScene.currAnim!.comps += [newComp]
-            maker.currAnimationRow = MonsterPreviewScene.currAnim!.comps.count - 1
+            // User actually clicked the ADD button!  How exciting.  Let's make a new animation step and add it to the current animation.
+            let newStepIndex = MonsterPreviewScene.currAnim!.animationDetails.count - 1
+            var newStep = AnimationStep.createEntity() as AnimationStep
+            newStep.orderInArray = newStepIndex
+            
+            var animStepSet = MonsterPreviewScene.currAnim!.mutableSetValueForKey("animationDetails")
+            animStepSet.addObject(newStep)
+            MonsterPreviewScene.currAnim!.animationDetails = animStepSet
+            maker.currAnimationRow = newStepIndex
         }
     }
     

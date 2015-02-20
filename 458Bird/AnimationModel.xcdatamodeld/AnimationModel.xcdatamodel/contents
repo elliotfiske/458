@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C109" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Animation" representedClassName="Animation" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="animationDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AnimationDetails" inverseName="animation" inverseEntity="AnimationDetails" syncable="YES"/>
+        <relationship name="animationDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AnimationStep" inverseName="animation" inverseEntity="AnimationStep" syncable="YES"/>
     </entity>
-    <entity name="AnimationDetails" representedClassName="AnimationDetails" syncable="YES">
-        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="length" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="AnimationStep" representedClassName="AnimationStep" syncable="YES">
+        <attribute name="actsOn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="actsOnSide" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="animType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="delay" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="orderInArray" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="textureName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="xValue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="yValue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="animation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Animation" inverseName="animationDetails" inverseEntity="Animation" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Animation" positionX="-63" positionY="-18" width="128" height="73"/>
-        <element name="AnimationDetails" positionX="-54" positionY="0" width="128" height="105"/>
+        <element name="Animation" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="AnimationStep" positionX="-54" positionY="0" width="128" height="193"/>
     </elements>
 </model>

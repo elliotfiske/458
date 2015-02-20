@@ -35,8 +35,8 @@ class MonsterPreviewSKView: SKView {
 
 class MonsterPreviewScene: SKScene {
     // Global handle to the array of animations playing on the monster
-    private struct CurrAnim { static var currAnim: MCAnimation? = nil }
-    class var currAnim: MCAnimation? {
+    private struct CurrAnim { static var currAnim: Animation? = nil }
+    class var currAnim: Animation? {
         get { return CurrAnim.currAnim }
         set { CurrAnim.currAnim = newValue }
     }
@@ -48,7 +48,7 @@ class MonsterPreviewScene: SKScene {
         monModel.body.lockPoint = view.frame.center
         self.addChild(monModel.body)
         
-        MonsterPreviewScene.currAnim = MCAnimation()
+        MonsterPreviewScene.currAnim = Animation()
         MonsterPreviewScene.currAnim!.comps = [
             MCAnimationComp.rotatePart(.leg, actsOnSide: .both, duration: 0.5, delay: 0, angle: 45)
         ]

@@ -14,6 +14,7 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
     let partTypes: [PartType] = [.arm, .leg, .base, .eye, .decal, .mouth]
     
     var currAnimationRow: Int!
+    var currStep: AnimationStep!
     
     @IBOutlet weak var partTypePicker: UIPickerView!
     
@@ -30,19 +31,21 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet weak var delayLabel: UITextField!
     
     override func viewWillAppear(animated: Bool) {
-        let currAnimation = MonsterPreviewScene.currAnim!.comps[currAnimationRow]
+        var currAnimationSteps = MonsterPreviewScene.currAnim!.animationDetails.allObjects as [AnimationStep]
+        currAnimationSteps.sort { ($0.orderInArray as Int) < ($1.orderInArray as Int) }
+        let currStep = currAnimationSteps[currAnimationRow]
         
         var partTypeIndex = 0
         for (ndx, partType) in enumerate(partTypes) {
-            if partType == currAnimation.actsOn {
+            if partType.rawValue == currStep.actsOn {
                 partTypeIndex = ndx
             }
         }
         partTypePicker.selectRow(partTypeIndex, inComponent: 0, animated: false)
-        typeSegControl.selectedSegmentIndex = currAnimation.type.rawValue
-        valueSlider.setValue(Float(currAnimation.xValue), animated: true)
-        durationSlider.setValue(Float(currAnimation.duration), animated: true)
-        delaySlider.setValue(Float(currAnimation.delay), animated: true)
+        typeSegControl.selectedSegmentIndex = currStep.animType as Int
+        valueSlider.setValue(Float(currStep.xValue), animated: true)
+        durationSlider.setValue(Float(currStep.duration), animated: true)
+        delaySlider.setValue(Float(currStep.delay), animated: true)
         
         changedDelay(delaySlider)
         changedValue(valueSlider)
@@ -147,7 +150,7 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
         
         switch (typeSegControl.selectedSegmentIndex) {
         case 0:
-            MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.scalePart(type, actsOnSide: side, duration: duration, delay: delay, scaleXBy: howMuch, scaleYBy: howMuchY)
+            MonsterPreviewScene.currAnim!.animationDetails. = MCAnimationComp.scalePart(type, actsOnSide: side, duration: duration, delay: delay, scaleXBy: howMuch, scaleYBy: howMuchY)
         case 1:
             MonsterPreviewScene.currAnim!.comps[currAnimationRow] = MCAnimationComp.rotatePart(type, actsOnSide: side, duration: duration, delay: delay, angle: howMuch)
         case 2:
