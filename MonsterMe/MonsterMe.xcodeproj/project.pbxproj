@@ -30,7 +30,6 @@
 		C99422B11A980CE800632C96 /* PlanetScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99422B01A980CE800632C96 /* PlanetScene.swift */; };
 		C99422B31A980CE800632C96 /* PlanetSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99422B21A980CE800632C96 /* PlanetSceneController.swift */; };
 		C99422B61A980CE800632C96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99422B41A980CE800632C96 /* Main.storyboard */; };
-		C99422B81A980CE800632C96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99422B71A980CE800632C96 /* Images.xcassets */; };
 		C99422BB1A980CE800632C96 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99422B91A980CE800632C96 /* LaunchScreen.xib */; };
 		C9D179111A98353700EFA0F9 /* PlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D179101A98353700EFA0F9 /* PlanetModel.swift */; };
 		C9D179151A98370700EFA0F9 /* CreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D179141A98370700EFA0F9 /* CreatorViewController.swift */; };
@@ -43,6 +42,12 @@
 		C9E747161A986EBB001B6AEE /* DraggableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E747151A986EBB001B6AEE /* DraggableCollectionView.swift */; };
 		C9E747181A986F57001B6AEE /* DraggableCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E747171A986F57001B6AEE /* DraggableCollectionLayout.swift */; };
 		C9E7471A1A98708A001B6AEE /* BuilderPartCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E747191A98708A001B6AEE /* BuilderPartCollectionView.swift */; };
+		C9E747211A987216001B6AEE /* MCPartTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E7471B1A987216001B6AEE /* MCPartTemplate.swift */; };
+		C9E747281A987A26001B6AEE /* MCPartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E747271A987A26001B6AEE /* MCPartCollectionViewCell.swift */; };
+		C9E7472F1A987C8D001B6AEE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9E7472D1A987C8D001B6AEE /* Images.xcassets */; };
+		C9E747301A987C8D001B6AEE /* bodyParts.json in Resources */ = {isa = PBXBuildFile; fileRef = C9E7472E1A987C8D001B6AEE /* bodyParts.json */; };
+		C9E747331A987CC6001B6AEE /* BonvenoCF-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9E747311A987CC6001B6AEE /* BonvenoCF-Light.otf */; };
+		C9E747341A987CC6001B6AEE /* League Gothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9E747321A987CC6001B6AEE /* League Gothic.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +77,6 @@
 		C99422B01A980CE800632C96 /* PlanetScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetScene.swift; sourceTree = "<group>"; };
 		C99422B21A980CE800632C96 /* PlanetSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetSceneController.swift; sourceTree = "<group>"; };
 		C99422B51A980CE800632C96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C99422B71A980CE800632C96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MonsterMe/Images.xcassets; sourceTree = "<group>"; };
 		C99422BA1A980CE800632C96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C99422C51A980CE800632C96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C99422C61A980CE800632C96 /* MonsterMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterMeTests.swift; sourceTree = "<group>"; };
@@ -88,6 +92,12 @@
 		C9E747151A986EBB001B6AEE /* DraggableCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableCollectionView.swift; sourceTree = "<group>"; };
 		C9E747171A986F57001B6AEE /* DraggableCollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableCollectionLayout.swift; sourceTree = "<group>"; };
 		C9E747191A98708A001B6AEE /* BuilderPartCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuilderPartCollectionView.swift; sourceTree = "<group>"; };
+		C9E7471B1A987216001B6AEE /* MCPartTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartTemplate.swift; sourceTree = "<group>"; };
+		C9E747271A987A26001B6AEE /* MCPartCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartCollectionViewCell.swift; sourceTree = "<group>"; };
+		C9E7472D1A987C8D001B6AEE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = resources/Images.xcassets; sourceTree = "<group>"; };
+		C9E7472E1A987C8D001B6AEE /* bodyParts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = bodyParts.json; path = resources/bodyParts.json; sourceTree = "<group>"; };
+		C9E747311A987CC6001B6AEE /* BonvenoCF-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BonvenoCF-Light.otf"; path = "resources/BonvenoCF-Light.otf"; sourceTree = "<group>"; };
+		C9E747321A987CC6001B6AEE /* League Gothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "League Gothic.otf"; path = "resources/League Gothic.otf"; sourceTree = "<group>"; };
 		FE83992B53506F8BACAC8BB8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +124,7 @@
 		C902513C1A98436700CE4C97 /* Part Builder */ = {
 			isa = PBXGroup;
 			children = (
+				C9E747271A987A26001B6AEE /* MCPartCollectionViewCell.swift */,
 				C9D1791A1A983B6200EFA0F9 /* BuilderModel.swift */,
 				C9D1791C1A983B6F00EFA0F9 /* BuilderScene.swift */,
 				C902513A1A98434800CE4C97 /* PartRotatorNode.swift */,
@@ -127,7 +138,10 @@
 		C9397F991A9818DB00A929DB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C99422B71A980CE800632C96 /* Images.xcassets */,
+				C9E747311A987CC6001B6AEE /* BonvenoCF-Light.otf */,
+				C9E747321A987CC6001B6AEE /* League Gothic.otf */,
+				C9E7472D1A987C8D001B6AEE /* Images.xcassets */,
+				C9E7472E1A987C8D001B6AEE /* bodyParts.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -162,6 +176,7 @@
 		C94622EB1A981B7800DA8FB4 /* Part Templates */ = {
 			isa = PBXGroup;
 			children = (
+				C9E7471B1A987216001B6AEE /* MCPartTemplate.swift */,
 			);
 			name = "Part Templates";
 			sourceTree = "<group>";
@@ -349,7 +364,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C99422BB1A980CE800632C96 /* LaunchScreen.xib in Resources */,
-				C99422B81A980CE800632C96 /* Images.xcassets in Resources */,
+				C9E747331A987CC6001B6AEE /* BonvenoCF-Light.otf in Resources */,
+				C9E7472F1A987C8D001B6AEE /* Images.xcassets in Resources */,
+				C9E747301A987C8D001B6AEE /* bodyParts.json in Resources */,
+				C9E747341A987CC6001B6AEE /* League Gothic.otf in Resources */,
 				C99422AF1A980CE800632C96 /* PlanetScene.sks in Resources */,
 				C99422B61A980CE800632C96 /* Main.storyboard in Resources */,
 			);
@@ -413,7 +431,9 @@
 				C9D9A96D1A9810B800B95A48 /* MonsterModel.xcdatamodeld in Sources */,
 				C9D179111A98353700EFA0F9 /* PlanetModel.swift in Sources */,
 				C94622FE1A981BB500DA8FB4 /* MCPartLimb.swift in Sources */,
+				C9E747211A987216001B6AEE /* MCPartTemplate.swift in Sources */,
 				C9D179151A98370700EFA0F9 /* CreatorViewController.swift in Sources */,
+				C9E747281A987A26001B6AEE /* MCPartCollectionViewCell.swift in Sources */,
 				C94622FB1A981BB500DA8FB4 /* MCPartMouth.swift in Sources */,
 				C9E747131A986B94001B6AEE /* CreatorModel.swift in Sources */,
 				C9397F9D1A98199900A929DB /* MonsterModel.swift in Sources */,

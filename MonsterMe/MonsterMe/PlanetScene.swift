@@ -24,9 +24,9 @@ class PlanetScene: SKScene {
         
         testModel.partData = mouthData
         
-        testModel.convertPartDataToParts()
+//        testModel.convertPartDataToParts()
         
-        self.addChild(testModel.parts[.mouth]![0])
+//        self.addChild(testModel.parts[.mouth]![0])
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {

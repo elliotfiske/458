@@ -20,7 +20,6 @@ enum PartType: String {
     case eye = "eye"
     case mouth = "mouth"
     case decal = "decal"
-    case hat = "hat"
     case color = "color"
     
     /** Determines if this part will be colored the same as the body by default. */

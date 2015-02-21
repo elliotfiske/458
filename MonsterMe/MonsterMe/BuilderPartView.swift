@@ -9,5 +9,7 @@
 import Foundation
 
 class BuilderPartView: MCDismissableView {
+    var collectionView = BuilderPartCollectionView()
+    
     
 }

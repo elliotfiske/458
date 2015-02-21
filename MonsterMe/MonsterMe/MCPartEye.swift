@@ -25,9 +25,15 @@ class MCPartEye: MCPart {
      *  Note that some eyes don't have a white background (i.e. they're just pupils),
      *  so we use the textureName "blankEye" in that case.
      */
-    init(textureName: String, color: UIColor, anchor: CGPoint, pupilTextureName: String) {
+    init(textureName: String?, color: UIColor, anchor: CGPoint, pupilTextureName: String) {
         pupilNode = SKSpriteNode(imageNamed: pupilTextureName)
-        super.init(textureName: textureName, color: color, anchor: anchor)
+        
+        var eyeBackTextureName = textureName
+        if eyeBackTextureName == nil {
+            eyeBackTextureName = "blankEye"
+        }
+        
+        super.init(textureName: eyeBackTextureName!, color: color, anchor: anchor)
         
         self.addChild(pupilNode)
         pupilNode.position = targetPupilPosition

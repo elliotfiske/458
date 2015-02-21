@@ -127,3 +127,45 @@ extension String {
         return (self as NSString).floatValue
     }
 }
+
+
+
+/**** Instantiate UIColor from hex string */
+extension UIColor {
+    convenience init(red: UInt32, green: UInt32, blue: UInt32) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(hexString: String) {
+        let scanner = NSScanner(string: hexString)
+        var netHex: UInt32 = 0
+        scanner.scanHexInt(&netHex)
+        
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+    }
+}
+
+
+/**
+ * Given any UIView, modifies it in-place to be round instead of square.
+ */
+func roundView(view: UIView, toDiameter diameter: CGFloat) {
+    let saveCenter: CGPoint = view.center
+    let newFrame: CGRect = CGRectMake(view.frame.origin.x, view.frame.origin.y, diameter, diameter)
+    view.frame = newFrame
+    view.layer.cornerRadius = diameter / 2
+    view.center = saveCenter
+}
+
+
+// TODO: split up these "handy" functions this files gettin kinda big
+func bonvenoFont(size: CGFloat) -> UIFont {
+    return UIFont(name: "BonvenoCF-Light", size: size)!
+}
+func leagueFont(size: CGFloat) -> UIFont {
+    return UIFont(name: "League Gothic", size: size)!
+}

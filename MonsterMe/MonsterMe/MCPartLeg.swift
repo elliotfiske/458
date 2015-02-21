@@ -110,12 +110,7 @@ class MCPartLeg: MCPartLimb {
     // TODO: Make this call super before it does anything too crazy
     override func convertToDictionary() -> NSDictionary {
         var dict: [NSString: AnyObject] = [:]
-        if (self.partType == PartType.hat) {
-            dict["keyInDict"] = PartType.decal.rawValue as NSString
-        }
-        else {
-            dict["keyInDict"] = self.partType.rawValue as NSString
-        }
+        dict["partType"] = self.partType.rawValue as NSString
         
         dict["posX"]     = self.position.x.description
         dict["posY"]     = self.position.y.description
