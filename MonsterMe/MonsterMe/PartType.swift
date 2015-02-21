@@ -14,13 +14,12 @@ import Foundation
 *   when it's dragged off the toolbar
 */
 enum PartType: String {
+    case body = "body"
     case arm = "arm"
     case leg = "leg"
-    case body = "body"
     case eye = "eye"
-    case decal = "decal"
     case mouth = "mouth"
-    case base = "base"
+    case decal = "decal"
     case hat = "hat"
     case color = "color"
     

@@ -18,8 +18,8 @@ class MCPart: SKSpriteNode {
         fatalError("Each part subclass has to override this with its part type !")
     }
     
-    var stuckOnMonster = false     // Only applicable if limb == true
-    var containedInMonster = false // Only applicable if limb == false
+    var stuckOnMonster = false     // Only applicable if this is a limb
+    var containedInMonster = false // Only applicable if this is NOT a limb
     
     /** Gives the mirror of the current part. Note that each mirrored part should have the OTHER one as a mirroredPart */
     var mirroredPart: MCPart? = nil
@@ -326,14 +326,9 @@ class MCPart: SKSpriteNode {
     /**
      * Convert this part to a dictionary of strings, ready to be NSCoded
      */
-    func makeDescDict() -> NSDictionary {
+    func convertToDictionary() -> NSDictionary {
         var dict: [NSString: AnyObject] = [:]
-        if (self.partType == PartType.hat) {
-            dict["keyInDict"] = PartType.decal.rawValue as NSString
-        }
-        else {
-            dict["keyInDict"] = self.partType.rawValue as NSString
-        }
+        dict["partType"] = self.partType.rawValue as NSString
 
         dict["posX"]     = self.position.x.description
         dict["posY"]     = self.position.y.description
@@ -348,12 +343,10 @@ class MCPart: SKSpriteNode {
         dict["colorG"] = components[1].description
         dict["colorB"] = components[2].description
         dict["colorA"] = alpha.description
-        dict["isMirrored"] = (isMirroredPart).description
         println("Dictionary count value is : \(dict.count)")
-        if let mir = mirroredPart{
-            if(mir.isMirroredPart){
-                dict["mirror"] = mir.makeDescDict()
-            }
+        
+        if let mir = mirroredPart {
+            dict["mirror"] = mir.convertToDictionary()
         }
         return dict
     }

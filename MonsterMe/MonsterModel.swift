@@ -15,29 +15,42 @@ class MonsterModel: NSManagedObject {
     @NSManaged var creatorName: String
     @NSManaged var editTime: NSDate
     
-    @NSManaged var name: String
-    @NSManaged var partData: NSData  // An array of MCParts stored via NSCoder
-    @NSManaged var previewImage: NSData
-    
     @NSManaged var trait1: NSNumber
     @NSManaged var trait2: NSNumber
     @NSManaged var trait3: NSNumber
     
-    @NSManaged var uuid: String  // Unique identifier for fetching this monster from core data
-    
     @NSManaged var voiceAccent: NSNumber
+    
+    @NSManaged var name: String
+    
+    /** An array of MCParts stored via NSCoder */
+    @NSManaged var partData: NSData
+    
+    /** Unique identifier for fetching this monster from core data */
+    @NSManaged var uuid: String
+    
+    @NSManaged var previewImage: NSData
 
     /**
      * Dictionary of parts!  Note the access pattern:
-     *
-     * If I want all the arms, I simply enter 'parts[PartType.arm]' and it will retrieve
-     *  all the arms on this monster.  How handy!
+     *    If I want all the arms, I simply enter 'parts[PartType.arm]' and it will retrieve
+     *    all the arms on this monster in an array.  How handy!
      */
     var parts: [PartType: [MCPart]] = [:]
 
+    /**
+     * Instantiate the parts variable from the saved NSData
+     */
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        parts = [:]
+        parts = [
+            .arm:   [],
+            .leg:   [],
+            .decal: [],
+            .eye:   [],
+            .mouth: [],
+            .body:  []
+        ]
         
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
+        // TODO: ^^^ that
     }
 }

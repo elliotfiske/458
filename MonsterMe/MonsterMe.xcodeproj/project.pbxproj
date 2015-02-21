@@ -29,19 +29,8 @@
 		C99422B61A980CE800632C96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99422B41A980CE800632C96 /* Main.storyboard */; };
 		C99422B81A980CE800632C96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99422B71A980CE800632C96 /* Images.xcassets */; };
 		C99422BB1A980CE800632C96 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99422B91A980CE800632C96 /* LaunchScreen.xib */; };
-		C99422C71A980CE800632C96 /* MonsterMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99422C61A980CE800632C96 /* MonsterMeTests.swift */; };
 		C9D9A96D1A9810B800B95A48 /* MonsterModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9D9A96B1A9810B800B95A48 /* MonsterModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C99422C11A980CE800632C96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C994229F1A980CE800632C96 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C99422A61A980CE800632C96;
-			remoteInfo = MonsterMe;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2AE4452D6DA4D47AE02D517A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -69,7 +58,6 @@
 		C99422B51A980CE800632C96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C99422B71A980CE800632C96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MonsterMe/Images.xcassets; sourceTree = "<group>"; };
 		C99422BA1A980CE800632C96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		C99422C01A980CE800632C96 /* MonsterMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99422C51A980CE800632C96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C99422C61A980CE800632C96 /* MonsterMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterMeTests.swift; sourceTree = "<group>"; };
 		C9D9A9691A980FFE00B95A48 /* MonsterMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MonsterMe-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -83,13 +71,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B06BB58A2E1EE8CD66DFEAA /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C99422BD1A980CE800632C96 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				C99422A71A980CE800632C96 /* MonsterMe.app */,
-				C99422C01A980CE800632C96 /* MonsterMeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,24 +239,6 @@
 			productReference = C99422A71A980CE800632C96 /* MonsterMe.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C99422BF1A980CE800632C96 /* MonsterMeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C99422CD1A980CE800632C96 /* Build configuration list for PBXNativeTarget "MonsterMeTests" */;
-			buildPhases = (
-				C99422BC1A980CE800632C96 /* Sources */,
-				C99422BD1A980CE800632C96 /* Frameworks */,
-				C99422BE1A980CE800632C96 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C99422C21A980CE800632C96 /* PBXTargetDependency */,
-			);
-			name = MonsterMeTests;
-			productName = MonsterMeTests;
-			productReference = C99422C01A980CE800632C96 /* MonsterMeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -288,10 +250,6 @@
 				TargetAttributes = {
 					C99422A61A980CE800632C96 = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					C99422BF1A980CE800632C96 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = C99422A61A980CE800632C96;
 					};
 				};
 			};
@@ -309,7 +267,6 @@
 			projectRoot = "";
 			targets = (
 				C99422A61A980CE800632C96 /* MonsterMe */,
-				C99422BF1A980CE800632C96 /* MonsterMeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -323,13 +280,6 @@
 				C99422B81A980CE800632C96 /* Images.xcassets in Resources */,
 				C99422AF1A980CE800632C96 /* PlanetScene.sks in Resources */,
 				C99422B61A980CE800632C96 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C99422BE1A980CE800632C96 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,23 +344,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C99422BC1A980CE800632C96 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C99422C71A980CE800632C96 /* MonsterMeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C99422C21A980CE800632C96 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C99422A61A980CE800632C96 /* MonsterMe */;
-			targetProxy = C99422C11A980CE800632C96 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C99422B41A980CE800632C96 /* Main.storyboard */ = {
@@ -537,42 +471,6 @@
 			};
 			name = Release;
 		};
-		C99422CE1A980CE800632C96 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MonsterMeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MonsterMe-Bridging-Header.h";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonsterMe.app/MonsterMe";
-			};
-			name = Debug;
-		};
-		C99422CF1A980CE800632C96 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MonsterMeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MonsterMe-Bridging-Header.h";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonsterMe.app/MonsterMe";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -590,15 +488,6 @@
 			buildConfigurations = (
 				C99422CB1A980CE800632C96 /* Debug */,
 				C99422CC1A980CE800632C96 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C99422CD1A980CE800632C96 /* Build configuration list for PBXNativeTarget "MonsterMeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C99422CE1A980CE800632C96 /* Debug */,
-				C99422CF1A980CE800632C96 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
