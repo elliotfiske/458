@@ -37,24 +37,30 @@ class MonsterModel: NSManagedObject {
      *    If I want all the arms, I simply enter 'parts[PartType.arm]' and it will retrieve
      *    all the arms on this monster in an array.  How handy!
      */
-    var parts: [PartType: [MCPart]] = [:]
-
-
-//    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-//        parts = [
-//            .arm:   [],
-//            .leg:   [],
-//            .decal: [],
-//            .eye:   [],
-//            .mouth: [],
-//            .body:  []
-//        ]
-//    }
-//    
+    var parts: [PartType: [MCPart]] = [
+        .arm:   [],
+        .leg:   [],
+        .decal: [],
+        .eye:   [],
+        .mouth: [],
+        .body:  []
+    ]
+    
     /**
      * Instantiate the parts variable from the saved NSData
      */
     func convertPartDataToParts() {
-        
+        var coolMouth = NSKeyedUnarchiver.unarchiveObjectWithData(partData)! as MCPartMouth
+        parts[.mouth] = [ coolMouth ]
+    }
+    
+    /**
+     * Instantiate a random 'body' as the base
+     */
+    func addRandomBody() {
+        // TODO: choose random color I guess
+        // TODO: and body type??
+        let randomColor = UIColor.redColor() // Guaranteed to be random!
+        parts[.body] = [ MCPartBody(textureName: "Spaceship", color: randomColor, anchor: CGPoint(x: 0.5, y: 0.5)) ]
     }
 }

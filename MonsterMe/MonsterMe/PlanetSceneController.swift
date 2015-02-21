@@ -39,6 +39,9 @@ class PlanetSceneController: UIViewController {
             scene.scaleMode = .AspectFill
             
             skView.presentScene(scene)
+            
+            // BEEP BOOP MAGICAL FARTS pretend the user just pressed 'edit' for now, open the builder view
+//            presentViewController(<#viewControllerToPresent: UIViewController#>, animated: <#Bool#>, completion: <#(() -> Void)?##() -> Void#>)
         }
     }
 

@@ -381,7 +381,7 @@ class MCPart: SKSpriteNode, NSCoding {
         let g     = dict["colorG"] as String
         let b     = dict["colorB"] as String
         let a     = dict["colorA"] as String
-        let tex   = dict["savedTexture"] as String
+        let tex   = dict["textureName"] as String
         
         let vals:[CGFloat] = [posX,posY,rot,scl,r,g,b,a].map{
             CGFloat(($0 as NSString).doubleValue)

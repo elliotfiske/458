@@ -146,12 +146,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MonsterMe/PlanetScene.swift"
-            timestampString = "446181009.987284"
+            timestampString = "446182534.626014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "didMoveToView(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MonsterModel.swift"
+            timestampString = "446182516.159537"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "convertPartDataToParts()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
