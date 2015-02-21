@@ -21,13 +21,13 @@ import SpriteKit
 class CreatorViewController: UIViewController {
     var currPage: CreatorScreen = CreatorScreen(rawValue: 0)!
     
-    var topBar: BuilderNavigationBar!
+    var topBar: CreatorNavigationBar!
     var backgroundView: UIView!
     var backgroundImage: UIImage!
     
     var builderSKView: SKView!
     var builderScene: BuilderScene!
-    var currCreatorView: MCDismissableView
+    var currCreatorView: MCDismissableView!
     
     var currMonster: MonsterModel
     var builderModel = BuilderModel()
@@ -46,7 +46,6 @@ class CreatorViewController: UIViewController {
      */
     init(monModel: MonsterModel) {
         currMonster = monModel
-        currCreatorView = currPage.initView()
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -56,10 +55,13 @@ class CreatorViewController: UIViewController {
         let screenRect = UIScreen.mainScreen().bounds
         builderSKView = SKView(frame: screenRect)
         builderSKView.multipleTouchEnabled = false
+        builderSKView.backgroundColor = UIColor.clearColor()
+        builderSKView.allowsTransparency = true
         
         builderScene = BuilderScene(size: screenRect.size)
         builderScene.controller = self
         builderScene.monsterNode = currMonster.body
+        builderScene.backgroundColor = UIColor.clearColor()
         builderSKView.presentScene(builderScene)
         
         builderModel.sceneNode = builderScene
@@ -71,8 +73,13 @@ class CreatorViewController: UIViewController {
 
         ////// STYLESHEET or storyboard ME
         let topBarRect = CGRect(x: 0, y: 0, width: screenRect.width, height: 120)
-        topBar = BuilderNavigationBar(frame: topBarRect)
+        topBar = NSBundle.mainBundle().loadNibNamed("CreatorTopBarView", owner: self, options: nil).last as CreatorNavigationBar 
+        topBar.frame = topBarRect
         self.view.insertSubview(topBar, aboveSubview: builderSKView)
+        
+        currCreatorView = currPage.initView(self.view.frame)
+        self.view.insertSubview(currCreatorView, belowSubview: builderSKView)
+        // TODO: add creator view subview.  Maybe as a method? so we can easily swap between creator views.
     }
     
     func handleSceneTouchBegin(touch: CGPoint) {
@@ -91,6 +98,28 @@ class CreatorViewController: UIViewController {
         builderModel.handleSceneUpdate()
     }
     
+    /**
+     * The view just asked for a collection view cell.  Ask the model where
+     */
+    func getCollectionViewCell() {
+        
+    }
+    
+    func showPartBuilderView() {
+        
+    }
+    
+    func showTraitView() {
+        
+    }
+    
+    func showVoiceView() {
+        
+    }
+    
+    func showNameView() {
+        
+    }
     
     
     required init(coder aDecoder: NSCoder) {

@@ -9,7 +9,12 @@
 import Foundation
 
 class BuilderPartView: MCDismissableView {
-    var collectionView = BuilderPartCollectionView()
+    var collectionView: BuilderPartCollectionView!
     
-    
+    override init(frame: CGRect) {
+        collectionView = BuilderPartCollectionView(frame: frame)
+        
+        super.init(frame: frame)
+        backgroundColor = UIColor.blueColor()
+    }
 }

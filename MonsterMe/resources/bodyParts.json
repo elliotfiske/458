@@ -395,56 +395,6 @@
       "colorable":false
     }
   ],
-  "eyeEmotion":[  
-    {  
-      "displayName":"eyeBlink",
-      "imageName":"spr_blink",
-      "anchorX":0.5,
-      "anchorY":0.5
-    },
-    {  
-      "displayName":"eyeDead",
-      "imageName":"spr_dead",
-      "anchorX":0.5,
-      "anchorY":0.5
-    },
-    {  
-      "displayName":"eyeDismayed",
-      "imageName":"spr_dismayed",
-      "anchorX":0.5,
-      "anchorY":0.5
-    },
-    {  
-      "displayName":"eyeHappy",
-      "imageName":"spr_happy",
-      "anchorX":0.5,
-      "anchorY":0.5
-    },
-    {  
-      "displayName":"eyeLooky",
-      "imageName":"spr_looky",
-      "anchorX":0.5,
-      "anchorY":0.5
-    },
-    {  
-      "displayName":"eyeShocked",
-      "imageName":"spr_shocked",
-      "anchorX":0.5,
-      "anchorY":0.5
-    },
-    {  
-      "displayName":"eyeStar",
-      "imageName":"spr_superStar",
-      "anchorX":0.5,
-      "anchorY":0.5
-    },
-    {  
-      "displayName":"eyeStar",
-      "imageName":"spr_eyeBack",
-      "anchorX":0.5,
-      "anchorY":0.5
-    }
-  ],
   "color":[
     {  
       "imageName":"circleImage",

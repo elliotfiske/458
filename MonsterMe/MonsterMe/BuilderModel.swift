@@ -71,8 +71,8 @@ class BuilderModel: NSObject {
      * Called once a frame from the scene.  Go through each part and call partUpdate() on it
      */
     func handleSceneUpdate() {
-        for part in monsterModel.allParts {
-            part.updatePart()
+        for eye in monsterModel.parts[.eye]! {
+            eye.updatePart()
         }
     }
     

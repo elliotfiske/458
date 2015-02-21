@@ -30,19 +30,19 @@ enum CreatorScreen: Int {
         }
     }
     
-    func initView() -> MCDismissableView {
+    func initView(frame: CGRect) -> MCDismissableView {
         switch self {
         case body:
-            return BuilderPartView()
+            return BuilderPartView(frame: frame)
         case traits:
-            return BuilderPartView()
+            return BuilderPartView(frame: frame)
         case voice:
-            return BuilderPartView()
+            return BuilderPartView(frame: frame)
         case name:
-            return BuilderPartView()
+            return BuilderPartView(frame: frame)
         case maxScreen:
             println("Hey don't try to init a maxScreen!  that's just there to tell you when we're done.")
-            return BuilderPartView()
+            return BuilderPartView(frame: frame)
         }
     }
 }

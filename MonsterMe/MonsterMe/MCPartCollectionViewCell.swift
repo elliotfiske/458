@@ -87,14 +87,14 @@ class MCPartCollectionViewCell: UICollectionViewCell {
         template = template_
         
         partImageView.image = template.imageForPart()
-        partImageView.frame.size = MCStyle.PART_IMAGE_SIZE
+        partImageView.frame.size = CGSize(width: 60, height: 60)
         let imgSize = partImageView.image!.size
         if imgSize.width < partImageView.frame.width && imgSize.height < partImageView.frame.height {
             partImageView.frame.size = imgSize
         }
         partImageView.center = circleView.center
         
-        if template.colorable() {
+        if template.colorable {
             partImageView.tintColor = template.color
         }
         else{
@@ -126,7 +126,7 @@ class MCPartCollectionViewCell: UICollectionViewCell {
         insertSubview(grayPartView, aboveSubview: circleView)
         bringSubviewToFront(partImageView)
         
-        if template.colorable() {
+        if template.colorable {
             partImageView.tintColor = template.color
         }
         else {
