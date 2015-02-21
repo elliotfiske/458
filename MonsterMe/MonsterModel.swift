@@ -46,6 +46,22 @@ class MonsterModel: NSManagedObject {
         .body:  []
     ]
     
+    /** Every single part in one convenient array */
+    var allParts: [MCPart] {
+        get {
+            var result = [MCPart]()
+            for partList in parts.values {
+                result += partList
+            }
+            return result
+        }
+    }
+    
+    var body: MCPartBody {
+        let bodies = parts[.body]!
+        return bodies.first as MCPartBody
+    }
+    
     /**
      * Instantiate the parts variable from the saved NSData
      */

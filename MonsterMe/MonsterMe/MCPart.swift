@@ -182,7 +182,7 @@ class MCPart: SKSpriteNode, NSCoding {
      * Called once a frame.  Figure out if our targetPoint should change
      * then move towards it.
      */
-    func update() {
+    func updatePart() {
         let oldPos = position
         var targetPoint: CGPoint?
         if stuckOnMonster {

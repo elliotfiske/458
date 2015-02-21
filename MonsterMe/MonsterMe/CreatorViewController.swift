@@ -21,7 +21,7 @@ import SpriteKit
 class CreatorViewController: UIViewController {
     var currPage: CreatorScreen = CreatorScreen(rawValue: 0)!
     
-    var topBar: TopNavigationBar!
+    var topBar: BuilderNavigationBar!
     var backgroundView: UIView!
     var backgroundImage: UIImage!
     
@@ -29,16 +29,16 @@ class CreatorViewController: UIViewController {
     var currCreatorView: MCDismissableViewController!
     var creatorViews: [MCDismissableViewController]!
     
-    var monsterEditController: MonsterEditController! // This is the controller that maintains the Monster throughout the screens
-    
     var currMonster: MonsterModel
+    var builderModel = BuilderModel()
     
     /**
      * Instantiate a creator view controller with a brand spanking new monster
      */
-    init() {
-        currMonster = MonsterModel.MR_createEntity()
-        currMonster.addRandomBody()
+    convenience override init() {
+        var newMonster = MonsterModel.MR_createEntity() as MonsterModel
+        newMonster.addRandomBody()
+        self.init(monModel: newMonster)
     }
     
     /**
@@ -46,12 +46,46 @@ class CreatorViewController: UIViewController {
      */
     init(monModel: MonsterModel) {
         currMonster = monModel
+        super.init(nibName: nil, bundle: nil)
     }
     
+
     override func loadView() {
         let screenRect = UIScreen.mainScreen().bounds
-        self.view = SKView(frame: screenRect)
+        let skView = SKView(frame: screenRect)
+        skView.multipleTouchEnabled = false
         
-        builderScene = BuilderScene()
+        builderScene = BuilderScene(size: screenRect.size)
+        builderScene.controller = self
+        builderScene.monsterNode = currMonster.body
+        skView.presentScene(builderScene)
+        
+        builderModel.sceneNode = builderScene
+        builderModel.monsterModel = currMonster
+        builderModel.rotator = builderScene.rotator
+        
+        self.view = skView
+    }
+    
+    func handleSceneTouchBegin(touch: CGPoint) {
+        builderModel.handleSceneTouchBegin(touch)
+    }
+    
+    func handleSceneTouchMoved(touch: CGPoint) {
+        builderModel.handleSceneTouchMoved(touch)
+    }
+    
+    func handleSceneTouchEnded(touch: CGPoint) {
+        builderModel.handleSceneTouchEnded(touch)
+    }
+    
+    func handleSceneUpdate() {
+        builderModel.handleSceneUpdate()
+    }
+    
+    
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

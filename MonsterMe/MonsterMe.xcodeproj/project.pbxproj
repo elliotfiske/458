@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9B06BB58A2E1EE8CD66DFEAA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2152B65DA84A14CE656A4E /* libPods.a */; };
+		C90251351A983CBB00CE4C97 /* BuilderNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90251341A983CBB00CE4C97 /* BuilderNavigationBar.swift */; };
+		C90251371A983EF800CE4C97 /* MCDismissableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90251361A983EF800CE4C97 /* MCDismissableViewController.swift */; };
+		C902513B1A98434800CE4C97 /* PartRotatorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C902513A1A98434800CE4C97 /* PartRotatorNode.swift */; };
 		C9397F9D1A98199900A929DB /* MonsterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9397F9C1A98199900A929DB /* MonsterModel.swift */; };
 		C94622E91A981B2900DA8FB4 /* PartType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622E81A981B2900DA8FB4 /* PartType.swift */; };
 		C94622F61A981BB500DA8FB4 /* MCPartBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622EC1A981BB500DA8FB4 /* MCPartBody.swift */; };
@@ -40,6 +43,9 @@
 /* Begin PBXFileReference section */
 		2AE4452D6DA4D47AE02D517A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6F2152B65DA84A14CE656A4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C90251341A983CBB00CE4C97 /* BuilderNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuilderNavigationBar.swift; sourceTree = "<group>"; };
+		C90251361A983EF800CE4C97 /* MCDismissableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCDismissableViewController.swift; sourceTree = "<group>"; };
+		C902513A1A98434800CE4C97 /* PartRotatorNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartRotatorNode.swift; sourceTree = "<group>"; };
 		C9397F9C1A98199900A929DB /* MonsterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterModel.swift; sourceTree = "<group>"; };
 		C94622E81A981B2900DA8FB4 /* PartType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartType.swift; sourceTree = "<group>"; };
 		C94622EC1A981BB500DA8FB4 /* MCPartBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartBody.swift; sourceTree = "<group>"; };
@@ -93,6 +99,17 @@
 				6F2152B65DA84A14CE656A4E /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C902513C1A98436700CE4C97 /* Part Builder */ = {
+			isa = PBXGroup;
+			children = (
+				C9D1791A1A983B6200EFA0F9 /* BuilderModel.swift */,
+				C9D1791C1A983B6F00EFA0F9 /* BuilderScene.swift */,
+				C90251341A983CBB00CE4C97 /* BuilderNavigationBar.swift */,
+				C902513A1A98434800CE4C97 /* PartRotatorNode.swift */,
+			);
+			name = "Part Builder";
 			sourceTree = "<group>";
 		};
 		C9397F991A9818DB00A929DB /* Resources */ = {
@@ -176,7 +193,7 @@
 		C99422A91A980CE800632C96 /* MonsterMe */ = {
 			isa = PBXGroup;
 			children = (
-				C9D179131A98362600EFA0F9 /* Monster Builder Classes (DANGER ZONE) */,
+				C9D179131A98362600EFA0F9 /* Monster Creation */,
 				C9D179121A9835F900EFA0F9 /* Planet Classes */,
 				C94622E71A981B1200DA8FB4 /* Monster Model */,
 			);
@@ -220,15 +237,15 @@
 			name = "Planet Classes";
 			sourceTree = "<group>";
 		};
-		C9D179131A98362600EFA0F9 /* Monster Builder Classes (DANGER ZONE) */ = {
+		C9D179131A98362600EFA0F9 /* Monster Creation */ = {
 			isa = PBXGroup;
 			children = (
+				C902513C1A98436700CE4C97 /* Part Builder */,
 				C9D179141A98370700EFA0F9 /* CreatorViewController.swift */,
 				C9D179161A98382C00EFA0F9 /* CreatorView.swift */,
-				C9D1791A1A983B6200EFA0F9 /* BuilderModel.swift */,
-				C9D1791C1A983B6F00EFA0F9 /* BuilderScene.swift */,
+				C90251361A983EF800CE4C97 /* MCDismissableViewController.swift */,
 			);
-			name = "Monster Builder Classes (DANGER ZONE)";
+			name = "Monster Creation";
 			sourceTree = "<group>";
 		};
 		C9D9A96A1A9810A000B95A48 /* Data Models */ = {
@@ -360,10 +377,12 @@
 				C94622FF1A981BB500DA8FB4 /* MCPartColor.swift in Sources */,
 				C99422B11A980CE800632C96 /* PlanetScene.swift in Sources */,
 				C94622F91A981BB500DA8FB4 /* MCPartEye.swift in Sources */,
+				C90251371A983EF800CE4C97 /* MCDismissableViewController.swift in Sources */,
 				C94622F81A981BB500DA8FB4 /* MCPartLeg.swift in Sources */,
 				C94622FC1A981BB500DA8FB4 /* MCPartArm.swift in Sources */,
 				C99422B31A980CE800632C96 /* PlanetSceneController.swift in Sources */,
 				C94623041A981C8D00DA8FB4 /* Array+Random.swift in Sources */,
+				C90251351A983CBB00CE4C97 /* BuilderNavigationBar.swift in Sources */,
 				C9D1791D1A983B6F00EFA0F9 /* BuilderScene.swift in Sources */,
 				C94622F61A981BB500DA8FB4 /* MCPartBody.swift in Sources */,
 				C9D9A96D1A9810B800B95A48 /* MonsterModel.xcdatamodeld in Sources */,
@@ -373,6 +392,7 @@
 				C94622FB1A981BB500DA8FB4 /* MCPartMouth.swift in Sources */,
 				C9397F9D1A98199900A929DB /* MonsterModel.swift in Sources */,
 				C9D1791B1A983B6200EFA0F9 /* BuilderModel.swift in Sources */,
+				C902513B1A98434800CE4C97 /* PartRotatorNode.swift in Sources */,
 				C94622FD1A981BB500DA8FB4 /* MCPartStuff.swift in Sources */,
 				C94623031A981C8D00DA8FB4 /* Convenience.swift in Sources */,
 				C94622F71A981BB500DA8FB4 /* MCPart.swift in Sources */,
