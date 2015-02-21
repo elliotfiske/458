@@ -1,5 +1,5 @@
 //
-//  GameScene.swift
+//  PlanetScene.swift
 //  MonsterMe
 //
 //  Created by Elliot Fiske on 2/20/15.
@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class PlanetScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
@@ -17,6 +17,16 @@ class GameScene: SKScene {
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
         self.addChild(myLabel)
+        
+        let testEye = MCPartEye(textureName: "Spaceship", color: UIColor.whiteColor(), anchor: CGPoint(x: 0.5, y: 0.5), pupilTextureName: "Spaceship")
+        let eyeData = NSKeyedArchiver.archivedDataWithRootObject(testEye)
+        let testModel = MonsterModel.MR_createEntity() as MonsterModel
+        
+        testModel.partData = eyeData
+        
+        
+        
+        
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {

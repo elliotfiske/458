@@ -7,7 +7,7 @@
 //
 //
 //   Welcome to the planet scene controller!
-
+//
 //   This is essentially the "root" view controller that every child view controller and scene
 //    will be parented to, if you go back far enough.
 //
@@ -26,7 +26,7 @@ class PlanetSceneController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let scene = GameScene.unarchiveFromFile("PlanetScene") as? GameScene {
+        if let scene = PlanetScene.unarchiveFromFile("PlanetScene") as? PlanetScene {
             // Configure the view.
             let skView = self.view as SKView
             skView.showsFPS = true
@@ -77,7 +77,7 @@ extension SKNode {
             var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
             
             archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as GameScene
+            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as PlanetScene
             archiver.finishDecoding()
             return scene
         } else {

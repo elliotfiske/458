@@ -51,6 +51,7 @@ class MonsterModel: NSManagedObject {
             .body:  []
         ]
         
+        
         // TODO: ^^^ that
     }
 }

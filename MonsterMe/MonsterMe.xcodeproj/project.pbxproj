@@ -24,7 +24,7 @@
 		C94623041A981C8D00DA8FB4 /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94623021A981C8D00DA8FB4 /* Array+Random.swift */; };
 		C99422AD1A980CE800632C96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99422AC1A980CE800632C96 /* AppDelegate.swift */; };
 		C99422AF1A980CE800632C96 /* PlanetScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C99422AE1A980CE800632C96 /* PlanetScene.sks */; };
-		C99422B11A980CE800632C96 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99422B01A980CE800632C96 /* GameScene.swift */; };
+		C99422B11A980CE800632C96 /* PlanetScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99422B01A980CE800632C96 /* PlanetScene.swift */; };
 		C99422B31A980CE800632C96 /* PlanetSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99422B21A980CE800632C96 /* PlanetSceneController.swift */; };
 		C99422B61A980CE800632C96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99422B41A980CE800632C96 /* Main.storyboard */; };
 		C99422B81A980CE800632C96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99422B71A980CE800632C96 /* Images.xcassets */; };
@@ -53,7 +53,7 @@
 		C99422AB1A980CE800632C96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C99422AC1A980CE800632C96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C99422AE1A980CE800632C96 /* PlanetScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlanetScene.sks; sourceTree = "<group>"; };
-		C99422B01A980CE800632C96 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		C99422B01A980CE800632C96 /* PlanetScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetScene.swift; sourceTree = "<group>"; };
 		C99422B21A980CE800632C96 /* PlanetSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetSceneController.swift; sourceTree = "<group>"; };
 		C99422B51A980CE800632C96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C99422B71A980CE800632C96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MonsterMe/Images.xcassets; sourceTree = "<group>"; };
@@ -167,8 +167,8 @@
 				C94622E71A981B1200DA8FB4 /* Monster Model */,
 				C99422AC1A980CE800632C96 /* AppDelegate.swift */,
 				C99422AE1A980CE800632C96 /* PlanetScene.sks */,
-				C99422B01A980CE800632C96 /* GameScene.swift */,
 				C99422B21A980CE800632C96 /* PlanetSceneController.swift */,
+				C99422B01A980CE800632C96 /* PlanetScene.swift */,
 				C99422AA1A980CE800632C96 /* Supporting Files */,
 			);
 			path = MonsterMe;
@@ -326,7 +326,7 @@
 				C94622FA1A981BB500DA8FB4 /* MCPartHat.swift in Sources */,
 				C94622E91A981B2900DA8FB4 /* PartType.swift in Sources */,
 				C94622FF1A981BB500DA8FB4 /* MCPartColor.swift in Sources */,
-				C99422B11A980CE800632C96 /* GameScene.swift in Sources */,
+				C99422B11A980CE800632C96 /* PlanetScene.swift in Sources */,
 				C94622F91A981BB500DA8FB4 /* MCPartEye.swift in Sources */,
 				C94622F81A981BB500DA8FB4 /* MCPartLeg.swift in Sources */,
 				C94622FC1A981BB500DA8FB4 /* MCPartArm.swift in Sources */,

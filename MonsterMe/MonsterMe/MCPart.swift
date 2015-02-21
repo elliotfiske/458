@@ -12,7 +12,7 @@ import SpriteKit
 let BASE_CATEGORY: UInt32 = 0x2
 let PART_CATEGORY: UInt32 = 0x1
 
-class MCPart: SKSpriteNode {
+class MCPart: SKSpriteNode, NSCoding {
 
     var partType: PartType {
         fatalError("Each part subclass has to override this with its part type !")
@@ -355,7 +355,8 @@ class MCPart: SKSpriteNode {
         dict["colorG"] = components[1].description
         dict["colorB"] = components[2].description
         dict["colorA"] = alpha.description
-        println("Dictionary count value is : \(dict.count)")
+        
+        dict["textureName"] = self.textureName as NSString
         
         if let mir = mirroredPart {
             dict["mirrorUUID"] = mir.partUUID
@@ -363,8 +364,14 @@ class MCPart: SKSpriteNode {
         return dict
     }
     
+    override func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.convertToDictionary(), forKey: "partDictionary")
+    }
+    
     /** Restore this part from a dictionary of strings */
-    func initWithDict(dict:NSDictionary){
+    required init(coder aDecoder: NSCoder) {
+        let dict = aDecoder.decodeObjectForKey("partDictionary") as NSDictionary
+        
         let posX  = dict["posX"] as String
         let posY  = dict["posY"] as String
         let rot   = dict["rotation"] as String
@@ -374,6 +381,7 @@ class MCPart: SKSpriteNode {
         let g     = dict["colorG"] as String
         let b     = dict["colorB"] as String
         let a     = dict["colorA"] as String
+        let tex   = dict["savedTexture"] as String
         
         let vals:[CGFloat] = [posX,posY,rot,scl,r,g,b,a].map{
             CGFloat(($0 as NSString).doubleValue)
@@ -381,6 +389,14 @@ class MCPart: SKSpriteNode {
         
         self.dragPoint = CGPoint(x: vals[0],y:vals[1])
         self.lockPoint = CGPoint(x: vals[0],y:vals[1])
+        
+        savedColor = UIColor(red:vals[4],green:vals[5],blue:vals[6],alpha:vals[7])
+        self.textureName = tex
+        
+        savedTexture = SKTexture(imageNamed: textureName)
+        
+        super.init(texture: savedTexture, color: savedColor, size: savedTexture.size())
+        
         self.position = CGPoint(x: vals[0],y:vals[1])
         
         rotateToAngle(vals[2])
@@ -388,23 +404,8 @@ class MCPart: SKSpriteNode {
         
         setScale(vals[3])
         
-        if((hid as NSString).boolValue){
+        if ((hid as NSString).boolValue) {
             hide()
         }
-        
-        if (self.colorable()) {
-            setTentativeColor(UIColor(red:vals[4],green:vals[5],blue:vals[6],alpha:vals[7]))
-            confirmColor()
-        }
-        else {
-            setTentativeColor(UIColor(red:1.0,green:1.0,blue:1.0,alpha:1.0))
-            confirmColor()
-        }
-    }
-    
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
