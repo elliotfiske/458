@@ -70,7 +70,7 @@
 		C9CD8A941A682DD700284D33 /* FlapTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapTitleView.swift; sourceTree = "<group>"; };
 		C9CD8A961A68324B00284D33 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		C9D09C151A8C9A290073B235 /* AnimMakerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimMakerController.swift; sourceTree = "<group>"; };
-		C9D4767B1A5F064300705452 /* 458Bird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 458Bird.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9D4767B1A5F064300705452 /* MonsterMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D4767F1A5F064300705452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9D476801A5F064300705452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9D476821A5F064300705452 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		C9D4767C1A5F064300705452 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C9D4767B1A5F064300705452 /* 458Bird.app */,
+				C9D4767B1A5F064300705452 /* MonsterMe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,9 +250,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C9D4767A1A5F064300705452 /* 458Bird */ = {
+		C9D4767A1A5F064300705452 /* MonsterMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9D4769E1A5F064300705452 /* Build configuration list for PBXNativeTarget "458Bird" */;
+			buildConfigurationList = C9D4769E1A5F064300705452 /* Build configuration list for PBXNativeTarget "MonsterMe" */;
 			buildPhases = (
 				709707CAA489FC6F5ADD15DF /* Check Pods Manifest.lock */,
 				C9D476771A5F064300705452 /* Sources */,
@@ -264,9 +264,9 @@
 			);
 			dependencies = (
 			);
-			name = 458Bird;
+			name = MonsterMe;
 			productName = 458Bird;
-			productReference = C9D4767B1A5F064300705452 /* 458Bird.app */;
+			productReference = C9D4767B1A5F064300705452 /* MonsterMe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -283,7 +283,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C9D476761A5F064300705452 /* Build configuration list for PBXProject "458Bird" */;
+			buildConfigurationList = C9D476761A5F064300705452 /* Build configuration list for PBXProject "MonsterMe" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -296,7 +296,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C9D4767A1A5F064300705452 /* 458Bird */,
+				C9D4767A1A5F064300705452 /* MonsterMe */,
 			);
 		};
 /* End PBXProject section */
@@ -494,7 +494,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = 458Bird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MonsterMe;
 			};
 			name = Debug;
 		};
@@ -505,14 +505,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = 458Bird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MonsterMe;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C9D476761A5F064300705452 /* Build configuration list for PBXProject "458Bird" */ = {
+		C9D476761A5F064300705452 /* Build configuration list for PBXProject "MonsterMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9D4769C1A5F064300705452 /* Debug */,
@@ -521,7 +521,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9D4769E1A5F064300705452 /* Build configuration list for PBXNativeTarget "458Bird" */ = {
+		C9D4769E1A5F064300705452 /* Build configuration list for PBXNativeTarget "MonsterMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9D4769F1A5F064300705452 /* Debug */,

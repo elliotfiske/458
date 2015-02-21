@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C9D4767A1A5F064300705452"
-               BuildableName = "458Bird.app"
-               BlueprintName = "458Bird"
-               ReferencedContainer = "container:458Bird.xcodeproj">
+               BuildableName = "MonsterMe.app"
+               BlueprintName = "MonsterMe"
+               ReferencedContainer = "container:MonsterMe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "C9D476931A5F064300705452"
                BuildableName = "458BirdTests.xctest"
                BlueprintName = "458BirdTests"
-               ReferencedContainer = "container:458Bird.xcodeproj">
+               ReferencedContainer = "container:MonsterMe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "C9D476931A5F064300705452"
                BuildableName = "458BirdTests.xctest"
                BlueprintName = "458BirdTests"
-               ReferencedContainer = "container:458Bird.xcodeproj">
+               ReferencedContainer = "container:MonsterMe.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9D4767A1A5F064300705452"
-            BuildableName = "458Bird.app"
-            BlueprintName = "458Bird"
-            ReferencedContainer = "container:458Bird.xcodeproj">
+            BuildableName = "MonsterMe.app"
+            BlueprintName = "MonsterMe"
+            ReferencedContainer = "container:MonsterMe.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9D4767A1A5F064300705452"
-            BuildableName = "458Bird.app"
-            BlueprintName = "458Bird"
-            ReferencedContainer = "container:458Bird.xcodeproj">
+            BuildableName = "MonsterMe.app"
+            BlueprintName = "MonsterMe"
+            ReferencedContainer = "container:MonsterMe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9D4767A1A5F064300705452"
-            BuildableName = "458Bird.app"
-            BlueprintName = "458Bird"
-            ReferencedContainer = "container:458Bird.xcodeproj">
+            BuildableName = "MonsterMe.app"
+            BlueprintName = "MonsterMe"
+            ReferencedContainer = "container:MonsterMe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

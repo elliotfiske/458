@@ -21,6 +21,8 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
     override func viewDidAppear(animated: Bool) {
         editAnimIndex = nil
         self.tableView.reloadData()
+        let lel = Animation.createEntity() as Animation
+        let anims = Animation.findAll() as [Animation]
     }
     
     /**** TABLE VIEW STUFF ****/
