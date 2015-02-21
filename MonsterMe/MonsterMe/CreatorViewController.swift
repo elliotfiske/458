@@ -25,9 +25,9 @@ class CreatorViewController: UIViewController {
     var backgroundView: UIView!
     var backgroundImage: UIImage!
     
+    var builderSKView: SKView!
     var builderScene: BuilderScene!
-    var currCreatorView: MCDismissableViewController!
-    var creatorViews: [MCDismissableViewController]!
+    var currCreatorView: MCDismissableView
     
     var currMonster: MonsterModel
     var builderModel = BuilderModel()
@@ -46,25 +46,33 @@ class CreatorViewController: UIViewController {
      */
     init(monModel: MonsterModel) {
         currMonster = monModel
+        currCreatorView = currPage.initView()
+        
         super.init(nibName: nil, bundle: nil)
     }
     
 
     override func loadView() {
         let screenRect = UIScreen.mainScreen().bounds
-        let skView = SKView(frame: screenRect)
-        skView.multipleTouchEnabled = false
+        builderSKView = SKView(frame: screenRect)
+        builderSKView.multipleTouchEnabled = false
         
         builderScene = BuilderScene(size: screenRect.size)
         builderScene.controller = self
         builderScene.monsterNode = currMonster.body
-        skView.presentScene(builderScene)
+        builderSKView.presentScene(builderScene)
         
         builderModel.sceneNode = builderScene
         builderModel.monsterModel = currMonster
         builderModel.rotator = builderScene.rotator
         
-        self.view = skView
+        self.view = UIView(frame: screenRect)
+        self.view.addSubview(builderSKView)
+
+        ////// STYLESHEET or storyboard ME
+        let topBarRect = CGRect(x: 0, y: 0, width: screenRect.width, height: 120)
+        topBar = BuilderNavigationBar(frame: topBarRect)
+        self.view.insertSubview(topBar, aboveSubview: builderSKView)
     }
     
     func handleSceneTouchBegin(touch: CGPoint) {

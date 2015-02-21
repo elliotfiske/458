@@ -1,5 +1,5 @@
 //
-//  MCDismissableViewController.swift
+//  CreatorModel.swift
 //  MonsterMe
 //
 //  Created by Elliot Fiske on 2/20/15.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class MCDismissableViewController: UIViewController {
+class CreatorModel: NSObject {
     
 }

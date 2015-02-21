@@ -1,5 +1,5 @@
 //
-//  CreatorView.swift
+//  CreatorScreen.swift
 //  MonsterMe
 //
 //  Created by Elliot Fiske on 2/20/15.
@@ -9,7 +9,7 @@
 import Foundation
 
 enum CreatorScreen: Int {
-    case body = 0, traits = 1, voice = 2, name = 3, maxScreen = 4
+    case body = 0, traits, voice, name, maxScreen
     
     /**
      * What this creator screen's menu bar title is
@@ -27,6 +27,22 @@ enum CreatorScreen: Int {
         case maxScreen:
             println("Don't do that! maxScreen isn't a real screen")
             return "ERROR YO"
+        }
+    }
+    
+    func initView() -> MCDismissableView {
+        switch self {
+        case body:
+            return BuilderPartView()
+        case traits:
+            return BuilderPartView()
+        case voice:
+            return BuilderPartView()
+        case name:
+            return BuilderPartView()
+        case maxScreen:
+            println("Hey don't try to init a maxScreen!  that's just there to tell you when we're done.")
+            return BuilderPartView()
         }
     }
 }

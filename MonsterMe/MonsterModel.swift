@@ -59,6 +59,7 @@ class MonsterModel: NSManagedObject {
     
     var body: MCPartBody {
         let bodies = parts[.body]!
+        assert(bodies.count == 1, "EY YO THERE CAN BE ONLY ONE BODY, YA HEAR?")
         return bodies.first as MCPartBody
     }
     
@@ -66,8 +67,7 @@ class MonsterModel: NSManagedObject {
      * Instantiate the parts variable from the saved NSData
      */
     func convertPartDataToParts() {
-        var coolMouth = NSKeyedUnarchiver.unarchiveObjectWithData(partData)! as MCPartMouth
-        parts[.mouth] = [ coolMouth ]
+        fatalError("ya forgot to implement this ya dingus")
     }
     
     /**
