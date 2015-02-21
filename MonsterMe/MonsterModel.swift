@@ -33,6 +33,11 @@ class MonsterModel: NSManagedObject {
      * If I want all the arms, I simply enter 'parts[PartType.arm]' and it will retrieve
      *  all the arms on this monster.  How handy!
      */
-    var parts: [PartType: [MCPart]]
+    var parts: [PartType: [MCPart]] = [:]
 
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        parts = [:]
+        
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
 }

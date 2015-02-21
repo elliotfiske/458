@@ -34,6 +34,17 @@ enum PartType: String {
         }
     }
     
+    /** Define which parts are limbs - limbs act differently than decals/mouths, 
+     *   in that they stick to the OUTSIDE of the monster instead of being directly 
+     *   on the monster body. 
+     */
+    func limb() -> Bool {
+        if self == .arm || self == .leg {
+            return true
+        }
+        return false
+    }
+    
     /** Name of part category that's displayed on the toolbar */
     func displayName() -> String {
         switch (self) {

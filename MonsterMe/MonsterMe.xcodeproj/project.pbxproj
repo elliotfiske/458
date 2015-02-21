@@ -158,11 +158,11 @@
 		C994229E1A980CE800632C96 = {
 			isa = PBXGroup;
 			children = (
+				C9D9A9691A980FFE00B95A48 /* MonsterMe-Bridging-Header.h */,
 				C94623001A981C2F00DA8FB4 /* Convenience */,
 				C99422B91A980CE800632C96 /* LaunchScreen.xib */,
 				C99422B41A980CE800632C96 /* Main.storyboard */,
 				C9D9A96A1A9810A000B95A48 /* Data Models */,
-				C9D9A9691A980FFE00B95A48 /* MonsterMe-Bridging-Header.h */,
 				C99422A91A980CE800632C96 /* MonsterMe */,
 				C9397F991A9818DB00A929DB /* Resources */,
 				C99422C31A980CE800632C96 /* MonsterMeTests */,
@@ -552,6 +552,7 @@
 				INFOPLIST_FILE = MonsterMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MonsterMe-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonsterMe.app/MonsterMe";
 			};
 			name = Debug;
@@ -567,6 +568,7 @@
 				INFOPLIST_FILE = MonsterMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MonsterMe-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonsterMe.app/MonsterMe";
 			};
 			name = Release;

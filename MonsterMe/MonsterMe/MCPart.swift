@@ -13,13 +13,7 @@ let BASE_CATEGORY: UInt32 = 0x2
 let PART_CATEGORY: UInt32 = 0x1
 
 class MCPart: SKSpriteNode {
-    /** Limbs act differently than decals/mouths, in that they stick to the OUTSIDE of the monster
-     *   instead of being directly on the monster body. */
-    var limb: Bool {
-        get {
-            return partType == .arm || partType == .leg
-        }
-    }
+
     var partType: PartType {
         fatalError("Each part subclass has to override this with its part type !")
     }
