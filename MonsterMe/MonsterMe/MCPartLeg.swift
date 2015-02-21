@@ -107,7 +107,8 @@ class MCPartLeg: MCPartLimb {
         tentativeColor = nil
     }
     
-    override func makeDescDict() -> NSDictionary {
+    // TODO: Make this call super before it does anything too crazy
+    override func convertToDictionary() -> NSDictionary {
         var dict: [NSString: AnyObject] = [:]
         if (self.partType == PartType.hat) {
             dict["keyInDict"] = PartType.decal.rawValue as NSString
@@ -118,7 +119,7 @@ class MCPartLeg: MCPartLimb {
         
         dict["posX"]     = self.position.x.description
         dict["posY"]     = self.position.y.description
-        dict["rotation"] = self.angle.description
+        dict["rotation"] = self.savedAngle.description
         dict["scale"]    = self.savedScale.description
         dict["hidden"]   = self.hidden.description
         var components = CGColorGetComponents(visibleLeg.color.CGColor)
@@ -131,9 +132,7 @@ class MCPartLeg: MCPartLimb {
         dict["isMirrored"] = (isMirroredPart).description
 
         if let mir = mirroredPart {
-            if (mir.isMirroredPart) {
-                dict["mirror"] = mir.makeDescDict()
-            }
+            dict["mirror"] = mir.partUUID
         }
         return dict
     }

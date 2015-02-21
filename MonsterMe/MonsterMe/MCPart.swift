@@ -1,6 +1,6 @@
 //
-//  MonsterBody.swift
-//  MonsterAnim
+//  MCPart.swift
+//  MonsterMe
 //
 //  Created by Kyle Piddington on 8/5/14.
 //  Copyright (c) 2014 Kyle Piddington. All rights reserved.
@@ -18,8 +18,19 @@ class MCPart: SKSpriteNode {
         fatalError("Each part subclass has to override this with its part type !")
     }
     
-    var stuckOnMonster = false     // Only applicable if this is a limb
-    var containedInMonster = false // Only applicable if this is NOT a limb
+    /** Each part needs a unique identifier, so that it can find its mirrored
+     *   soulmate after being NSCoded into a dictionary */
+    var partUUID: String {
+        get {
+            return "\(partType.rawValue)-\(position.x)-\(position.y)-\(savedAngle)"
+        }
+    }
+    
+    /** TRUE if the part is attached to the monster. */
+    var stuckOnMonster = false
+    /** TRUE if the part is currently attached, OR being dragged on top of the monster
+     *   at a point where it would attach if it were dropped */
+    var containedInMonster = false
     
     /** Gives the mirror of the current part. Note that each mirrored part should have the OTHER one as a mirroredPart */
     var mirroredPart: MCPart? = nil
@@ -40,8 +51,8 @@ class MCPart: SKSpriteNode {
     var savedTexture: SKTexture!
     var textureName: String
     
-    /** The user can rotate and scale parts, we want to remember their original parameters */
-    var angle: CGFloat = 0
+    /** Parts can rotate or scale as the monster dances around, we need to be able to reset to the baseline */
+    var savedAngle: CGFloat = 0
     var savedScale: CGFloat = 1
     
     /** Describes the last point the node was at BEFORE it was parented to something else */
@@ -50,8 +61,6 @@ class MCPart: SKSpriteNode {
     var maxScale: CGFloat = 2
     
     init(textureName: String, color: UIColor, anchor: CGPoint) {
-        // TODO: figure out how anchor points should work
-        
         savedColor = color
         self.textureName = textureName
         
@@ -108,7 +117,7 @@ class MCPart: SKSpriteNode {
         
         self.runAction(SKAction.rotateToAngle(newAngle, duration: 0.05, shortestUnitArc: true))
         
-        angle = newAngle
+        savedAngle = newAngle
     }
     
     /** Rotates this part to face directly TOWARD the specified point */
@@ -120,13 +129,13 @@ class MCPart: SKSpriteNode {
         
         self.runAction(SKAction.rotateToAngle(newAngle, duration: 0.05, shortestUnitArc: true))
         
-        angle = newAngle
+        savedAngle = newAngle
     }
     
     /** Animates a part to a specific rotation, without a delay */
     func rotateToAngle(newAngle:CGFloat) {
-        angle = newAngle
-        self.runAction(SKAction.rotateToAngle(angle, duration: 0.0, shortestUnitArc: true))
+        savedAngle = newAngle
+        self.runAction(SKAction.rotateToAngle(savedAngle, duration: 0.0, shortestUnitArc: true))
     }
     
     /**
@@ -200,6 +209,7 @@ class MCPart: SKSpriteNode {
         }
     }
     
+// TODO! this.
 //    func animate(anim: MCAnimationComp, parent:SKNode) {
         // to do, holmes
 //    }
@@ -329,10 +339,12 @@ class MCPart: SKSpriteNode {
     func convertToDictionary() -> NSDictionary {
         var dict: [NSString: AnyObject] = [:]
         dict["partType"] = self.partType.rawValue as NSString
+        
+        dict["partUUID"] = self.partUUID
 
         dict["posX"]     = self.position.x.description
         dict["posY"]     = self.position.y.description
-        dict["rotation"] = self.angle.description
+        dict["rotation"] = self.savedAngle.description
         dict["scale"]    = self.savedScale.description
         dict["hidden"]   = self.hidden.description
         
@@ -346,7 +358,7 @@ class MCPart: SKSpriteNode {
         println("Dictionary count value is : \(dict.count)")
         
         if let mir = mirroredPart {
-            dict["mirror"] = mir.convertToDictionary()
+            dict["mirrorUUID"] = mir.partUUID
         }
         return dict
     }
@@ -357,7 +369,6 @@ class MCPart: SKSpriteNode {
         let posY  = dict["posY"] as String
         let rot   = dict["rotation"] as String
         let scl   = dict["scale"] as String
-        let mir   = dict["isMirrored"] as String
         let hid   = dict["hidden"] as String
         let r     = dict["colorR"] as String
         let g     = dict["colorG"] as String
@@ -372,15 +383,8 @@ class MCPart: SKSpriteNode {
         self.lockPoint = CGPoint(x: vals[0],y:vals[1])
         self.position = CGPoint(x: vals[0],y:vals[1])
         
-        if((mir as NSString).boolValue){
-            isMirroredPart = true
-        }
-        else {
-            isMirroredPart = false
-        }
-        
         rotateToAngle(vals[2])
-        angle = vals[2]
+        savedAngle = vals[2]
         
         setScale(vals[3])
         

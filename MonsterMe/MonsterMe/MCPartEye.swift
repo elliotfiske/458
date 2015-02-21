@@ -87,7 +87,7 @@ class MCPartEye: MCPart {
     
     override func update() {
         super.update()
-        var ang = angle
+        var ang = savedAngle
         if (isMirroredPart) {
             ang = -ang
         }
