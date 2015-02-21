@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(MonsterModel)
 class MonsterModel: NSManagedObject {
 
     @NSManaged var creationTime: NSDate
@@ -38,20 +39,22 @@ class MonsterModel: NSManagedObject {
      */
     var parts: [PartType: [MCPart]] = [:]
 
+
+//    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+//        parts = [
+//            .arm:   [],
+//            .leg:   [],
+//            .decal: [],
+//            .eye:   [],
+//            .mouth: [],
+//            .body:  []
+//        ]
+//    }
+//    
     /**
      * Instantiate the parts variable from the saved NSData
      */
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        parts = [
-            .arm:   [],
-            .leg:   [],
-            .decal: [],
-            .eye:   [],
-            .mouth: [],
-            .body:  []
-        ]
+    func convertPartDataToParts() {
         
-        
-        // TODO: ^^^ that
     }
 }

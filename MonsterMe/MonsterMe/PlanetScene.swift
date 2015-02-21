@@ -18,14 +18,11 @@ class PlanetScene: SKScene {
         
         self.addChild(myLabel)
         
-        let testEye = MCPartEye(textureName: "Spaceship", color: UIColor.whiteColor(), anchor: CGPoint(x: 0.5, y: 0.5), pupilTextureName: "Spaceship")
-        let eyeData = NSKeyedArchiver.archivedDataWithRootObject(testEye)
-        let testModel = MonsterModel.MR_createEntity() as MonsterModel
+        let testMouth = MCPartMouth(textureName: "Spaceship", color: UIColor.whiteColor(), anchor: CGPoint(x: 0.5, y: 0.5))
+        let mouthData = NSKeyedArchiver.archivedDataWithRootObject(testMouth)
+        var testModel = MonsterModel.MR_createEntity() as MonsterModel
         
-        testModel.partData = eyeData
-        
-        
-        
+        testModel.partData = mouthData
         
     }
     
