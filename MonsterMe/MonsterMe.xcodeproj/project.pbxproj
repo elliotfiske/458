@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B06BB58A2E1EE8CD66DFEAA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2152B65DA84A14CE656A4E /* libPods.a */; };
+		C9397F9D1A98199900A929DB /* MonsterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9397F9C1A98199900A929DB /* MonsterModel.swift */; };
+		C94622E91A981B2900DA8FB4 /* PartType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622E81A981B2900DA8FB4 /* PartType.swift */; };
+		C94622F61A981BB500DA8FB4 /* MCPartBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622EC1A981BB500DA8FB4 /* MCPartBody.swift */; };
+		C94622F71A981BB500DA8FB4 /* MCPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622ED1A981BB500DA8FB4 /* MCPart.swift */; };
+		C94622F81A981BB500DA8FB4 /* MCPartLeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622EE1A981BB500DA8FB4 /* MCPartLeg.swift */; };
+		C94622F91A981BB500DA8FB4 /* MCPartEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622EF1A981BB500DA8FB4 /* MCPartEye.swift */; };
+		C94622FA1A981BB500DA8FB4 /* MCPartHat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622F01A981BB500DA8FB4 /* MCPartHat.swift */; };
+		C94622FB1A981BB500DA8FB4 /* MCPartMouth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622F11A981BB500DA8FB4 /* MCPartMouth.swift */; };
+		C94622FC1A981BB500DA8FB4 /* MCPartArm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622F21A981BB500DA8FB4 /* MCPartArm.swift */; };
+		C94622FD1A981BB500DA8FB4 /* MCPartStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622F31A981BB500DA8FB4 /* MCPartStuff.swift */; };
+		C94622FE1A981BB500DA8FB4 /* MCPartLimb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622F41A981BB500DA8FB4 /* MCPartLimb.swift */; };
+		C94622FF1A981BB500DA8FB4 /* MCPartColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622F51A981BB500DA8FB4 /* MCPartColor.swift */; };
 		C99422AD1A980CE800632C96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99422AC1A980CE800632C96 /* AppDelegate.swift */; };
 		C99422AF1A980CE800632C96 /* PlanetScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C99422AE1A980CE800632C96 /* PlanetScene.sks */; };
 		C99422B11A980CE800632C96 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99422B01A980CE800632C96 /* GameScene.swift */; };
@@ -15,6 +28,7 @@
 		C99422B81A980CE800632C96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99422B71A980CE800632C96 /* Images.xcassets */; };
 		C99422BB1A980CE800632C96 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99422B91A980CE800632C96 /* LaunchScreen.xib */; };
 		C99422C71A980CE800632C96 /* MonsterMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99422C61A980CE800632C96 /* MonsterMeTests.swift */; };
+		C9D9A96D1A9810B800B95A48 /* MonsterModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9D9A96B1A9810B800B95A48 /* MonsterModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +42,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AE4452D6DA4D47AE02D517A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6F2152B65DA84A14CE656A4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9397F9C1A98199900A929DB /* MonsterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterModel.swift; sourceTree = "<group>"; };
+		C94622E81A981B2900DA8FB4 /* PartType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartType.swift; sourceTree = "<group>"; };
+		C94622EC1A981BB500DA8FB4 /* MCPartBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartBody.swift; sourceTree = "<group>"; };
+		C94622ED1A981BB500DA8FB4 /* MCPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPart.swift; sourceTree = "<group>"; };
+		C94622EE1A981BB500DA8FB4 /* MCPartLeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartLeg.swift; sourceTree = "<group>"; };
+		C94622EF1A981BB500DA8FB4 /* MCPartEye.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartEye.swift; sourceTree = "<group>"; };
+		C94622F01A981BB500DA8FB4 /* MCPartHat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartHat.swift; sourceTree = "<group>"; };
+		C94622F11A981BB500DA8FB4 /* MCPartMouth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartMouth.swift; sourceTree = "<group>"; };
+		C94622F21A981BB500DA8FB4 /* MCPartArm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartArm.swift; sourceTree = "<group>"; };
+		C94622F31A981BB500DA8FB4 /* MCPartStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartStuff.swift; sourceTree = "<group>"; };
+		C94622F41A981BB500DA8FB4 /* MCPartLimb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartLimb.swift; sourceTree = "<group>"; };
+		C94622F51A981BB500DA8FB4 /* MCPartColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartColor.swift; sourceTree = "<group>"; };
 		C99422A71A980CE800632C96 /* MonsterMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99422AB1A980CE800632C96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C99422AC1A980CE800632C96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,11 +63,14 @@
 		C99422B01A980CE800632C96 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		C99422B21A980CE800632C96 /* PlanetSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetSceneController.swift; sourceTree = "<group>"; };
 		C99422B51A980CE800632C96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C99422B71A980CE800632C96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C99422B71A980CE800632C96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MonsterMe/Images.xcassets; sourceTree = "<group>"; };
 		C99422BA1A980CE800632C96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C99422C01A980CE800632C96 /* MonsterMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99422C51A980CE800632C96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C99422C61A980CE800632C96 /* MonsterMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterMeTests.swift; sourceTree = "<group>"; };
+		C9D9A9691A980FFE00B95A48 /* MonsterMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MonsterMe-Bridging-Header.h"; sourceTree = "<group>"; };
+		C9D9A96C1A9810B800B95A48 /* MonsterModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonsterModel.xcdatamodel; sourceTree = "<group>"; };
+		FE83992B53506F8BACAC8BB8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B06BB58A2E1EE8CD66DFEAA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +92,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D69E8BC99014C8645BDB27B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F2152B65DA84A14CE656A4E /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9397F991A9818DB00A929DB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C99422B71A980CE800632C96 /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C94622E71A981B1200DA8FB4 /* Monster Model */ = {
+			isa = PBXGroup;
+			children = (
+				C94622EB1A981B7800DA8FB4 /* Part Templates */,
+				C94622EA1A981B7300DA8FB4 /* Part Classes */,
+				C94622E81A981B2900DA8FB4 /* PartType.swift */,
+			);
+			name = "Monster Model";
+			sourceTree = "<group>";
+		};
+		C94622EA1A981B7300DA8FB4 /* Part Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C94622EC1A981BB500DA8FB4 /* MCPartBody.swift */,
+				C94622ED1A981BB500DA8FB4 /* MCPart.swift */,
+				C94622EE1A981BB500DA8FB4 /* MCPartLeg.swift */,
+				C94622EF1A981BB500DA8FB4 /* MCPartEye.swift */,
+				C94622F01A981BB500DA8FB4 /* MCPartHat.swift */,
+				C94622F11A981BB500DA8FB4 /* MCPartMouth.swift */,
+				C94622F21A981BB500DA8FB4 /* MCPartArm.swift */,
+				C94622F31A981BB500DA8FB4 /* MCPartStuff.swift */,
+				C94622F41A981BB500DA8FB4 /* MCPartLimb.swift */,
+				C94622F51A981BB500DA8FB4 /* MCPartColor.swift */,
+			);
+			name = "Part Classes";
+			sourceTree = "<group>";
+		};
+		C94622EB1A981B7800DA8FB4 /* Part Templates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Part Templates";
+			sourceTree = "<group>";
+		};
 		C994229E1A980CE800632C96 = {
 			isa = PBXGroup;
 			children = (
+				C99422B91A980CE800632C96 /* LaunchScreen.xib */,
+				C99422B41A980CE800632C96 /* Main.storyboard */,
+				C9D9A96A1A9810A000B95A48 /* Data Models */,
+				C9D9A9691A980FFE00B95A48 /* MonsterMe-Bridging-Header.h */,
 				C99422A91A980CE800632C96 /* MonsterMe */,
+				C9397F991A9818DB00A929DB /* Resources */,
 				C99422C31A980CE800632C96 /* MonsterMeTests */,
 				C99422A81A980CE800632C96 /* Products */,
+				EE9200AEF237BF2493D38FD8 /* Pods */,
+				8D69E8BC99014C8645BDB27B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,13 +170,11 @@
 		C99422A91A980CE800632C96 /* MonsterMe */ = {
 			isa = PBXGroup;
 			children = (
+				C94622E71A981B1200DA8FB4 /* Monster Model */,
 				C99422AC1A980CE800632C96 /* AppDelegate.swift */,
 				C99422AE1A980CE800632C96 /* PlanetScene.sks */,
 				C99422B01A980CE800632C96 /* GameScene.swift */,
 				C99422B21A980CE800632C96 /* PlanetSceneController.swift */,
-				C99422B41A980CE800632C96 /* Main.storyboard */,
-				C99422B71A980CE800632C96 /* Images.xcassets */,
-				C99422B91A980CE800632C96 /* LaunchScreen.xib */,
 				C99422AA1A980CE800632C96 /* Supporting Files */,
 			);
 			path = MonsterMe;
@@ -118,6 +205,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C9D9A96A1A9810A000B95A48 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9397F9C1A98199900A929DB /* MonsterModel.swift */,
+				C9D9A96B1A9810B800B95A48 /* MonsterModel.xcdatamodeld */,
+			);
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
+		EE9200AEF237BF2493D38FD8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE83992B53506F8BACAC8BB8 /* Pods.debug.xcconfig */,
+				2AE4452D6DA4D47AE02D517A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,9 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C99422CA1A980CE800632C96 /* Build configuration list for PBXNativeTarget "MonsterMe" */;
 			buildPhases = (
+				9F4CBE4FDD77B4497D63D708 /* Check Pods Manifest.lock */,
 				C99422A31A980CE800632C96 /* Sources */,
 				C99422A41A980CE800632C96 /* Frameworks */,
 				C99422A51A980CE800632C96 /* Resources */,
+				7DE4ECCF67FC85A286A7C776 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,13 +321,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7DE4ECCF67FC85A286A7C776 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F4CBE4FDD77B4497D63D708 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C99422A31A980CE800632C96 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C94622FA1A981BB500DA8FB4 /* MCPartHat.swift in Sources */,
+				C94622E91A981B2900DA8FB4 /* PartType.swift in Sources */,
+				C94622FF1A981BB500DA8FB4 /* MCPartColor.swift in Sources */,
 				C99422B11A980CE800632C96 /* GameScene.swift in Sources */,
+				C94622F91A981BB500DA8FB4 /* MCPartEye.swift in Sources */,
+				C94622F81A981BB500DA8FB4 /* MCPartLeg.swift in Sources */,
+				C94622FC1A981BB500DA8FB4 /* MCPartArm.swift in Sources */,
 				C99422B31A980CE800632C96 /* PlanetSceneController.swift in Sources */,
+				C94622F61A981BB500DA8FB4 /* MCPartBody.swift in Sources */,
+				C9D9A96D1A9810B800B95A48 /* MonsterModel.xcdatamodeld in Sources */,
+				C94622FE1A981BB500DA8FB4 /* MCPartLimb.swift in Sources */,
+				C94622FB1A981BB500DA8FB4 /* MCPartMouth.swift in Sources */,
+				C9397F9D1A98199900A929DB /* MonsterModel.swift in Sources */,
+				C94622FD1A981BB500DA8FB4 /* MCPartStuff.swift in Sources */,
+				C94622F71A981BB500DA8FB4 /* MCPart.swift in Sources */,
 				C99422AD1A980CE800632C96 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +403,7 @@
 				C99422B51A980CE800632C96 /* Base */,
 			);
 			name = Main.storyboard;
+			path = MonsterMe;
 			sourceTree = "<group>";
 		};
 		C99422B91A980CE800632C96 /* LaunchScreen.xib */ = {
@@ -258,6 +412,7 @@
 				C99422BA1A980CE800632C96 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = MonsterMe;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -344,21 +499,25 @@
 		};
 		C99422CB1A980CE800632C96 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE83992B53506F8BACAC8BB8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MonsterMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MonsterMe-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		C99422CC1A980CE800632C96 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AE4452D6DA4D47AE02D517A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MonsterMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MonsterMe-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -415,6 +574,7 @@
 				C99422CC1A980CE800632C96 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C99422CD1A980CE800632C96 /* Build configuration list for PBXNativeTarget "MonsterMeTests" */ = {
 			isa = XCConfigurationList;
@@ -423,8 +583,22 @@
 				C99422CF1A980CE800632C96 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C9D9A96B1A9810B800B95A48 /* MonsterModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C9D9A96C1A9810B800B95A48 /* MonsterModel.xcdatamodel */,
+			);
+			currentVersion = C9D9A96C1A9810B800B95A48 /* MonsterModel.xcdatamodel */;
+			path = MonsterModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C994229F1A980CE800632C96 /* Project object */;
 }
