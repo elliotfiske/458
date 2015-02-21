@@ -34,5 +34,5 @@ class MonsterModel: NSManagedObject {
      *  all the arms on this monster.  How handy!
      */
     var parts: [PartType: [MCPart]]
-    
+
 }

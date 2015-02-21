@@ -20,6 +20,8 @@
 		C94622FD1A981BB500DA8FB4 /* MCPartStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622F31A981BB500DA8FB4 /* MCPartStuff.swift */; };
 		C94622FE1A981BB500DA8FB4 /* MCPartLimb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622F41A981BB500DA8FB4 /* MCPartLimb.swift */; };
 		C94622FF1A981BB500DA8FB4 /* MCPartColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94622F51A981BB500DA8FB4 /* MCPartColor.swift */; };
+		C94623031A981C8D00DA8FB4 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94623011A981C8D00DA8FB4 /* Convenience.swift */; };
+		C94623041A981C8D00DA8FB4 /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94623021A981C8D00DA8FB4 /* Array+Random.swift */; };
 		C99422AD1A980CE800632C96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99422AC1A980CE800632C96 /* AppDelegate.swift */; };
 		C99422AF1A980CE800632C96 /* PlanetScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C99422AE1A980CE800632C96 /* PlanetScene.sks */; };
 		C99422B11A980CE800632C96 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99422B01A980CE800632C96 /* GameScene.swift */; };
@@ -56,6 +58,8 @@
 		C94622F31A981BB500DA8FB4 /* MCPartStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartStuff.swift; sourceTree = "<group>"; };
 		C94622F41A981BB500DA8FB4 /* MCPartLimb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartLimb.swift; sourceTree = "<group>"; };
 		C94622F51A981BB500DA8FB4 /* MCPartColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartColor.swift; sourceTree = "<group>"; };
+		C94623011A981C8D00DA8FB4 /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
+		C94623021A981C8D00DA8FB4 /* Array+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Random.swift"; sourceTree = "<group>"; };
 		C99422A71A980CE800632C96 /* MonsterMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99422AB1A980CE800632C96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C99422AC1A980CE800632C96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,9 +146,19 @@
 			name = "Part Templates";
 			sourceTree = "<group>";
 		};
+		C94623001A981C2F00DA8FB4 /* Convenience */ = {
+			isa = PBXGroup;
+			children = (
+				C94623011A981C8D00DA8FB4 /* Convenience.swift */,
+				C94623021A981C8D00DA8FB4 /* Array+Random.swift */,
+			);
+			name = Convenience;
+			sourceTree = "<group>";
+		};
 		C994229E1A980CE800632C96 = {
 			isa = PBXGroup;
 			children = (
+				C94623001A981C2F00DA8FB4 /* Convenience */,
 				C99422B91A980CE800632C96 /* LaunchScreen.xib */,
 				C99422B41A980CE800632C96 /* Main.storyboard */,
 				C9D9A96A1A9810A000B95A48 /* Data Models */,
@@ -367,12 +381,14 @@
 				C94622F81A981BB500DA8FB4 /* MCPartLeg.swift in Sources */,
 				C94622FC1A981BB500DA8FB4 /* MCPartArm.swift in Sources */,
 				C99422B31A980CE800632C96 /* PlanetSceneController.swift in Sources */,
+				C94623041A981C8D00DA8FB4 /* Array+Random.swift in Sources */,
 				C94622F61A981BB500DA8FB4 /* MCPartBody.swift in Sources */,
 				C9D9A96D1A9810B800B95A48 /* MonsterModel.xcdatamodeld in Sources */,
 				C94622FE1A981BB500DA8FB4 /* MCPartLimb.swift in Sources */,
 				C94622FB1A981BB500DA8FB4 /* MCPartMouth.swift in Sources */,
 				C9397F9D1A98199900A929DB /* MonsterModel.swift in Sources */,
 				C94622FD1A981BB500DA8FB4 /* MCPartStuff.swift in Sources */,
+				C94623031A981C8D00DA8FB4 /* Convenience.swift in Sources */,
 				C94622F71A981BB500DA8FB4 /* MCPart.swift in Sources */,
 				C99422AD1A980CE800632C96 /* AppDelegate.swift in Sources */,
 			);
