@@ -3,6 +3,14 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="League Gothic.otf">
+            <string>LeagueGothic</string>
+            <string>LeagueGothic</string>
+            <string>LeagueGothic</string>
+            <string>LeagueGothic</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,58 +24,55 @@
                     <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBh-jn-aAH" userLabel="LabelContainerView">
                         <rect key="frame" x="96" y="51" width="572" height="101"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfm-vO-Eku">
-                                <rect key="frame" x="5" y="40" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="4eH-sw-kL8"/>
-                                    <constraint firstAttribute="width" constant="42" id="eg2-hz-sfa"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cs4-lG-7Kl">
-                                <rect key="frame" x="72" y="40" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="tf1-VS-rhz"/>
-                                    <constraint firstAttribute="height" constant="21" id="xtU-8s-DOn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lb7-i9-aUS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lb7-i9-aUS">
                                 <rect key="frame" x="139" y="40" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8rM-ts-JbA"/>
                                     <constraint firstAttribute="width" constant="42" id="X7t-hS-Fc6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="LeagueGothic" family="League Gothic" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zB-ra-mCo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cs4-lG-7Kl">
+                                <rect key="frame" x="265" y="40" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="tf1-VS-rhz"/>
+                                    <constraint firstAttribute="height" constant="21" id="xtU-8s-DOn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="LeagueGothic" family="League Gothic" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zB-ra-mCo">
                                 <rect key="frame" x="206" y="40" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="JLK-sg-UOQ"/>
                                     <constraint firstAttribute="height" constant="21" id="jsk-Ji-4EZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="LeagueGothic" family="League Gothic" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfm-vO-Eku">
+                                <rect key="frame" x="8" y="40" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="4eH-sw-kL8"/>
+                                    <constraint firstAttribute="width" constant="42" id="eg2-hz-sfa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="LeagueGothic" family="League Gothic" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="Cs4-lG-7Kl" secondAttribute="centerY" id="CbH-0n-3Wx"/>
                             <constraint firstItem="tfm-vO-Eku" firstAttribute="leading" secondItem="wBh-jn-aAH" secondAttribute="leading" constant="5" id="Jti-8d-z3K"/>
                             <constraint firstAttribute="centerY" secondItem="Lb7-i9-aUS" secondAttribute="centerY" id="Wgp-co-Fs0"/>
-                            <constraint firstItem="Cs4-lG-7Kl" firstAttribute="leading" secondItem="tfm-vO-Eku" secondAttribute="trailing" constant="25" id="d0v-Gp-aWA"/>
                             <constraint firstAttribute="centerY" secondItem="tfm-vO-Eku" secondAttribute="centerY" id="rfz-wl-6xD"/>
                             <constraint firstItem="3zB-ra-mCo" firstAttribute="leading" secondItem="Lb7-i9-aUS" secondAttribute="trailing" constant="25" id="ry9-vG-QdV"/>
                             <constraint firstAttribute="height" constant="101" id="wBe-g1-b0m"/>
                             <constraint firstAttribute="centerY" secondItem="3zB-ra-mCo" secondAttribute="centerY" id="yZM-UQ-wx7"/>
-                            <constraint firstItem="Lb7-i9-aUS" firstAttribute="leading" secondItem="Cs4-lG-7Kl" secondAttribute="trailing" constant="25" id="zTG-cV-rMP"/>
                         </constraints>
                     </view>
                 </subviews>

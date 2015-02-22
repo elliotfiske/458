@@ -25,13 +25,19 @@ class CreatorViewController: UIViewController {
     var backgroundView: UIView!
     var backgroundImage: UIImage!
     
-    var builderSKView: SKView!
+    @IBOutlet weak var monsterSKView: SKView!
     var builderScene: BuilderScene!
     var currCreatorView: MCDismissableView!
+    
+    @IBOutlet weak var bodyLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var traitLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var voiceLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var nameLabelHeight: NSLayoutConstraint!
     
     var currMonster: MonsterModel!
     var builderModel = BuilderModel()
     
+
     /**
      * Instantiate a creator view controller with a brand spanking new monster
      */
@@ -51,37 +57,21 @@ class CreatorViewController: UIViewController {
     }
     
 
-    override func loadView() {
-        
-        
+    override func viewDidLoad() {
         let screenRect = UIScreen.mainScreen().bounds
-        builderSKView = SKView(frame: screenRect)
-        builderSKView.multipleTouchEnabled = false
-        builderSKView.backgroundColor = UIColor.clearColor()
-        builderSKView.allowsTransparency = true
+        monsterSKView.allowsTransparency = true
         
         builderScene = BuilderScene(size: screenRect.size)
         builderScene.controller = self
         builderScene.monsterNode = currMonster.body
         builderScene.backgroundColor = UIColor.clearColor()
-        builderSKView.presentScene(builderScene)
+        monsterSKView.presentScene(builderScene)
         
         builderModel.sceneNode = builderScene
         builderModel.monsterModel = currMonster
         builderModel.rotator = builderScene.rotator
         
-        self.view = UIView(frame: screenRect)
-        self.view.addSubview(builderSKView)
-
-        ////// STYLESHEET or storyboard ME
-        let topBarRect = CGRect(x: 0, y: 0, width: screenRect.width, height: 120)
-        topBar = NSBundle.mainBundle().loadNibNamed("CreatorTopBarView", owner: self, options: nil).last as CreatorNavigationBar 
-        topBar.frame = topBarRect
-        self.view.insertSubview(topBar, aboveSubview: builderSKView)
-        
-        currCreatorView = currPage.initView(self.view.frame)
-        self.view.insertSubview(currCreatorView, belowSubview: builderSKView)
-        // TODO: add creator view subview.  Maybe as a method? so we can easily swap between creator views.
+//        bodyLabelHeight.constant = 50
     }
     
     func handleSceneTouchBegin(touch: CGPoint) {
