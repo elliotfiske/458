@@ -44,7 +44,11 @@ class PlanetSceneController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         // BEEP BOOP MAGICAL FARTS pretend the user just pressed 'edit' for now, open the builder view
-        presentViewController(CreatorViewController(), animated: true, completion: nil)
+        let currStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newController = currStoryboard.instantiateViewControllerWithIdentifier("creatorController") as CreatorViewController
+        newController.currMonster = MonsterModel.MR_createEntity() as MonsterModel
+        newController.currMonster.addRandomBody()
+        presentViewController(newController, animated: true, completion: nil)
         
         super.viewDidAppear(animated)
     }

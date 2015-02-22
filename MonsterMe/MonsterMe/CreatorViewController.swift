@@ -29,7 +29,7 @@ class CreatorViewController: UIViewController {
     var builderScene: BuilderScene!
     var currCreatorView: MCDismissableView!
     
-    var currMonster: MonsterModel
+    var currMonster: MonsterModel!
     var builderModel = BuilderModel()
     
     /**
@@ -52,6 +52,8 @@ class CreatorViewController: UIViewController {
     
 
     override func loadView() {
+        
+        
         let screenRect = UIScreen.mainScreen().bounds
         builderSKView = SKView(frame: screenRect)
         builderSKView.multipleTouchEnabled = false
@@ -123,6 +125,6 @@ class CreatorViewController: UIViewController {
     
     
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
 }

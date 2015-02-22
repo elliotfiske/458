@@ -202,6 +202,7 @@
 		C98033EC1A98FA8F00410AFF /* Interface Builder */ = {
 			isa = PBXGroup;
 			children = (
+				C99422B41A980CE800632C96 /* Main.storyboard */,
 				C99422B91A980CE800632C96 /* LaunchScreen.xib */,
 				C98033ED1A98FABB00410AFF /* CreatorTopBarView.xib */,
 			);
@@ -214,7 +215,6 @@
 				C98033EC1A98FA8F00410AFF /* Interface Builder */,
 				C9D9A9691A980FFE00B95A48 /* MonsterMe-Bridging-Header.h */,
 				C94623001A981C2F00DA8FB4 /* Convenience */,
-				C99422B41A980CE800632C96 /* Main.storyboard */,
 				C99422AC1A980CE800632C96 /* AppDelegate.swift */,
 				C9D9A96A1A9810A000B95A48 /* Data Models */,
 				C99422A91A980CE800632C96 /* MonsterMe */,
