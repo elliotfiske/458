@@ -12,7 +12,6 @@ class DraggableCollectionLayout: UICollectionViewFlowLayout {
     var swoopUp = false
     
     override func prepareLayout() {
-        self.itemSize = CGSize(width: 80, height: 80)
         self.minimumLineSpacing = 30
         self.scrollDirection = .Horizontal
         self.sectionInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)

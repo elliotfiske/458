@@ -4,8 +4,9 @@
  */
 class MCPartCollectionViewCell: UICollectionViewCell {
     var template: MCPartTemplate!
-    var label: UILabel!
-    let circleView: UIView = UIView()
+    
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var circleView: UIView!
     var partImageView: UIImageView!
     
     /**
@@ -25,25 +26,9 @@ class MCPartCollectionViewCell: UICollectionViewCell {
         var realFrame = frame
         realFrame.origin.y = 0
         
-        circleView.frame = CGRect(origin: CGPointZero, size: CGSize(width: 80, height: 60))
-        circleView.backgroundColor = UIColor.whiteColor()
         roundView(circleView, toDiameter: circleView.frame.width)
         
-        partImageView = UIImageView(frame: CGRect(origin: CGPointZero, size: CGSize(width: 60, height: 60)))
-        partImageView.contentMode = .ScaleAspectFit
-        partImageView.center = circleView.center
-        
-        label = UILabel(frame: CGRect(x: 0, y: circleView.frame.height, width: frame.width, height: 25))
-        label.font = leagueFont(20)
-        label.adjustsFontSizeToFitWidth = true
-        label.textColor = UIColor.whiteColor()
-        label.textAlignment = .Center
-        
         super.init(frame: realFrame)
-        
-        addSubview(label)
-        addSubview(circleView)
-        addSubview(partImageView)
         
         let tapper = UITapGestureRecognizer(target: self, action: "doTap:")
         addGestureRecognizer(tapper)
@@ -87,11 +72,10 @@ class MCPartCollectionViewCell: UICollectionViewCell {
         template = template_
         
         partImageView.image = template.imageForPart()
-        partImageView.frame.size = CGSize(width: 60, height: 60)
         let imgSize = partImageView.image!.size
-        if imgSize.width < partImageView.frame.width && imgSize.height < partImageView.frame.height {
-            partImageView.frame.size = imgSize
-        }
+//        if imgSize.width < partImageView.frame.width && imgSize.height < partImageView.frame.height {
+//            partImageView.frame.size = imgSize
+//        }   TODO: use fo
         partImageView.center = circleView.center
         
         if template.colorable {
@@ -146,6 +130,6 @@ class MCPartCollectionViewCell: UICollectionViewCell {
     }
     
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented... or HAS IT? No it hasn't.  It hasn't.")
+        super.init(coder: aDecoder)
     }
 }

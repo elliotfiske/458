@@ -29,14 +29,10 @@ class CreatorViewController: UIViewController {
     var builderScene: BuilderScene!
     var currCreatorView: MCDismissableView!
     
-    @IBOutlet weak var bodyLabelHeight: NSLayoutConstraint!
-    @IBOutlet weak var traitLabelHeight: NSLayoutConstraint!
-    @IBOutlet weak var voiceLabelHeight: NSLayoutConstraint!
-    @IBOutlet weak var nameLabelHeight: NSLayoutConstraint!
-    
     var currMonster: MonsterModel!
     var builderModel = BuilderModel()
     
+    @IBOutlet weak var partCollectionView: UICollectionView!
 
     /**
      * Instantiate a creator view controller with a brand spanking new monster
@@ -52,11 +48,13 @@ class CreatorViewController: UIViewController {
      */
     init(monModel: MonsterModel) {
         currMonster = monModel
-        
         super.init(nibName: nil, bundle: nil)
     }
     
 
+    /**
+     * Init and connect up all the models and views
+     */
     override func viewDidLoad() {
         let screenRect = UIScreen.mainScreen().bounds
         monsterSKView.allowsTransparency = true
@@ -65,13 +63,19 @@ class CreatorViewController: UIViewController {
         builderScene.controller = self
         builderScene.monsterNode = currMonster.body
         builderScene.backgroundColor = UIColor.clearColor()
+        builderScene.scaleMode = .ResizeFill
         monsterSKView.presentScene(builderScene)
         
         builderModel.sceneNode = builderScene
         builderModel.monsterModel = currMonster
         builderModel.rotator = builderScene.rotator
         
-//        bodyLabelHeight.constant = 50
+        partCollectionView.dataSource = builderModel
+        partCollectionView.delegate = builderModel
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
     }
     
     func handleSceneTouchBegin(touch: CGPoint) {
@@ -112,7 +116,6 @@ class CreatorViewController: UIViewController {
     func showNameView() {
         
     }
-    
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

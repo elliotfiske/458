@@ -15,12 +15,17 @@ class BuilderScene: SKScene {
     
     var monsterNode: SKSpriteNode!
     
+    func centerMonster() {
+        monsterNode.position = CGPointZero
+    }
+    
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
         addChild(rotator)
         addChild(monsterNode)
         
-        monsterNode.position = view.center
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        centerMonster()
     }
     
     override func update(currentTime: NSTimeInterval) {
@@ -49,5 +54,13 @@ class BuilderScene: SKScene {
     
     override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
         println("Touches are getting cancelled! That usually means something is wrong.  Just lettin' ya know.")
+    }
+    
+    /**
+     * View changed size, likely because we auto-rotated. Simply
+     *  re-center the monster.
+     */
+    override func didChangeSize(oldSize: CGSize) {
+        
     }
 }

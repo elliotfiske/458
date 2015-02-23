@@ -10,24 +10,28 @@ import Foundation
 
 class PartTemplateModel: NSObject {
     
-    var bodyPartDict: [PartType : [MCPartTemplate]] = [:]
+    lazy var bodyPartDict: [PartType : [MCPartTemplate]] = {
+        [unowned self] in
+        return self.readMonsterBodyProperties()
+    }()
     
     /**
-    * Read in the body parts we want from the JSON data.
-    * The final result will look like this:
-    *
-    * {
-    *   PartType.eye   : [EyeTemplate1, EyeTemplate2, EyeTemplate3, ... ]
-    *   PartType.mouth : [MouthTemplate1, MouthTemplate2, MouthTemplate3, ...]
-    *    ...
-    *    etc. for all the part types
-    * }
-    */
-    func readMonsterBodyProperties(fileName: String) -> Dictionary<PartType, [MCPartTemplate]> {
+     * Read in the body parts we want from the JSON data.
+     * The final result will look like this:
+     *
+     * {
+     *   PartType.eye   : [EyeTemplate1, EyeTemplate2, EyeTemplate3, ... ]
+     *   PartType.mouth : [MouthTemplate1, MouthTemplate2, MouthTemplate3, ...]
+     *    ...
+     *    etc. for all the part types
+     * }
+     */
+    func readMonsterBodyProperties() -> Dictionary<PartType, [MCPartTemplate]> {
         
+        var result: [PartType : [MCPartTemplate]] = [:]
         var error: NSError?
         
-        var filepath: String = NSBundle.mainBundle().pathForResource(fileName, ofType: "json")!
+        var filepath: String = NSBundle.mainBundle().pathForResource("bodyParts", ofType: "json")!
         
         var JSONData = NSData(contentsOfFile: filepath, options: NSDataReadingOptions.DataReadingMapped, error: &error)!
         if error != nil {
@@ -49,9 +53,9 @@ class PartTemplateModel: NSObject {
                 partArray.append(MCPartTemplate.templateFromJSON(part as Dictionary, type: partType))
             }
             
-            bodyPartDict[partType] = partArray
+            result[partType] = partArray
         }
         
-        return bodyPartDict
+        return result
     }
 }

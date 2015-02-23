@@ -5,15 +5,22 @@
 //  Created by Elliot Fiske on 2/20/15.
 //  Copyright (c) 2015 Monster Create. All rights reserved.
 //
+//
+//   This is a class that contains the proper methods to 
+//    act as a delegate + datasource to one of our magical Draggable collection views.
+//
+//   It has a handy method that determines if the angle of a drag means we should
+//    scroll the ScrollView or drag a part off
+//
 
 import Foundation
 
-class DraggableCollectionView: UIView,
-                               UIGestureRecognizerDelegate,
-                               UICollectionViewDataSource,
-                               UICollectionViewDelegate {
+class DraggableCollectionViewDelegate: NSObject,
+                                       UIGestureRecognizerDelegate,
+                                       UICollectionViewDataSource,
+                                       UICollectionViewDelegate {
     
-    var collectionView: UICollectionView
+//    var collectionView: UICollectionView!
     
     /**** BEGIN UICollectionViewDataSource stuff
      *
@@ -41,27 +48,18 @@ class DraggableCollectionView: UIView,
      * Default initialization.  Set up the collection view, its gesture recognizers and delegates
      *  You may want to override this with more specific initializations.
      */
-    override init(frame: CGRect) {
-        let collectionFrame = CGRect(origin: CGPointZero, size: frame.size)
-        collectionView = UICollectionView(frame: collectionFrame, collectionViewLayout: DraggableCollectionLayout())
+    override init() {
+        super.init()
         
-        collectionView.backgroundColor = UIColor.clearColor()
-        
-        super.init(frame: frame)
-        
-        backgroundColor = UIColor.clearColor()
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: "doPanGesture:")
-        gestureRecognizer.delegate = self
-        gestureRecognizer.cancelsTouchesInView = false
-        collectionView.addGestureRecognizer(gestureRecognizer)
-        
-        collectionView.panGestureRecognizer.cancelsTouchesInView = false
-        collectionView.panGestureRecognizer.enabled = false
-        addSubview(collectionView)
+        // TODO: remember to set these values up in Storyboard properly
+//        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: "doPanGesture:")
+//        gestureRecognizer.delegate = self
+//        gestureRecognizer.cancelsTouchesInView = false
+//        collectionView.addGestureRecognizer(gestureRecognizer)
+//        
+//        collectionView.panGestureRecognizer.cancelsTouchesInView = false
+//        collectionView.panGestureRecognizer.enabled = false
+//        addSubview(collectionView)
     }
     
     
@@ -73,11 +71,13 @@ class DraggableCollectionView: UIView,
      * Make sure the gesture recognizer only triggers when the user drags at a greater angle than ANGLE_THRESHHOLD.
      * Otherwise we should assume they're trying to drag the scrollView.
      */
-    override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer is UIPanGestureRecognizer {
             let panGesture = gestureRecognizer as UIPanGestureRecognizer
-            let x = panGesture.velocityInView(self.collectionView).x
-            let y = panGesture.velocityInView(self.collectionView).y
+            let collectionView = panGesture.view! as UICollectionView
+            
+            let x = panGesture.velocityInView(collectionView).x
+            let y = panGesture.velocityInView(collectionView).y
             
             let angle = atan(y/x)
             
@@ -91,7 +91,8 @@ class DraggableCollectionView: UIView,
                 return true
             }
         }
-        collectionView.scrollEnabled = false
+        
+//        collectionView.scrollEnabled = false TODO: if collection view is screwing up scrolling, uncomment and fix this
         return true
     }
     
@@ -103,11 +104,12 @@ class DraggableCollectionView: UIView,
     func doPanGesture(gestureRec: UIGestureRecognizer) {
         if gestureRec is UIPanGestureRecognizer {
             let panGestureRec: UIPanGestureRecognizer = gestureRec as UIPanGestureRecognizer
+            let collectionView = gestureRec.view! as UICollectionView
             
-            var touchPoint = panGestureRec.locationInView(self.superview!)
+            var touchPoint = panGestureRec.locationInView(collectionView.superview!)
             
             /** STATE = BEGAN **/
-            var scrollPoint = panGestureRec.locationInView(self)
+            var scrollPoint = panGestureRec.locationInView(collectionView)
             scrollPoint.x += collectionView.contentOffset.x
             if panGestureRec.state == UIGestureRecognizerState.Began {
                 for subview in collectionView.visibleCells() {
@@ -157,10 +159,5 @@ class DraggableCollectionView: UIView,
     /** Make sure the collection view's inherent gesture recs don't override ours */
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
-    }
-    
-    
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) can not been implemented")
     }
 }

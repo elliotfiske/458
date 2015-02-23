@@ -85,5 +85,17 @@
             <blurEffect style="extraLight"/>
             <point key="canvasLocation" x="663.5" y="279"/>
         </visualEffectView>
+        <viewController id="Bab-Dt-qzu">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="gAI-yc-ce8"/>
+                <viewControllerLayoutGuide type="bottom" id="tud-a4-Ij0"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="aRd-gS-6ut">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            </view>
+            <point key="canvasLocation" x="421" y="571"/>
+        </viewController>
     </objects>
 </document>
