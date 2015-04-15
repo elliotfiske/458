@@ -18,7 +18,7 @@ class AnimPreviewController: UIViewController {
         animatorModel = AnimatorModel(controller: self)
         
         // Change the view to our own custom SKView
-        var currView = self.view as MonsterPreviewSKView
+        var currView = self.view as! MonsterPreviewSKView
         currView.backgroundColor = UIColor.blueColor()
         
         let skSize = CGSize(width: view.frame.size.width, height: view.frame.size.height * 2)

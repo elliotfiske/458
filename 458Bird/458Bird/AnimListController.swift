@@ -29,10 +29,10 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         var savedAnimations = Animation.findAll()
         if savedAnimations.count != 0 {
-            savedAnimation = savedAnimations.first as Animation
+            savedAnimation = savedAnimations.first as! Animation
         }
         
-        previewController = self.splitViewController!.viewControllers.last as AnimPreviewController
+        previewController = self.splitViewController!.viewControllers.last as! AnimPreviewController
     }
     
     /** 
@@ -44,14 +44,14 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
         
         // If there's not already a saved animation, make a blank one here
         if (savedAnimation == nil) {
-            savedAnimation = Animation.createEntity() as Animation
-            var newAnimStep = AnimationStep.createEntity() as AnimationStep
+            savedAnimation = Animation.createEntity() as! Animation
+            var newAnimStep = AnimationStep.createEntity() as! AnimationStep
             savedAnimation.animationDetails = NSSet(object: newAnimStep)
         }
         
         // Is there a new animation step to add/modify?  Do that now!
         if let newStep = newlyCreatedStep {
-            var animSteps = savedAnimation.animationDetails.allObjects as [AnimationStep]
+            var animSteps = savedAnimation.animationDetails.allObjects as! [AnimationStep]
             animSteps.sort { ($0.orderInArray as Int) < ($1.orderInArray as Int) }
             
             animSteps[editAnimIndex!] = newStep
@@ -72,9 +72,10 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         if let anim = savedAnimation {
-            var animSteps = anim.animationDetails.allObjects as [AnimationStep]
+            var animSteps = anim.animationDetails.allObjects as! [AnimationStep]
             animSteps.sort { ($0.orderInArray as Int) < ($1.orderInArray as Int) }
-            cell.textLabel!.text = animSteps[indexPath.row].description
+            let currStep = animSteps[indexPath.row]
+            cell.textLabel!.text = currStep.description
         }
 
         return cell
@@ -87,14 +88,14 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Figure out what animation the user will be editing!
-        let maker = segue.destinationViewController as AnimMakerController
+        let maker = segue.destinationViewController as! AnimMakerController
         
         // editAnimIndex describes the index of the step we're editing - if it's nil,
         //  we're ADDING a new row, so set it one past the end of the current animation steps
         //  and add a new value to the animation step set
         if editAnimIndex == nil {
             editAnimIndex = savedAnimation.animationDetails.count - 1
-            var newStep = AnimationStep.createEntity() as AnimationStep
+            var newStep = AnimationStep.createEntity() as! AnimationStep
             
             var animStepSet = savedAnimation.mutableSetValueForKey("animationDetails")
             animStepSet.addObject(newStep)
@@ -109,7 +110,7 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
      *  and tell the preview scene what the new animation is.
      */
     func updateCurrAnimation(modifiedStep: AnimationStep) {
-        var animSteps = savedAnimation.animationDetails.allObjects as [AnimationStep]
+        var animSteps = savedAnimation.animationDetails.allObjects as! [AnimationStep]
         animSteps.sort { ($0.orderInArray as Int) < ($1.orderInArray as Int) }
         
         animSteps[editAnimIndex!] = modifiedStep

@@ -142,7 +142,7 @@ class MCAnimationComp: NSObject {
         return String(format: "%.3f", number)
     }
     
-    func description() -> String {
+    func diplayText() -> String {
         var result = "Duration( \(shortenDouble(duration)) ) Delay( \(shortenDouble(delay)) ) : "
         
         switch(type) {

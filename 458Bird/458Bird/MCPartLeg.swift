@@ -63,7 +63,11 @@ class MCPartLeg: MCPartLimb {
             y: (visibleLeg.anchorPoint.y * legBase.frame.height) - (legBase.anchorPoint.y * legBase.frame.height))
         legBase.addChild(visibleLeg)
     }
-    
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+   
     override func setColorNotColliding(){
         visibleLeg.color = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.1)
         visibleLeg.colorBlendFactor = 0.75

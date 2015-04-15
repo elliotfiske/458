@@ -46,10 +46,10 @@ class GameScene: SKScene {
         audioPlayer.prepareToPlay()
     }
     
-    /** Called when a touch begins */
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        controller.handleSceneTap()
-    }
+   /** Called when a touch begins */
+   override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+      controller.handleSceneTap()
+   }
     
     /**
      * Instantiate the SKNode for the player + the background.

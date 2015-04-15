@@ -18,7 +18,7 @@ class Animation: NSManagedObject {
     var totalDuration: NSTimeInterval {
         get {
             var result: NSTimeInterval = 0
-            for step in animationDetails.allObjects as [AnimationStep] {
+            for step in animationDetails.allObjects as! [AnimationStep] {
                 if (step.duration as Double) + (step.delay as Double) > result {
                     result = (step.duration as Double) + (step.delay as Double)
                 }

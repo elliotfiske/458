@@ -31,7 +31,7 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet weak var delayLabel: UITextField!
     
     override func viewWillAppear(animated: Bool) {
-        currStep = AnimationStep.createEntity() as AnimationStep
+        currStep = AnimationStep.createEntity() as! AnimationStep
         
         var partTypeIndex = 0
         for (ndx, partType) in enumerate(partTypes) {
