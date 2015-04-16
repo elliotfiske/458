@@ -99,7 +99,7 @@ class MCPartLeg: MCPartLimb {
 //        }
 //    }
     
-    override func setTentativeColor(newColor: UIColor) {
+    override func enableTentativeColor(newColor: UIColor) {
         tentativeColor = newColor
         visibleLeg.color = newColor
         visibleLeg.colorBlendFactor = 1.0

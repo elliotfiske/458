@@ -27,12 +27,16 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
      *  our instance variable if there is.
      */
     override func viewDidLoad() {
-        var savedAnimations = Animation.findAll()
-        if savedAnimations.count != 0 {
-            savedAnimation = savedAnimations.first as! Animation
-        }
+//        var savedAnimations = Animation.findAll()
+//        if savedAnimations.count != 0 {
+//            savedAnimation = savedAnimations.first as! Animation
+//        }
+//        else {
+//            savedAnimation = Animation.createEntity() as! Animation
+        savedAnimation = Animation()
+//        }
         
-        previewController = self.splitViewController!.viewControllers.last as! AnimPreviewController
+        previewController = self.splitViewController!.viewControllers.first as! AnimPreviewController
     }
     
     /** 

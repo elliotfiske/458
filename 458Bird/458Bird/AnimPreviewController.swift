@@ -24,7 +24,11 @@ class AnimPreviewController: UIViewController {
         let skSize = CGSize(width: view.frame.size.width, height: view.frame.size.height * 2)
         previewScene = MonsterPreviewScene(size: skSize)
         previewScene.monModel = animatorModel.monModel
-        currView.presentScene(previewScene)
+    }
+   
+    override func viewDidAppear(animated: Bool) {
+        var skView = self.view as! MonsterPreviewSKView
+        skView.presentScene(previewScene)
     }
 }
 
@@ -47,6 +51,7 @@ class MonsterPreviewScene: SKScene {
     
     func doCurrentAnimation(model: MonsterModel) {
         // Repeat this forever: Run the actions in MCAnimation, then call resetAnimation
+        
         model.doAnimation(currAnimation)
         println("running animation on guy")
         

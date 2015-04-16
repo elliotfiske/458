@@ -266,7 +266,7 @@ class MCPart: SKSpriteNode {
      * We dragged a color onto a part.  Show what the part looks like
      *  as that color!
      */
-    func setTentativeColor(newColor: UIColor) {
+    func enableTentativeColor(newColor: UIColor) {
         tentativeColor = newColor
         color = newColor
         colorBlendFactor = 1.0
@@ -366,16 +366,16 @@ class MCPart: SKSpriteNode {
     
     /** Restore this part from a dictionary of strings */
     func initWithDict(dict:NSDictionary){
-        let posX  = dict["posX"] as String
-        let posY  = dict["posY"] as String
-        let rot   = dict["rotation"] as String
-        let scl   = dict["scale"] as String
-        let mir   = dict["isMirrored"] as String
-        let hid   = dict["hidden"] as String
-        let r     = dict["colorR"] as String
-        let g     = dict["colorG"] as String
-        let b     = dict["colorB"] as String
-        let a     = dict["colorA"] as String
+        let posX  = dict["posX"] as! String
+        let posY  = dict["posY"] as! String
+        let rot   = dict["rotation"] as! String
+        let scl   = dict["scale"] as! String
+        let mir   = dict["isMirrored"] as! String
+        let hid   = dict["hidden"] as! String
+        let r     = dict["colorR"] as! String
+        let g     = dict["colorG"] as! String
+        let b     = dict["colorB"] as! String
+        let a     = dict["colorA"] as! String
         
         let vals:[CGFloat] = [posX,posY,rot,scl,r,g,b,a].map{
             CGFloat(($0 as NSString).doubleValue)
@@ -402,11 +402,11 @@ class MCPart: SKSpriteNode {
         }
         
         if (self.colorable()) {
-            setTentativeColor(UIColor(red:vals[4],green:vals[5],blue:vals[6],alpha:vals[7]))
+            enableTentativeColor(UIColor(red:vals[4],green:vals[5],blue:vals[6],alpha:vals[7]))
             confirmColor()
         }
         else {
-            setTentativeColor(UIColor(red:1.0,green:1.0,blue:1.0,alpha:1.0))
+            enableTentativeColor(UIColor(red:1.0,green:1.0,blue:1.0,alpha:1.0))
             confirmColor()
         }
     }
