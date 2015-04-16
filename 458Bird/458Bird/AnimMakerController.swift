@@ -31,17 +31,20 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet weak var delayLabel: UITextField!
     
     override func viewWillAppear(animated: Bool) {
-        currStep = AnimationStep.createEntity() as! AnimationStep
+        currStep = AnimationStep(actsOn: .arm, actsOnSide: .both, animType: .rotation, duration: 2.0, delay: 0.0)
         
         var partTypeIndex = 0
         for (ndx, partType) in enumerate(partTypes) {
-            if partType.rawValue == currStep.actsOn {
+            if partType == currStep.actsOn {
                 partTypeIndex = ndx
             }
         }
         partTypePicker.selectRow(partTypeIndex, inComponent: 0, animated: false)
-        typeSegControl.selectedSegmentIndex = currStep.animType as Int
-        valueSlider.setValue(Float(currStep.xValue), animated: true)
+        typeSegControl.selectedSegmentIndex = currStep.animType.rawValue
+        
+        if currStep.xValue != nil {
+            valueSlider.setValue(Float(currStep.xValue!), animated: true)
+        }
         durationSlider.setValue(Float(currStep.duration), animated: true)
         delaySlider.setValue(Float(currStep.delay), animated: true)
         
@@ -139,9 +142,9 @@ class AnimMakerController: UIViewController, UIPickerViewDataSource, UIPickerVie
         var howMuch = CGFloat(valueSlider.value)
         var howMuchY: CGFloat = 1.0
         
-        currStep.actsOn = partType.rawValue
-        currStep.actsOnSide = side.rawValue
-        currStep.animType = animType
+        currStep.actsOn = partType
+        currStep.actsOnSide = side
+        currStep.animType = AnimType(rawValue: animType)!
         currStep.duration = duration
         currStep.delay = delay
         currStep.xValue = howMuch

@@ -10,32 +10,70 @@ import Foundation
 import CoreData
 import SpriteKit
 
-class AnimationStep: NSManagedObject {
+class AnimationStep: NSObject {
 
-    @NSManaged var actsOn: String
-    @NSManaged var actsOnSide: NSNumber
-    @NSManaged var animType: NSNumber
-    @NSManaged var duration: NSNumber
-    @NSManaged var delay: NSNumber
-    @NSManaged var xValue: NSNumber
-    @NSManaged var yValue: NSNumber
-    @NSManaged var textureName: String
-    @NSManaged var orderInArray: NSNumber
-    @NSManaged var animation: Animation
+    var actsOn: PartType
+    var actsOnSide: AnimSide
+    var animType: AnimType
+    var duration: NSTimeInterval
+    var delay: NSTimeInterval
+    var xValue: CGFloat?
+    var yValue: CGFloat?
+    var textureName: String?
+    weak var animation: Animation?
+    
+    init(actsOn: PartType, actsOnSide: AnimSide, animType: AnimType, duration: NSTimeInterval, delay: NSTimeInterval) {
+        self.actsOn = actsOn
+        self.actsOnSide = actsOnSide
+        self.animType = animType
+        self.duration = duration
+        self.delay = delay
+    }
+    
+    class func scaleStep(actsOn: PartType, actsOnSide: AnimSide,  duration: NSTimeInterval, delay: NSTimeInterval, xValue: CGFloat, yValue: CGFloat) -> AnimationStep {
+        let step = AnimationStep(actsOn: actsOn, actsOnSide: actsOnSide, animType: .scale, duration: duration, delay: delay)
+        step.xValue = xValue
+        step.yValue = yValue
+        
+        return step
+    }
+    
+    class func rotationStep(actsOn: PartType, actsOnSide: AnimSide,  duration: NSTimeInterval, delay: NSTimeInterval, rotation: CGFloat) -> AnimationStep {
+        let step = AnimationStep(actsOn: actsOn, actsOnSide: actsOnSide, animType: .rotation, duration: duration, delay: delay)
+        step.xValue = rotation
+        
+        return step
+    }
+    
+    class func textureSwapStep(actsOn: PartType, actsOnSide: AnimSide,  duration: NSTimeInterval, delay: NSTimeInterval, textureName: String) -> AnimationStep {
+        let step = AnimationStep(actsOn: actsOn, actsOnSide: actsOnSide, animType: .textureSwap, duration: duration, delay: delay)
+        step.textureName = textureName
+        
+        return step
+    }
+    
+    class func positionStep(actsOn: PartType, actsOnSide: AnimSide,  duration: NSTimeInterval, delay: NSTimeInterval, xValue: CGFloat, yValue: CGFloat) -> AnimationStep {
+        let step = AnimationStep(actsOn: actsOn, actsOnSide: actsOnSide, animType: .position, duration: duration, delay: delay)
+        step.xValue = xValue
+        step.yValue = yValue
+        
+        return step
+    }
     
     /**
      * Generates the SKAction that corresponds to this animation step.
      */
     func generateSKAction() -> SKAction {
-        switch (AnimType(rawValue: animType as Int)!) {
+        switch (animType) {
         case .scale:
-            return SKAction.scaleXBy(xValue as CGFloat, y: yValue as CGFloat, duration: duration as NSTimeInterval)
+            return SKAction.scaleXBy(xValue!, y: yValue!, duration: duration)
         case .rotation:
-            return SKAction.rotateByAngle(xValue as CGFloat * π / 180.0, duration: duration as NSTimeInterval)
+            return SKAction.rotateByAngle(xValue! * π / 180.0, duration: duration)
         case .textureSwap:
-            return SKAction.setTexture(SKTexture(imageNamed: textureName))
+            let changeStep = SKAction.setTexture(SKTexture(imageNamed: textureName!))
+            return changeStep
         case .position:
-            return SKAction.moveBy(CGVector(dx: xValue as CGFloat, dy: yValue as CGFloat), duration: duration as NSTimeInterval)
+            return SKAction.moveBy(CGVector(dx: xValue!, dy: yValue!), duration: duration)
         default:
             println("Somehow chose an animation type that doesn't exist..?!? (generateSKAction)")
         }

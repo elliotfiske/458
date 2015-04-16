@@ -9,16 +9,14 @@
 import Foundation
 import CoreData
 
-class Animation: NSManagedObject {
+class Animation: NSObject {
 
-    @NSManaged var name: String
-    @NSManaged var id: NSNumber
-    @NSManaged var animationDetails: NSSet
+    var animationDetails: [AnimationStep] = []
     
     var totalDuration: NSTimeInterval {
         get {
             var result: NSTimeInterval = 0
-            for step in animationDetails.allObjects as! [AnimationStep] {
+            for step in animationDetails {
                 if (step.duration as Double) + (step.delay as Double) > result {
                     result = (step.duration as Double) + (step.delay as Double)
                 }

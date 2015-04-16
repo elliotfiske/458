@@ -66,8 +66,8 @@ class MonsterModel: NSObject, NSCoding {
      */
     func doAnimation(anim: Animation) {
         // Go through each animation and run it on the correct parts
-        for step in anim.animationDetails.allObjects as! [AnimationStep] {
-            for part in self.parts[ PartType(rawValue: step.actsOn)! ]! {
+        for step in anim.animationDetails {
+            for part in self.parts[ step.actsOn ]! {
                 part.runAction(step.generateSKAction())
             }
         }

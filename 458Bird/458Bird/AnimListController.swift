@@ -48,18 +48,14 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
         
         // If there's not already a saved animation, make a blank one here
         if (savedAnimation == nil) {
-            savedAnimation = Animation.createEntity() as! Animation
-            var newAnimStep = AnimationStep.createEntity() as! AnimationStep
-            savedAnimation.animationDetails = NSSet(object: newAnimStep)
+            savedAnimation = Animation()
+            var newAnimStep = AnimationStep(actsOn: .arm, actsOnSide: .both, animType: .rotation, duration: 0.2, delay: 0)
+            savedAnimation.animationDetails.append(newAnimStep)
         }
         
         // Is there a new animation step to add/modify?  Do that now!
         if let newStep = newlyCreatedStep {
-            var animSteps = savedAnimation.animationDetails.allObjects as! [AnimationStep]
-            animSteps.sort { ($0.orderInArray as Int) < ($1.orderInArray as Int) }
-            
-            animSteps[editAnimIndex!] = newStep
-            savedAnimation.animationDetails = NSSet(array: animSteps)
+            savedAnimation.animationDetails[editAnimIndex!] = newStep
         }
         
         editAnimIndex = nil
@@ -76,9 +72,7 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         if let anim = savedAnimation {
-            var animSteps = anim.animationDetails.allObjects as! [AnimationStep]
-            animSteps.sort { ($0.orderInArray as Int) < ($1.orderInArray as Int) }
-            let currStep = animSteps[indexPath.row]
+            let currStep = anim.animationDetails[indexPath.row]
             cell.textLabel!.text = currStep.description
         }
 
@@ -99,11 +93,8 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
         //  and add a new value to the animation step set
         if editAnimIndex == nil {
             editAnimIndex = savedAnimation.animationDetails.count - 1
-            var newStep = AnimationStep.createEntity() as! AnimationStep
-            
-            var animStepSet = savedAnimation.mutableSetValueForKey("animationDetails")
-            animStepSet.addObject(newStep)
-            savedAnimation.animationDetails = animStepSet
+            var newStep = AnimationStep(actsOn: .arm, actsOnSide: .both, animType: .rotation, duration: 0.2, delay: 0)
+            savedAnimation.animationDetails.append(newStep)
         }
         
         maker.animationListController = self
@@ -114,11 +105,7 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
      *  and tell the preview scene what the new animation is.
      */
     func updateCurrAnimation(modifiedStep: AnimationStep) {
-        var animSteps = savedAnimation.animationDetails.allObjects as! [AnimationStep]
-        animSteps.sort { ($0.orderInArray as Int) < ($1.orderInArray as Int) }
-        
-        animSteps[editAnimIndex!] = modifiedStep
-        savedAnimation.animationDetails = NSSet(array: animSteps)
+        savedAnimation.animationDetails[editAnimIndex!] = modifiedStep
         previewController.previewScene.currAnimation = savedAnimation
     }
     
