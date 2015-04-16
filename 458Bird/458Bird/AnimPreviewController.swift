@@ -24,6 +24,7 @@ class AnimPreviewController: UIViewController {
         let skSize = CGSize(width: view.frame.size.width, height: view.frame.size.height * 2)
         previewScene = MonsterPreviewScene(size: skSize)
         previewScene.monModel = animatorModel.monModel
+        previewScene.currAnimation = Animation()
     }
    
     override func viewDidAppear(animated: Bool) {

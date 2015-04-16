@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "458Bird/AnimPreviewController.swift"
-            timestampString = "450836373.169466"
+            timestampString = "450863563.391207"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "MonsterPreviewScene"
             landmarkType = "3">
          </BreakpointContent>

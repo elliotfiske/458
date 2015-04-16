@@ -92,8 +92,8 @@ class AnimListController: UITableViewController, UITableViewDelegate, UITableVie
         //  we're ADDING a new row, so set it one past the end of the current animation steps
         //  and add a new value to the animation step set
         if editAnimIndex == nil {
-            editAnimIndex = savedAnimation.animationDetails.count - 1
-            var newStep = AnimationStep(actsOn: .arm, actsOnSide: .both, animType: .rotation, duration: 0.2, delay: 0)
+            editAnimIndex = savedAnimation.animationDetails.count
+            var newStep = AnimationStep(actsOn: .arm, actsOnSide: .both, animType: .rotation, duration: 0.2, delay: 0) // this is a dummy step
             savedAnimation.animationDetails.append(newStep)
         }
         
