@@ -33,6 +33,13 @@
 		C9D4769B1A5F064300705452 /* _58BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4769A1A5F064300705452 /* _58BirdTests.swift */; };
 		C9D476A51A5F072D00705452 /* CGPoint+Assimilation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476A41A5F072D00705452 /* CGPoint+Assimilation.swift */; };
 		C9D476A71A5F074100705452 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D476A61A5F074100705452 /* Convenience.swift */; };
+		C9E9CC3C1B557BD6005BAFFF /* MCPartTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9CC351B557BD6005BAFFF /* MCPartTemplate.swift */; };
+		C9E9CC3D1B557BD6005BAFFF /* MCTemplateColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9CC361B557BD6005BAFFF /* MCTemplateColor.swift */; };
+		C9E9CC3E1B557BD6005BAFFF /* MCTemplateEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9CC371B557BD6005BAFFF /* MCTemplateEye.swift */; };
+		C9E9CC3F1B557BD6005BAFFF /* MCTemplateHat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9CC381B557BD6005BAFFF /* MCTemplateHat.swift */; };
+		C9E9CC401B557BD6005BAFFF /* MCTemplateLeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9CC391B557BD6005BAFFF /* MCTemplateLeg.swift */; };
+		C9E9CC411B557BD6005BAFFF /* MCTemplateMouth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9CC3A1B557BD6005BAFFF /* MCTemplateMouth.swift */; };
+		C9E9CC421B557BD7005BAFFF /* MCTemplateStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9CC3B1B557BD6005BAFFF /* MCTemplateStuff.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +83,13 @@
 		C9D4769A1A5F064300705452 /* _58BirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _58BirdTests.swift; sourceTree = "<group>"; };
 		C9D476A41A5F072D00705452 /* CGPoint+Assimilation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CGPoint+Assimilation.swift"; path = "458Bird/CGPoint+Assimilation.swift"; sourceTree = "<group>"; };
 		C9D476A61A5F074100705452 /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Convenience.swift; path = 458Bird/Convenience.swift; sourceTree = "<group>"; };
+		C9E9CC351B557BD6005BAFFF /* MCPartTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPartTemplate.swift; sourceTree = "<group>"; };
+		C9E9CC361B557BD6005BAFFF /* MCTemplateColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTemplateColor.swift; sourceTree = "<group>"; };
+		C9E9CC371B557BD6005BAFFF /* MCTemplateEye.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTemplateEye.swift; sourceTree = "<group>"; };
+		C9E9CC381B557BD6005BAFFF /* MCTemplateHat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTemplateHat.swift; sourceTree = "<group>"; };
+		C9E9CC391B557BD6005BAFFF /* MCTemplateLeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTemplateLeg.swift; sourceTree = "<group>"; };
+		C9E9CC3A1B557BD6005BAFFF /* MCTemplateMouth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTemplateMouth.swift; sourceTree = "<group>"; };
+		C9E9CC3B1B557BD6005BAFFF /* MCTemplateStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTemplateStuff.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +141,13 @@
 		C9703D3B1A787C0700521E4A /* Monster Part Templates */ = {
 			isa = PBXGroup;
 			children = (
+				C9E9CC351B557BD6005BAFFF /* MCPartTemplate.swift */,
+				C9E9CC361B557BD6005BAFFF /* MCTemplateColor.swift */,
+				C9E9CC371B557BD6005BAFFF /* MCTemplateEye.swift */,
+				C9E9CC381B557BD6005BAFFF /* MCTemplateHat.swift */,
+				C9E9CC391B557BD6005BAFFF /* MCTemplateLeg.swift */,
+				C9E9CC3A1B557BD6005BAFFF /* MCTemplateMouth.swift */,
+				C9E9CC3B1B557BD6005BAFFF /* MCTemplateStuff.swift */,
 			);
 			name = "Monster Part Templates";
 			sourceTree = "<group>";
@@ -314,18 +335,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E9CC3E1B557BD6005BAFFF /* MCTemplateEye.swift in Sources */,
 				C90824EE1A8459A200A40C71 /* MCPartBody.swift in Sources */,
 				C90824E61A8459A200A40C71 /* MCPartMouth.swift in Sources */,
+				C9E9CC3C1B557BD6005BAFFF /* MCPartTemplate.swift in Sources */,
 				C90824EA1A8459A200A40C71 /* MCPartLeg.swift in Sources */,
+				C9E9CC421B557BD7005BAFFF /* MCTemplateStuff.swift in Sources */,
 				C90824F11A8459B100A40C71 /* MonsterDataReader.swift in Sources */,
+				C9E9CC3D1B557BD6005BAFFF /* MCTemplateColor.swift in Sources */,
+				C9E9CC3F1B557BD6005BAFFF /* MCTemplateHat.swift in Sources */,
 				C9B4A4231A814931007A1591 /* MonsterAnimation.swift in Sources */,
 				C90824E91A8459A200A40C71 /* MCPartStuff.swift in Sources */,
 				C90824EC1A8459A200A40C71 /* MCPartEye.swift in Sources */,
 				C9CD8A951A682DD700284D33 /* FlapTitleView.swift in Sources */,
 				C9D476851A5F064300705452 /* GameScene.swift in Sources */,
+				C9E9CC411B557BD6005BAFFF /* MCTemplateMouth.swift in Sources */,
 				C9D476A71A5F074100705452 /* Convenience.swift in Sources */,
 				C9D476A51A5F072D00705452 /* CGPoint+Assimilation.swift in Sources */,
 				C90824ED1A8459A200A40C71 /* PartType.swift in Sources */,
+				C9E9CC401B557BD6005BAFFF /* MCTemplateLeg.swift in Sources */,
 				C90824E81A8459A200A40C71 /* MCPart.swift in Sources */,
 				C9703D4C1A79BFAA00521E4A /* Array+Random.swift in Sources */,
 				C9D476871A5F064300705452 /* GameViewController.swift in Sources */,

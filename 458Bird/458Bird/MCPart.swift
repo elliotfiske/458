@@ -327,16 +327,16 @@ class MCPart: SKSpriteNode {
         return dict
     }
     func initWithDict(dict:NSDictionary){
-        let posX  = dict["posX"] as String
-        let posY  = dict["posY"] as String
-        let rot  = dict["rotation"] as String
-        let scl  = dict["scale"] as String
-        let mir = dict["isMirrored"] as String
-        let hid = dict["hidden"] as String
-        let r  = dict["colorR"] as String
-        let g  = dict["colorG"] as String
-        let b  = dict["colorB"] as String
-        let a  = dict["colorA"] as String
+        let posX  = dict["posX"] as! String
+        let posY  = dict["posY"] as! String
+        let rot  = dict["rotation"] as! String
+        let scl  = dict["scale"] as! String
+        let mir = dict["isMirrored"] as! String
+        let hid = dict["hidden"] as! String
+        let r  = dict["colorR"] as! String
+        let g  = dict["colorG"] as! String
+        let b  = dict["colorB"] as! String
+        let a  = dict["colorA"] as! String
         
         let vals:[CGFloat] = [posX,posY,rot,scl,r,g,b,a].map{
             CGFloat(($0 as NSString).doubleValue)

@@ -19,7 +19,7 @@ class MCPartBody: SKSpriteNode {
         node = self
     }
     
-    convenience override init() {
+    convenience init() {
         self.init(texture: SKTexture(imageNamed: "monsterBody"), color: UIColor.purpleColor(), size: CGSize(width: 100, height: 100))
     }
 

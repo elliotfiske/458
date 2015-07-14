@@ -55,6 +55,10 @@ class MCPartLeg: MCPart {
         superLeg.color = UIColor.clearColor()
         superLeg.colorBlendFactor = 1
     }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     override func setColorNotColliding(){

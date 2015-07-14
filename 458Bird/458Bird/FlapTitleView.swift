@@ -20,7 +20,7 @@ class FlapTitleView: UIView {
         backgroundColor = UIColor(white: 0, alpha: 0.3)
         
         let randomString = "Whatever"
-        let randomNSString = randomString as NSString
+        let randomNSString = randomString as! NSString
         
         let titleLabelSize = randomNSString.sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(fontSize)])
         mainMessage.frame = CGRect(x: 0, y: 0, width: frame.width, height: titleLabelSize.height)

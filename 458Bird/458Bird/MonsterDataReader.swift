@@ -46,7 +46,7 @@ func readMonsterBodyProperties(fileName: String) -> Dictionary<PartType, [MCPart
         println("Error reading body parts json data! \(error?.description)")
     }
     
-    let swiftObject: Dictionary<String,NSObject> = NSJSONSerialization.JSONObjectWithData(JSONData, options: nil, error: &error) as Dictionary<String, NSObject>
+    let swiftObject: Dictionary<String,NSObject> = NSJSONSerialization.JSONObjectWithData(JSONData, options: nil, error: &error) as! Dictionary<String, NSObject>
     if error != nil {
         println("Error parsing body parts json data! \(error?.description)")
     }
@@ -55,7 +55,7 @@ func readMonsterBodyProperties(fileName: String) -> Dictionary<PartType, [MCPart
     for (key, value) in swiftObject {
         // Each "key" represents a type of body part we're reading in from the JSON
         let partType = PartType(rawValue: key)!
-        let partJSONArray = value as NSArray
+        let partJSONArray = value as! NSArray
         var partArray = [MCPartTemplate]()
         var i = 0
         for part in partJSONArray {

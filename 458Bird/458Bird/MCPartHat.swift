@@ -17,6 +17,10 @@ class MCPartHat: MCPart {
         minScale = 0.25;
         maxScale = 1.0;
     }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func parentToNode(pNode: SKNode) {
         super.parentToNode(pNode)

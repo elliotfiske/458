@@ -28,6 +28,10 @@ class MCPartColor : MCPart {
         
         self.deselectForCollision()
     }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     /** We don't change the color of the 'color part' when it's being dragged on */
     override func setColorNotColliding() {
